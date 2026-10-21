@@ -10,5 +10,7 @@
     <manufacturer>Arcade</manufacturer>
     <hardwareTitle>MAME</hardwareTitle>
     <hardwareYear>1997</hardwareYear>
+    <accentWash>DCD6E5FF</accentWash>
+    <selectionAccent>623C7EFF</selectionAccent>
   </variables>
 </theme>

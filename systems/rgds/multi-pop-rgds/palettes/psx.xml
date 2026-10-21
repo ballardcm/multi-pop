@@ -10,5 +10,7 @@
     <manufacturer>Sony</manufacturer>
     <hardwareTitle>PlayStation</hardwareTitle>
     <hardwareYear>1994</hardwareYear>
+    <accentWash>E0E1E3FF</accentWash>
+    <selectionAccent>77796FFF</selectionAccent>
   </variables>
 </theme>

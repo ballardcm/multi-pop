@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Game Boy</hardwareTitle>
     <hardwareYear>1989</hardwareYear>
+    <accentWash>E8EADBFF</accentWash>
+    <selectionAccent>87903AFF</selectionAccent>
   </variables>
 </theme>

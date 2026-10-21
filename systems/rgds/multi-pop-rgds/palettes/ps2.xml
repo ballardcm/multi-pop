@@ -10,5 +10,7 @@
     <manufacturer>Sony</manufacturer>
     <hardwareTitle>PlayStation 2</hardwareTitle>
     <hardwareYear>2000</hardwareYear>
+    <accentWash>D1D8F3FF</accentWash>
+    <selectionAccent>2448CCFF</selectionAccent>
   </variables>
 </theme>

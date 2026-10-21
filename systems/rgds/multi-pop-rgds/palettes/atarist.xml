@@ -10,5 +10,7 @@
     <manufacturer>Atari</manufacturer>
     <hardwareTitle>Atari ST</hardwareTitle>
     <hardwareYear>1985</hardwareYear>
+    <accentWash>E3E7EDFF</accentWash>
+    <selectionAccent>7E90A1FF</selectionAccent>
   </variables>
 </theme>

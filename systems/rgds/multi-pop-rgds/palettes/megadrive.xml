@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Mega Drive</hardwareTitle>
     <hardwareYear>1988</hardwareYear>
+    <accentWash>CFD3D9FF</accentWash>
+    <selectionAccent>172D3BFF</selectionAccent>
   </variables>
 </theme>

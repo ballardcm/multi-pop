@@ -10,5 +10,7 @@
     <manufacturer>Your Collection</manufacturer>
     <hardwareTitle>Recently Played</hardwareTitle>
     <hardwareYear />
+    <accentWash>F8EBE6FF</accentWash>
+    <selectionAccent>B88060FF</selectionAccent>
   </variables>
 </theme>

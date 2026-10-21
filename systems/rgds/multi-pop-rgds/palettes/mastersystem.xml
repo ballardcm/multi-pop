@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Master System</hardwareTitle>
     <hardwareYear>1985</hardwareYear>
+    <accentWash>F1D9DCFF</accentWash>
+    <selectionAccent>D74A49FF</selectionAccent>
   </variables>
 </theme>

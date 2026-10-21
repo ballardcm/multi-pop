@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>SG-1000</hardwareTitle>
     <hardwareYear>1983</hardwareYear>
+    <accentWash>DEEAF6FF</accentWash>
+    <selectionAccent>5E96BFFF</selectionAccent>
   </variables>
 </theme>

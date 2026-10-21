@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>GameCube</hardwareTitle>
     <hardwareYear>2001</hardwareYear>
+    <accentWash>DBD4F7FF</accentWash>
+    <selectionAccent>5B32DFFF</selectionAccent>
   </variables>
 </theme>

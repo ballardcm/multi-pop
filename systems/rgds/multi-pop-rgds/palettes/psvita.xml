@@ -10,5 +10,7 @@
     <manufacturer>Sony</manufacturer>
     <hardwareTitle>PlayStation Vita</hardwareTitle>
     <hardwareYear>2011</hardwareYear>
+    <accentWash>CEE3F2FF</accentWash>
+    <selectionAccent>1686C7FF</selectionAccent>
   </variables>
 </theme>

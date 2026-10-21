@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Famicom</hardwareTitle>
     <hardwareYear>1983</hardwareYear>
+    <accentWash>E4D0D8FF</accentWash>
+    <selectionAccent>8D1C32FF</selectionAccent>
   </variables>
 </theme>

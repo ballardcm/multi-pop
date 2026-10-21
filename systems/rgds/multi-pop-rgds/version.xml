@@ -1,1 +1,7 @@
-<theme><formatVersion>7</formatVersion><variables><multiPopVersion>0.1</multiPopVersion></variables></theme>
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <multiPopVersion>0.2</multiPopVersion>
+  </variables>
+</theme>

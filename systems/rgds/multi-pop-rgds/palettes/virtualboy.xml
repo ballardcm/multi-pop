@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Virtual Boy</hardwareTitle>
     <hardwareYear>1995</hardwareYear>
+    <accentWash>F1D1D8FF</accentWash>
+    <selectionAccent>D81F36FF</selectionAccent>
   </variables>
 </theme>

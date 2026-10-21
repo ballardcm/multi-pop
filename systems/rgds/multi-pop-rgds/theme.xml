@@ -13,6 +13,8 @@
     <manufacturer>Multi Pop</manufacturer>
     <hardwareTitle>Library</hardwareTitle>
     <hardwareYear />
+    <accentWash>DED8E4FF</accentWash>
+    <selectionAccent>6D4776FF</selectionAccent>
   </variables>
   <include>./version.xml</include>
   <subset name="version" displayName="Installed version">

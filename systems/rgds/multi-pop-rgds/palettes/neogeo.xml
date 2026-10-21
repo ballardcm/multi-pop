@@ -10,5 +10,7 @@
     <manufacturer>SNK</manufacturer>
     <hardwareTitle>Neo Geo</hardwareTitle>
     <hardwareYear>1990</hardwareYear>
+    <accentWash>F1EAD6FF</accentWash>
+    <selectionAccent>A8871FFF</selectionAccent>
   </variables>
 </theme>

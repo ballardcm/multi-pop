@@ -10,5 +10,7 @@
     <manufacturer>Coin-Op Classics</manufacturer>
     <hardwareTitle>Arcade</hardwareTitle>
     <hardwareYear />
+    <accentWash>F1D6D5FF</accentWash>
+    <selectionAccent>D33D23FF</selectionAccent>
   </variables>
 </theme>

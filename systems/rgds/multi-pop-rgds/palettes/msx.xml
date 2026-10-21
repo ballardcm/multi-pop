@@ -10,5 +10,7 @@
     <manufacturer>MSX</manufacturer>
     <hardwareTitle>MSX</hardwareTitle>
     <hardwareYear>1983</hardwareYear>
+    <accentWash>ECDADFFF</accentWash>
+    <selectionAccent>B9535AFF</selectionAccent>
   </variables>
 </theme>

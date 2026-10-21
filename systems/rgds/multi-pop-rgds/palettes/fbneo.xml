@@ -10,5 +10,7 @@
     <manufacturer>Arcade</manufacturer>
     <hardwareTitle>Final Burn Neo</hardwareTitle>
     <hardwareYear>2002</hardwareYear>
+    <accentWash>F4ECDAFF</accentWash>
+    <selectionAccent>AB842EFF</selectionAccent>
   </variables>
 </theme>

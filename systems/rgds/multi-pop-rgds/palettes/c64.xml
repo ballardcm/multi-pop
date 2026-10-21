@@ -10,5 +10,7 @@
     <manufacturer>Commodore</manufacturer>
     <hardwareTitle>Commodore 64</hardwareTitle>
     <hardwareYear>1982</hardwareYear>
+    <accentWash>D4DEEDFF</accentWash>
+    <selectionAccent>3567A8FF</selectionAccent>
   </variables>
 </theme>

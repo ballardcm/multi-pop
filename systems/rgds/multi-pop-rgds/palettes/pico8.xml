@@ -10,5 +10,7 @@
     <manufacturer>Lexaloffle</manufacturer>
     <hardwareTitle>PICO-8</hardwareTitle>
     <hardwareYear>2015</hardwareYear>
+    <accentWash>F6E0ECFF</accentWash>
+    <selectionAccent>D46392FF</selectionAccent>
   </variables>
 </theme>

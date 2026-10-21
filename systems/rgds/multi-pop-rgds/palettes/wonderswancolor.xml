@@ -10,5 +10,7 @@
     <manufacturer>Bandai</manufacturer>
     <hardwareTitle>WonderSwan Color</hardwareTitle>
     <hardwareYear>2000</hardwareYear>
+    <accentWash>D8EAF1FF</accentWash>
+    <selectionAccent>4096A7FF</selectionAccent>
   </variables>
 </theme>

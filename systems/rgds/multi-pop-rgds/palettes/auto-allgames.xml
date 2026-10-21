@@ -10,5 +10,7 @@
     <manufacturer>Your Collection</manufacturer>
     <hardwareTitle>All Games</hardwareTitle>
     <hardwareYear />
+    <accentWash>D0E7E9FF</accentWash>
+    <selectionAccent>1F9C94FF</selectionAccent>
   </variables>
 </theme>

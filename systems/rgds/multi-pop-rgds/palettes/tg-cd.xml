@@ -10,5 +10,7 @@
     <manufacturer>NEC</manufacturer>
     <hardwareTitle>TurboGrafx-CD</hardwareTitle>
     <hardwareYear>1989</hardwareYear>
+    <accentWash>DFE1EBFF</accentWash>
+    <selectionAccent>707A9EFF</selectionAccent>
   </variables>
 </theme>

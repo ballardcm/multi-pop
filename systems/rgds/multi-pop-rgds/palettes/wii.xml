@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Wii</hardwareTitle>
     <hardwareYear>2006</hardwareYear>
+    <accentWash>E5EEF3FF</accentWash>
+    <selectionAccent>73959DFF</selectionAccent>
   </variables>
 </theme>

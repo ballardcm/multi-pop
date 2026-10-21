@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Wii U</hardwareTitle>
     <hardwareYear>2012</hardwareYear>
+    <accentWash>D1E4EEFF</accentWash>
+    <selectionAccent>258BB1FF</selectionAccent>
   </variables>
 </theme>

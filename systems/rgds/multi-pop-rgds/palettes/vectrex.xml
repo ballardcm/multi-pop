@@ -10,5 +10,7 @@
     <manufacturer>GCE</manufacturer>
     <hardwareTitle>Vectrex</hardwareTitle>
     <hardwareYear>1982</hardwareYear>
+    <accentWash>D6E2E6FF</accentWash>
+    <selectionAccent>427D80FF</selectionAccent>
   </variables>
 </theme>

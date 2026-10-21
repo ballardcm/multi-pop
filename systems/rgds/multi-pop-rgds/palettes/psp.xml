@@ -10,5 +10,7 @@
     <manufacturer>Sony</manufacturer>
     <hardwareTitle>PSP</hardwareTitle>
     <hardwareYear>2004</hardwareYear>
+    <accentWash>D2D9E0FF</accentWash>
+    <selectionAccent>2A4D62FF</selectionAccent>
   </variables>
 </theme>

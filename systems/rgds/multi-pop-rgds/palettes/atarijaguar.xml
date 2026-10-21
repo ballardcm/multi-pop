@@ -10,5 +10,7 @@
     <manufacturer>Atari</manufacturer>
     <hardwareTitle>Atari Jaguar</hardwareTitle>
     <hardwareYear>1993</hardwareYear>
+    <accentWash>EBD3DAFF</accentWash>
+    <selectionAccent>B6283DFF</selectionAccent>
   </variables>
 </theme>

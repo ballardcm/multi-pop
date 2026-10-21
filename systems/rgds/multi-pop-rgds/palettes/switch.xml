@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Nintendo Switch</hardwareTitle>
     <hardwareYear>2017</hardwareYear>
+    <accentWash>F2DBDCFF</accentWash>
+    <selectionAccent>DE564DFF</selectionAccent>
   </variables>
 </theme>

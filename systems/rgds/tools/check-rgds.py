@@ -46,4 +46,16 @@ int main() {
     subprocess.run([str(work/'test')],check=True)
 assert 'seat seat1 attach "1046:911:Goodix_Capacitive_TouchScreen"' in (THEME/'scripts/enable_multi_pop_rgds.sh').read_text()
 assert 'X Game info' in ET.parse(THEME/'layouts/games.xml').findtext(".//text[@name='browse-hints']/text")
+# Selection must remain visible on pale system palettes at the native panel size.
+def luminance(value):
+    rgb = [int(value[i:i+2], 16) / 255 for i in (0, 2, 4)]
+    linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in rgb]
+    return sum(v * weight for v, weight in zip(linear, (.2126, .7152, .0722)))
+for palette in (THEME / 'palettes').glob('*.xml'):
+    variables = ET.parse(palette).find('variables')
+    if variables is None or variables.find('accent') is None:
+        continue
+    paper = luminance(variables.findtext('paper', 'F7F8FCFF'))
+    outline = luminance(variables.findtext('selectionAccent'))
+    assert (paper + .05) / (outline + .05) >= 3, palette
 print('PASS: XML, assets, panel bounds, shell syntax, RG DS gesture behavior')

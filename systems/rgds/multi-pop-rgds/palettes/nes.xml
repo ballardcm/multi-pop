@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Nintendo Entertainment System</hardwareTitle>
     <hardwareYear>1985</hardwareYear>
+    <accentWash>ECD6D7FF</accentWash>
+    <selectionAccent>B83931FF</selectionAccent>
   </variables>
 </theme>

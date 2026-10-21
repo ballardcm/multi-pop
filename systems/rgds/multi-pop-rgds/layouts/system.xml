@@ -17,10 +17,10 @@
     </text>
     <image name="system-hero" extra="true">
       <path>${systemIcon}</path>
-      <pos>0.500000000 0.520833333</pos>
+      <pos>0.5 0.53125</pos>
       <origin>0.5 0.5</origin>
       <zIndex>3</zIndex>
-      <maxSize>0.308333333 0.729166667</maxSize>
+      <maxSize>0.283333333 0.633333333</maxSize>
       <linearSmooth>true</linearSmooth>
     </image>
     <text name="hero-instruction" extra="true">
@@ -74,32 +74,34 @@
       <zIndex>6</zIndex>
     </text>
     <text name="hardware-heading" extra="true">
-      <text>${manufacturer} · ${hardwareTitle} · ${hardwareYear}</text>
-      <pos>0.345833333 0.025000000</pos>
-      <size>0.229166667 0.116666667</size>
+      <text>${hardwareTitle}</text>
+      <pos>0.345833333 0.0125</pos>
+      <size>0.229166667 0.075</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.041666666666666664</fontSize>
+      <fontSize>0.05</fontSize>
       <color>${accentInk}</color>
       <alignment>left</alignment>
-      <verticalAlignment>top</verticalAlignment>
+      <verticalAlignment>center</verticalAlignment>
       <lineSpacing>1</lineSpacing>
       <zIndex>3</zIndex>
     </text>
     <image name="hardware-stage" extra="true">
       <path>${themePath}/assets/ui/hardware-stage.svg</path>
-      <pos>0.345833333 0.170833333</pos>
-      <size>0.308333333 0.691666667</size>
-      <color>${accent}</color>
+      <pos>0.345833333 0.191666667</pos>
+      <size>0.308333333 0.679166667</size>
+      <color>${accentWash}</color>
       <zIndex>2</zIndex>
       <linearSmooth>true</linearSmooth>
     </image>
-    <image name="hardware-halo" extra="true">
-      <path>${themePath}/assets/ui/hardware-halo.svg</path>
-      <pos>0.368750000 0.208333333</pos>
-      <size>0.262500000 0.616666667</size>
-      <color>${paper}</color>
-      <zIndex>2.5</zIndex>
-      <linearSmooth>true</linearSmooth>
-    </image>
+    <text name="hardware-provenance" extra="true">
+      <text>${manufacturer} · ${hardwareYear}</text>
+      <pos>0.345833333 0.091666667</pos>
+      <size>0.229166667 0.05</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.029166667</fontSize>
+      <color>${accentInk}</color>
+      <alignment>left</alignment>
+      <zIndex>3</zIndex>
+    </text>
   </view>
 </theme>

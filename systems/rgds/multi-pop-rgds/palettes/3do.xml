@@ -10,5 +10,7 @@
     <manufacturer>Panasonic</manufacturer>
     <hardwareTitle>3DO</hardwareTitle>
     <hardwareYear>1993</hardwareYear>
+    <accentWash>D8DCE6FF</accentWash>
+    <selectionAccent>485B83FF</selectionAccent>
   </variables>
 </theme>

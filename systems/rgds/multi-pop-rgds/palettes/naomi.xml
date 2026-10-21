@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Naomi</hardwareTitle>
     <hardwareYear>1998</hardwareYear>
+    <accentWash>E6EFF3FF</accentWash>
+    <selectionAccent>6F9395FF</selectionAccent>
   </variables>
 </theme>

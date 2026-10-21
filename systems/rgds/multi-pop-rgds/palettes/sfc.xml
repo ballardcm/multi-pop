@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Super Famicom</hardwareTitle>
     <hardwareYear>1990</hardwareYear>
+    <accentWash>F5F6F9FF</accentWash>
+    <selectionAccent>888888FF</selectionAccent>
   </variables>
 </theme>

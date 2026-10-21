@@ -10,5 +10,7 @@
     <manufacturer>Mattel</manufacturer>
     <hardwareTitle>Intellivision</hardwareTitle>
     <hardwareYear>1979</hardwareYear>
+    <accentWash>E5E0DBFF</accentWash>
+    <selectionAccent>947146FF</selectionAccent>
   </variables>
 </theme>

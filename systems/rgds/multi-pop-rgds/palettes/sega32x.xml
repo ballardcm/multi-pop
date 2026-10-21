@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Sega 32X</hardwareTitle>
     <hardwareYear>1994</hardwareYear>
+    <accentWash>E6D6F4FF</accentWash>
+    <selectionAccent>993BCEFF</selectionAccent>
   </variables>
 </theme>

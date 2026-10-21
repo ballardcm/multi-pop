@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Sega Model 3</hardwareTitle>
     <hardwareYear>1996</hardwareYear>
+    <accentWash>CCDEF2FF</accentWash>
+    <selectionAccent>0765C2FF</selectionAccent>
   </variables>
 </theme>

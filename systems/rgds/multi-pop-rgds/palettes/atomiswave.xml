@@ -10,5 +10,7 @@
     <manufacturer>Sammy</manufacturer>
     <hardwareTitle>Atomiswave</hardwareTitle>
     <hardwareYear>2003</hardwareYear>
+    <accentWash>F7E9DAFF</accentWash>
+    <selectionAccent>BF8130FF</selectionAccent>
   </variables>
 </theme>

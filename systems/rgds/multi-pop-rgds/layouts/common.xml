@@ -55,7 +55,7 @@
       <pos>0.883333333 0.031250000</pos>
       <size>0.104166667 0.058333333</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.03333333333333333</fontSize>
+      <fontSize>0.029166667</fontSize>
       <color>${accentInk}</color>
       <alignment>right</alignment>
       <zIndex>3</zIndex>
@@ -63,7 +63,7 @@
     </text>
     <image name="selected-card-frame" extra="true">
       <path>${themePath}/assets/ui/selection.svg</path>
-      <color>${accent}</color>
+      <color>${selectionAccent}</color>
       <pos>0.833333333 0.450000000</pos>
       <origin>0.5 0.5</origin>
       <size>0.102083333 0.566666667</size>

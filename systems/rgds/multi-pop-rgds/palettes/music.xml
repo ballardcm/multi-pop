@@ -10,5 +10,7 @@
     <manufacturer>Your Collection</manufacturer>
     <hardwareTitle>Music Player</hardwareTitle>
     <hardwareYear />
+    <accentWash>E8D3E6FF</accentWash>
+    <selectionAccent>A42883FF</selectionAccent>
   </variables>
 </theme>

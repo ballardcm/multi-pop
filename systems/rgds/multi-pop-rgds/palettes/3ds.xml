@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Nintendo 3DS</hardwareTitle>
     <hardwareYear>2011</hardwareYear>
+    <accentWash>F5DCDDFF</accentWash>
+    <selectionAccent>EB5E52FF</selectionAccent>
   </variables>
 </theme>

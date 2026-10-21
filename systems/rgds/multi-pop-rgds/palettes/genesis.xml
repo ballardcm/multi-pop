@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Genesis</hardwareTitle>
     <hardwareYear>1989</hardwareYear>
+    <accentWash>D1D5DEFF</accentWash>
+    <selectionAccent>243858FF</selectionAccent>
   </variables>
 </theme>

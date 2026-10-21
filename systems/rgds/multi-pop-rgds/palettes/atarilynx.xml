@@ -10,5 +10,7 @@
     <manufacturer>Atari</manufacturer>
     <hardwareTitle>Atari Lynx</hardwareTitle>
     <hardwareYear>1989</hardwareYear>
+    <accentWash>F6F0DEFF</accentWash>
+    <selectionAccent>A68C3CFF</selectionAccent>
   </variables>
 </theme>

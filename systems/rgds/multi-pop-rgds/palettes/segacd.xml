@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Sega CD</hardwareTitle>
     <hardwareYear>1992</hardwareYear>
+    <accentWash>E6E9F6FF</accentWash>
+    <selectionAccent>8088B4FF</selectionAccent>
   </variables>
 </theme>

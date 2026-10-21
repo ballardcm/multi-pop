@@ -10,5 +10,7 @@
     <manufacturer>Sinclair</manufacturer>
     <hardwareTitle>ZX Spectrum</hardwareTitle>
     <hardwareYear>1982</hardwareYear>
+    <accentWash>F1EADDFF</accentWash>
+    <selectionAccent>A7843FFF</selectionAccent>
   </variables>
 </theme>

@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Game Gear</hardwareTitle>
     <hardwareYear>1990</hardwareYear>
+    <accentWash>CFE2E8FF</accentWash>
+    <selectionAccent>177D8DFF</selectionAccent>
   </variables>
 </theme>

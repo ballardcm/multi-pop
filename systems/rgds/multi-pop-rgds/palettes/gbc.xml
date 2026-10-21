@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Game Boy Color</hardwareTitle>
     <hardwareYear>1998</hardwareYear>
+    <accentWash>E0EEDCFF</accentWash>
+    <selectionAccent>649E3CFF</selectionAccent>
   </variables>
 </theme>

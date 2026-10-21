@@ -10,5 +10,7 @@
     <manufacturer>Atari</manufacturer>
     <hardwareTitle>Atari 2600</hardwareTitle>
     <hardwareYear>1977</hardwareYear>
+    <accentWash>E6DAD6FF</accentWash>
+    <selectionAccent>9B522BFF</selectionAccent>
   </variables>
 </theme>

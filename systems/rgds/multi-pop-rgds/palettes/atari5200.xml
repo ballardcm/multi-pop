@@ -10,5 +10,7 @@
     <manufacturer>Atari</manufacturer>
     <hardwareTitle>Atari 5200</hardwareTitle>
     <hardwareYear>1982</hardwareYear>
+    <accentWash>DBDEE4FF</accentWash>
+    <selectionAccent>5C6774FF</selectionAccent>
   </variables>
 </theme>

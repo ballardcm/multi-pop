@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Nintendo DS</hardwareTitle>
     <hardwareYear>2004</hardwareYear>
+    <accentWash>EFF2F7FF</accentWash>
+    <selectionAccent>828A91FF</selectionAccent>
   </variables>
 </theme>

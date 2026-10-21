@@ -10,5 +10,7 @@
     <manufacturer>Nintendo</manufacturer>
     <hardwareTitle>Super Nintendo</hardwareTitle>
     <hardwareYear>1991</hardwareYear>
+    <accentWash>EBE8F7FF</accentWash>
+    <selectionAccent>9584BBFF</selectionAccent>
   </variables>
 </theme>

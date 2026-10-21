@@ -10,5 +10,7 @@
     <manufacturer>Coleco</manufacturer>
     <hardwareTitle>ColecoVision</hardwareTitle>
     <hardwareYear>1982</hardwareYear>
+    <accentWash>EDD7DFFF</accentWash>
+    <selectionAccent>BD405BFF</selectionAccent>
   </variables>
 </theme>

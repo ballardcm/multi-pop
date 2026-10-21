@@ -10,5 +10,7 @@
     <manufacturer>PC Gaming</manufacturer>
     <hardwareTitle>Steam</hardwareTitle>
     <hardwareYear />
+    <accentWash>D2E2EFFF</accentWash>
+    <selectionAccent>287BB5FF</selectionAccent>
   </variables>
 </theme>

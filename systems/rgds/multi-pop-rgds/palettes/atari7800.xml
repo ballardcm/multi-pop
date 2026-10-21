@@ -10,5 +10,7 @@
     <manufacturer>Atari</manufacturer>
     <hardwareTitle>Atari 7800</hardwareTitle>
     <hardwareYear>1986</hardwareYear>
+    <accentWash>E9EBF0FF</accentWash>
+    <selectionAccent>84898FFF</selectionAccent>
   </variables>
 </theme>

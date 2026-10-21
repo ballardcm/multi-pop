@@ -10,5 +10,7 @@
     <manufacturer>Sega</manufacturer>
     <hardwareTitle>Dreamcast</hardwareTitle>
     <hardwareYear>1998</hardwareYear>
+    <accentWash>F4E1D7FF</accentWash>
+    <selectionAccent>D7702EFF</selectionAccent>
   </variables>
 </theme>

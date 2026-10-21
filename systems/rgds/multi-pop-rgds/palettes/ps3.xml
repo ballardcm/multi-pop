@@ -10,5 +10,7 @@
     <manufacturer>Sony</manufacturer>
     <hardwareTitle>PlayStation 3</hardwareTitle>
     <hardwareYear>2006</hardwareYear>
+    <accentWash>D4D6DBFF</accentWash>
+    <selectionAccent>373B45FF</selectionAccent>
   </variables>
 </theme>

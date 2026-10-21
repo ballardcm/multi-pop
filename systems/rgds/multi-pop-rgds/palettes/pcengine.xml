@@ -10,5 +10,7 @@
     <manufacturer>NEC</manufacturer>
     <hardwareTitle>PC Engine</hardwareTitle>
     <hardwareYear>1987</hardwareYear>
+    <accentWash>F4F2EDFF</accentWash>
+    <selectionAccent>968C6FFF</selectionAccent>
   </variables>
 </theme>

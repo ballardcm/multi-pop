@@ -10,5 +10,7 @@
     <manufacturer>NEC</manufacturer>
     <hardwareTitle>TurboGrafx-16</hardwareTitle>
     <hardwareYear>1989</hardwareYear>
+    <accentWash>F1E6D9FF</accentWash>
+    <selectionAccent>BE8333FF</selectionAccent>
   </variables>
 </theme>

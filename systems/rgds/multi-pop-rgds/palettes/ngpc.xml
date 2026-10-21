@@ -10,5 +10,7 @@
     <manufacturer>SNK</manufacturer>
     <hardwareTitle>Neo Geo Pocket Color</hardwareTitle>
     <hardwareYear>1999</hardwareYear>
+    <accentWash>D8DBECFF</accentWash>
+    <selectionAccent>4B55A4FF</selectionAccent>
   </variables>
 </theme>

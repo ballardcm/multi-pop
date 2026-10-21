@@ -10,5 +10,7 @@
     <manufacturer>Microsoft</manufacturer>
     <hardwareTitle>Xbox</hardwareTitle>
     <hardwareYear>2001</hardwareYear>
+    <accentWash>D4E2D6FF</accentWash>
+    <selectionAccent>357D28FF</selectionAccent>
   </variables>
 </theme>

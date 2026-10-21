@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_tag": "prototype-0.1.0",
+  "release_tag": "v0.3.0",
   "firmware_version": "20261001",
   "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
   "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
@@ -18,5 +18,16 @@
     "asset": "pugixml-source.tar.gz",
     "url": "https://github.com/zeux/pugixml/archive/61c944895e071872370219cadade8423dc6e04dc.tar.gz",
     "sha256": "d82e28c844f46165bdb2c160466073087888ec81ea87fbe66e3dc7f36aa5c835"
+  },
+  "frontend": {
+    "sha256": "223b476887ddbcf76fd7e44bf21b350cb2635f0686d5f1d425e0aa5c86058e36"
+  },
+  "build_inputs": {
+    "multi-pop-rgds/frontend/rgds-game-paging.patch": "1ffc34a3290ef9b1caae432d1e6b73710876e12be8598fb4feab7a0e25f87469",
+    "multi-pop-rgds/frontend/rgds-menu-options.patch": "7a977d32078adbce2f786a32e6fc87c92b6d0e99a87a21fc484d6ba0889586b5",
+    "multi-pop-rgds/frontend/rgds-popup-placement.patch": "0651d993cbb36d073da344eb2e5cb7c78246cb585492eec34e1c110c23d1fe16",
+    "multi-pop-rgds/frontend/rgds-runtime-integration.patch": "0104ca55e20e149b1e6bfa6ccda8ea129e74e54dd6f9b7daa16317945251b1a3",
+    "frontend-build/build-frontend.sh": "31c918b613126cb15e812c277bd074f5dba612dc659c5bf40fc46a436953e4ca",
+    "frontend-build/Dockerfile": "6db99d7d782be9bfddc202f3e7055b1ecedead23c6761d04156441bc8550eadd"
   }
 }

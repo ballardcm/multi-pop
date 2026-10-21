@@ -17,7 +17,7 @@ config=/storage/.config/sway/config
 fragment=/storage/.config/sway/multi-pop-rgds.conf
 find_theme
 # A downloaded update is swapped in before the frontend starts, so an update never restarts the frontend under the player.
-auto_update="$THEME/scripts/auto_update.py" # not shipped in prototype
+auto_update="$THEME/scripts/auto_update.py"
 if [[ "$THEME" == /roms/themes/multi-pop-rgds && -f "$auto_update" ]]; then
     python3 "$auto_update" apply || true
 fi

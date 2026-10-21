@@ -13,5 +13,8 @@
     640,
     480
   ],
-  "device_validation": "pending"
+  "device_validation": "Installed and tested on RG DS; see docs/prototype-status.md",
+  "artifact_sha256": "223b476887ddbcf76fd7e44bf21b350cb2635f0686d5f1d425e0aa5c86058e36",
+  "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+  "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7"
 }

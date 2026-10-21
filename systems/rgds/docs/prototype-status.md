@@ -16,3 +16,11 @@ Prototype 0.2 applies the independent review: a light palette-tinted stage repla
 Still requiring testing: reboot, sleep/wake, extended gameplay and return across multiple emulators, and touch feel across all views. A readable menu does not establish whole-library game compatibility.
 
 The prototype preserves stock emulator configuration and provides a restore helper. No ROMs, BIOS, scraped media, runtime libraries, or local connection details belong in the repository.
+
+## Release 0.3.0 acceptance
+
+The documented restore-first removal was run on the RG DS, the theme folder was removed, the service override and launcher bind mount were absent, and `/usr/bin/emulationstation` ran successfully. The release ZIP and source ZIP checksums were verified; the installable ZIP was extracted, copied with SCP, and activated using the README commands. Version 0.3.0 ran from the theme frontend.
+
+Physical upper/lower screenshots verified the main menu, Network Settings, hostname on-screen keyboard, an update message box, game options, and savestate manager. Dialog controls stayed on the 640×480 upper panel; only the dimmed backdrop extended across the lower panel. Hostname entry was cancelled without edits. Theme Configuration showed Installed version 0.3.0, Automatic updates Off, and Check for updates.
+
+The automatic-update acceptance test is tracked in the release notes. Unit/integration coverage includes checksum rejection, incompatible firmware, older versions, startup-helper changes, staging/apply/confirmation, retry rollback, opt-out behavior and local-network failures. Packaging checks reject private inputs and unverified binaries and verify deterministic archives.

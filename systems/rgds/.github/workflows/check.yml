@@ -9,3 +9,5 @@ jobs:
         with:
           python-version: '3.12'
       - run: python3 tools/check-rgds.py
+      - run: python3 tools/test-auto-update.py
+      - run: python3 tools/test-package-release.py

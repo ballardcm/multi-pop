@@ -1,0 +1,9 @@
+.local/
+.DS_Store
+__pycache__/
+*.pyc
+frontend-build/private/
+frontend-build/*source.tar.gz
+multi-pop-rgds/frontend/emulationstation
+multi-pop-rgds/frontend/*.build.json
+*.log

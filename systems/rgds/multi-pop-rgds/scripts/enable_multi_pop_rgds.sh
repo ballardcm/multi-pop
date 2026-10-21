@@ -1,0 +1,156 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
+. "$SCRIPT_DIR/multi_pop_rgds_common.sh"
+
+PREPARE_ONLY=false
+case "${1-}" in
+    '') [[ $# -eq 0 ]] || fail 'Usage: enable_multi_pop_rgds.sh [--prepare]' ;;
+    --prepare)
+        [[ $# -eq 1 ]] || fail 'Usage: enable_multi_pop_rgds.sh [--prepare]'
+        PREPARE_ONLY=true
+        ;;
+    *) fail 'Usage: enable_multi_pop_rgds.sh [--prepare]' ;;
+esac
+
+check_host
+find_theme
+verify_outputs
+guard_launcher_mount
+guard_startup_override
+lock_state
+stop_frontend
+
+if [[ -f "$STATE/active" ]]; then
+    guard_active_files
+else
+    if [[ -f "$STATE/restored" ]]; then
+        # Restore keeps later setting changes, so the current files are the new originals. The earlier record moves aside for inspection.
+        previous="$STATE/restored-$(date -u +%Y%m%dT%H%M%SZ)"
+        mkdir "$previous"
+        for record in restored settings.backup sway.backup installed.settings installed.sway installed.fragment restored.fragment launcher.identity theme.path; do
+            [[ ! -e "$STATE/$record" ]] || mv "$STATE/$record" "$previous/"
+        done
+    fi
+    [[ ! -e "$STATE/settings.backup" && ! -e "$STATE/sway.backup" ]] || fail "Existing backups have no completed activation record. Inspect $STATE before proceeding."
+    [[ ! -e "$SWAY_FRAGMENT" ]] || fail 'A supplemental configuration already exists and was preserved.'
+    [[ $(awk -v fragment="$SWAY_FRAGMENT" 'index($0, fragment) { count++ } END { print count+0 }' "$SWAY_CONFIG") == 0 ]] || fail 'The Sway configuration already references the supplemental file and was preserved.'
+    # These backups are created once so repeated activation cannot replace the original configuration.
+    cp -p "$SETTINGS" "$STATE/settings.backup"
+    cp -p "$SWAY_CONFIG" "$STATE/sway.backup"
+fi
+
+settings_temp=$(mktemp "$SETTINGS.multi-pop-rgds.XXXXXX")
+cp -p "$SETTINGS" "$settings_temp"
+awk -v prepare="$PREPARE_ONLY" '
+    BEGIN {
+        keys[1] = "FullScreenMenu"; values["FullScreenMenu"] = "false"
+        keys[2] = "GameTransitionStyle"; values["GameTransitionStyle"] = "fade"
+        count = 2
+        if (prepare != "true") {
+            keys[++count] = "ThemeSet"; values["ThemeSet"] = "multi-pop-rgds"
+        }
+    }
+    {
+        for (i = 1; i <= count; i++) {
+            key = keys[i]
+            expression = "name[[:space:]]*=[[:space:]]*\"" key "\""
+            if ($0 ~ expression) {
+                if ($0 !~ /^[[:space:]]*<(string|bool)[[:space:]][^>]*\/>[[:space:]]*$/ || seen[key]++) {
+                    print "The settings layout or duplicate keys require inspection." > "/dev/stderr"
+                    invalid = 1
+                    exit 1
+                }
+                printf "\t<string name=\"%s\" value=\"%s\" />\n", key, values[key]
+                next
+            }
+        }
+        if ($0 ~ /^[[:space:]]*<\/config>[[:space:]]*$/) {
+            for (i = 1; i <= count; i++) {
+                key = keys[i]
+                if (!seen[key]) printf "\t<string name=\"%s\" value=\"%s\" />\n", key, values[key]
+            }
+        }
+        print
+    }
+    END { if (invalid) exit 1 }
+' "$SETTINGS" > "$settings_temp" || fail "Settings were preserved. Inspect the diagnostic file $settings_temp."
+
+fragment_temp=$(mktemp "$SWAY_FRAGMENT.XXXXXX")
+cat > "$fragment_temp" <<'SWAY'
+# Two 640x480 panels; hidden 640px margin keeps native dialogs on the upper panel.
+output DSI-2 transform 0
+output DSI-2 position 0 0
+output DSI-1 transform 0
+output DSI-1 position 640 0
+output DSI-1 power on
+# Both Goodix devices have the same identifier. Preserve their per-device half-width calibration.
+input "1046:911:Goodix_Capacitive_TouchScreen" map_to_region 0 0 1280 480
+input "1046:911:Goodix_Capacitive_TouchScreen" events enabled
+floating_maximum_size 1920 x 480
+for_window [app_id="^emulationstation$"] floating enable
+for_window [app_id="^emulationstation$"] fullscreen disable
+for_window [app_id="^emulationstation$"] resize set width 1920 px height 480 px
+for_window [app_id="^emulationstation$"] move absolute position -640 0
+SWAY
+
+sway_temp=$(mktemp "$SWAY_CONFIG.multi-pop-rgds.XXXXXX")
+cp -p "$SWAY_CONFIG" "$sway_temp"
+awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus output DSI-2, output DSI-1 power off" '
+    {
+        if ($0 ~ /seat seat1 attach.*Goodix_Capacitive_TouchScreen/) sub(/seat seat1/, "seat seat0")
+        normalized = $0
+        gsub(/[[:space:]]+/, " ", normalized)
+        sub(/^ /, "", normalized)
+        sub(/ $/, "", normalized)
+        if (normalized == "output DSI-1 power off") next
+        # Remove the stock asynchronous override so it cannot disable the fragment input after reload.
+        if (normalized == "exec_always swaymsg input \"0:0:bottom_touchscreen\" events disabled") next
+        if (normalized == stock_exec) {
+            # The stock focus command remains useful once its lower-screen power-off clause is removed.
+            sub(/,[[:space:]]*output[[:space:]]+DSI-1[[:space:]]+power[[:space:]]+off[[:space:]]*$/, "")
+            print
+            next
+        }
+        if ($0 !~ /^[[:space:]]*#/ && $0 ~ /output[[:space:]]+DSI-1[[:space:]]+power[[:space:]]+off/) {
+            print "An unfamiliar lower-screen power-off command requires inspection." > "/dev/stderr"
+            invalid = 1
+            exit 1
+        }
+        print
+    }
+    END { if (invalid) exit 1 }
+' "$SWAY_CONFIG" > "$sway_temp" || fail "Sway configuration was preserved. Inspect the diagnostic file $sway_temp."
+if ! grep -Fxq "$INCLUDE_LINE" "$sway_temp"; then
+    printf '\n# The Multi Pop RG DS fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$sway_temp"
+fi
+
+# The staged files are recorded before installation so a partial update remains inspectable.
+cp -p "$settings_temp" "$STATE/installed.settings"
+cp -p "$sway_temp" "$STATE/installed.sway"
+cp -p "$fragment_temp" "$STATE/installed.fragment"
+chmod 644 "$fragment_temp"
+mv "$fragment_temp" "$SWAY_FRAGMENT"
+mv "$settings_temp" "$SETTINGS"
+mv "$sway_temp" "$SWAY_CONFIG"
+
+chmod +x "$THEME/scripts/start_es_rgds.sh"
+if owns_launcher_mount; then
+    umount "$LAUNCHER_TARGET"
+fi
+mount --bind "$THEME/scripts/start_es_rgds.sh" "$LAUNCHER_TARGET"
+stat -c '%d:%i' "$LAUNCHER_TARGET" > "$STATE/launcher.identity"
+printf '%s\n' "$THEME" > "$STATE/theme.path"
+printf 'active\n' > "$STATE/active"
+install_startup_override
+write_integration_keys
+start_frontend
+
+if [[ "$PREPARE_ONLY" == true ]]; then
+    say 'The dual-screen viewport is prepared. Your selected theme was preserved; choose Multi Pop RG DS in the theme menu when ready.'
+else
+    say 'Enabled: artwork above, browsing below, and native menus on the upper screen.'
+fi
+say "Original settings and Sway configuration are backed up in $STATE."
+say 'Multi Pop will start automatically after reboot whenever it is the selected theme.'

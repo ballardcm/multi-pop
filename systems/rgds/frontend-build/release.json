@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "release_tag": "prototype-0.1.0",
+  "firmware_version": "20261001",
+  "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
+  "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+  "upstream_source": {
+    "asset": "emulationstation-source-cada856d.tar.gz",
+    "url": "https://github.com/ROCKNIX/emulationstation-next/archive/cada856d86e3115fbbf0bce09dd761b0ee8fa9fd.tar.gz",
+    "sha256": "c92eb0fd6e1e2b5fa603391f6c0b540d4fad858664c23321237df32efecf68ad"
+  },
+  "sdl_source": {
+    "asset": "SDL2-2.32.10.tar.gz",
+    "url": "https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-2.32.10.tar.gz",
+    "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+  },
+  "pugixml_source": {
+    "asset": "pugixml-source.tar.gz",
+    "url": "https://github.com/zeux/pugixml/archive/61c944895e071872370219cadade8423dc6e04dc.tar.gz",
+    "sha256": "d82e28c844f46165bdb2c160466073087888ec81ea87fbe66e3dc7f36aa5c835"
+  }
+}

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <view name="screen">
+    <controllerActivity name="controllerActivity">
+      <visible>false</visible>
+    </controllerActivity>
+    <batteryIndicator name="batteryIndicator">
+      <pos>0.618055556 0.022222222</pos>
+      <size>0.041666667 0.037037037</size>
+      <horizontalAlignment>right</horizontalAlignment>
+      <itemSpacing>0.001736111</itemSpacing>
+      <color>${ink}</color>
+      <visible>true</visible>
+    </batteryIndicator>
+    <text name="clock">
+      <pos>1 1</pos>
+    </text>
+  </view>
+  <view name="system, gamecarousel">
+    <image name="canvas" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0 0</pos>
+      <size>1.000000000 1.000000000</size>
+      <color>171821FF</color>
+      <zIndex>0</zIndex>
+    </image>
+    <image name="top-paper" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.333333333 0.000000000</pos>
+      <size>0.333333333 1.000000000</size>
+      <color>${paper}</color>
+      <zIndex>1</zIndex>
+    </image>
+    <image name="system-color-column" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.333333333 0.000000000</pos>
+      <size>0.072916666 1.000000000</size>
+      <color>${accent}</color>
+      <zIndex>2</zIndex>
+    </image>
+    <image name="bottom-paper" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.666666666 0.000000000</pos>
+      <size>0.333333334 1.000000000</size>
+      <color>${paper}</color>
+      <zIndex>1</zIndex>
+    </image>
+    <image name="bottom-header" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.666666666 0.000000000</pos>
+      <size>0.333333334 0.122222222</size>
+      <color>${accent}</color>
+      <zIndex>2</zIndex>
+    </image>
+    <image name="system-mark-badge" extra="true">
+      <path>${themePath}/assets/ui/hardware-badge.svg</path>
+      <pos>0.369791667 0.381481481</pos>
+      <origin>0.5 0.5</origin>
+      <size>0.055555556 0.240740741</size>
+      <zIndex>2.5</zIndex>
+    </image>
+    <image name="system-mark" extra="true">
+      <path>${systemIcon}</path>
+      <pos>0.369791667 0.381481481</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.048611111 0.259259259</maxSize>
+      <zIndex>3</zIndex>
+    </image>
+    <text name="brand-caption" extra="true">
+      <text>MULTI POP</text>
+      <pos>0.338888889 0.905555556</pos>
+      <size>0.061805556 0.044444444</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
+      <fontSize>0.032407407</fontSize>
+      <color>${accentInk}</color>
+      <alignment>center</alignment>
+      <zIndex>3</zIndex>
+    </text>
+    <text name="version-caption" extra="true">
+      <text>VERSION ${multiPopVersion}</text>
+      <pos>0.338888889 0.946296296</pos>
+      <size>0.061805556 0.033333333</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
+      <fontSize>0.029166667</fontSize>
+      <color>${accentInk}</color>
+      <alignment>center</alignment>
+      <zIndex>3</zIndex>
+    </text>
+    <image name="selected-card-frame" extra="true">
+      <path>${themePath}/assets/ui/selection.svg</path>
+      <color>${accent}</color>
+      <pos>0.833333333 0.446296296</pos>
+      <origin>0.5 0.5</origin>
+      <size>0.104838710 0.566666667</size>
+      <zIndex>4</zIndex>
+    </image>
+    <helpsystem name="help">
+      <textColor>00000000</textColor>
+      <iconColor>00000000</iconColor>
+    </helpsystem>
+    <text name="browse-hints" extra="true">
+      <text>Swipe ‹ › · Tap/A select · B back</text>
+      <pos>0.681720430 0.940740741</pos>
+      <size>0.303225806 0.044444444</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.037037037</fontSize>
+      <color>${ink}</color>
+      <alignment>center</alignment>
+      <zIndex>6</zIndex>
+    </text>
+  </view>
+</theme>

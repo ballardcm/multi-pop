@@ -1,0 +1,17 @@
+{
+  "architecture": "aarch64",
+  "hardware": "Anbernic RG DS",
+  "firmware": "20261001",
+  "sha256": "223b476887ddbcf76fd7e44bf21b350cb2635f0686d5f1d425e0aa5c86058e36",
+  "bytes": 10394496,
+  "loader_and_help_passed": true,
+  "canvas": [
+    1920,
+    480
+  ],
+  "panel": [
+    640,
+    480
+  ],
+  "device_validation": "pending"
+}

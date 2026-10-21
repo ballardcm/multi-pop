@@ -10,7 +10,9 @@ This is an early release for the original RG DS, not the RG DS Plus or other han
 
 A short recording of browsing systems and games on an Anbernic RG DS:
 
-https://github.com/user-attachments/assets/0ca63a22-ac90-4ded-bf09-afa9aacb8ac5
+<a href="https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/multi-pop-rgds-demo.mp4"><img src="https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/preview.jpg" alt="Watch the Multi Pop RG DS demo" width="320"></a>
+
+[Watch or download the 26-second demo](https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/multi-pop-rgds-demo.mp4).
 
 The covers, gameplay previews, and game details shown are third-party media on the device; they are not bundled with the theme or source downloads.
 

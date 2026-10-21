@@ -28,7 +28,9 @@ A short recording of browsing systems and games on an Anbernic RG DS:
 
 <a href="https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/multi-pop-rgds-demo.mp4"><img src="https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/preview.jpg" alt="Watch the Multi Pop RG DS demo" width="320"></a>
 
-[Watch or download the 26-second demo](https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/multi-pop-rgds-demo.mp4).
+[Watch or download the silent 51-second demo](https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/multi-pop-rgds-demo.mp4).
+
+The public copy is compressed to 720p, with audio, camera/location/date metadata, and extra data tracks removed. Original recordings are not included in Git or source releases.
 
 The covers, gameplay previews, and game details shown are third-party media on the device; they are not bundled with the theme or source downloads.
 

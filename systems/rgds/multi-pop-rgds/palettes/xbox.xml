@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>357D28FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/xbox.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/xbox.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/xbox.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>357D28FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/xbox.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/xbox.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/xbox.png</systemHero>
+    <manufacturer>Microsoft</manufacturer>
+    <hardwareTitle>Xbox</hardwareTitle>
+    <hardwareYear>2001</hardwareYear>
+  </variables>
 </theme>

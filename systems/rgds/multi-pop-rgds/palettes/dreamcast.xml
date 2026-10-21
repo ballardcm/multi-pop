@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>E57731FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/dreamcast.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/dreamcast.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/dreamcast.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>E57731FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/dreamcast.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/dreamcast.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/dreamcast.png</systemHero>
+    <manufacturer>Sega</manufacturer>
+    <hardwareTitle>Dreamcast</hardwareTitle>
+    <hardwareYear>1998</hardwareYear>
+  </variables>
 </theme>

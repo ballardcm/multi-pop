@@ -37,7 +37,7 @@ awk '
     /^exec_always swaymsg/ {
         sub(/,[[:space:]]*output DSI-1 power off[[:space:]]*$/, "")
     }
-    { if ($0 ~ /seat seat1 attach.*Goodix_Capacitive_TouchScreen/) sub(/seat seat1/, "seat seat0"); print }
+    { if ($0 ~ /seat seat0 attach.*Goodix_Capacitive_TouchScreen/) sub(/seat seat0/, "seat seat1"); print }
 ' "$config" > "$staged"
 if ! grep -Fxq "$INCLUDE_LINE" "$staged"; then
     printf '\n# The Multi Pop RG DS fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$staged"

@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>947146FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/intellivision.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/intellivision.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/intellivision.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>947146FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/intellivision.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/intellivision.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/intellivision.png</systemHero>
+    <manufacturer>Mattel</manufacturer>
+    <hardwareTitle>Intellivision</hardwareTitle>
+    <hardwareYear>1979</hardwareYear>
+  </variables>
 </theme>

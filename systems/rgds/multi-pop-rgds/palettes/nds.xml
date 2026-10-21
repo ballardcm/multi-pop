@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>C8D5DFFF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/nds.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/nds.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/nds.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>C8D5DFFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/nds.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/nds.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/nds.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Nintendo DS</hardwareTitle>
+    <hardwareYear>2004</hardwareYear>
+  </variables>
 </theme>

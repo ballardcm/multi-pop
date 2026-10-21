@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>D79439FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/tg16.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/tg16.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/tg16.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>D79439FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/tg16.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/tg16.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/tg16.png</systemHero>
+    <manufacturer>NEC</manufacturer>
+    <hardwareTitle>TurboGrafx-16</hardwareTitle>
+    <hardwareYear>1989</hardwareYear>
+  </variables>
 </theme>

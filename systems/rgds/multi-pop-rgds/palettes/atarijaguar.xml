@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>B6283DFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atarijaguar.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/atarijaguar.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/atarijaguar.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>B6283DFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/atarijaguar.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/atarijaguar.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/atarijaguar.png</systemHero>
+    <manufacturer>Atari</manufacturer>
+    <hardwareTitle>Atari Jaguar</hardwareTitle>
+    <hardwareYear>1993</hardwareYear>
+  </variables>
 </theme>

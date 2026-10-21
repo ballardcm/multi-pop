@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>C73269FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/auto-favorites.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/auto-favorites.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/auto-favorites.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>C73269FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/auto-favorites.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/auto-favorites.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/auto-favorites.png</systemHero>
+    <manufacturer>Your Collection</manufacturer>
+    <hardwareTitle>Favorites</hardwareTitle>
+    <hardwareYear />
+  </variables>
 </theme>

@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>393977FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gba.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/gba.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/gba.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>393977FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/gba.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/gba.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/gba.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Game Boy Advance</hardwareTitle>
+    <hardwareYear>2001</hardwareYear>
+  </variables>
 </theme>

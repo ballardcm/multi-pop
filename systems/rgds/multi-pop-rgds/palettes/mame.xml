@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>623C7EFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/mame.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/mame.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/mame.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>623C7EFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/mame.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/mame.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/mame.png</systemHero>
+    <manufacturer>Arcade</manufacturer>
+    <hardwareTitle>MAME</hardwareTitle>
+    <hardwareYear>1997</hardwareYear>
+  </variables>
 </theme>

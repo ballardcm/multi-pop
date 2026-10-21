@@ -88,6 +88,7 @@ output DSI-1 power on
 # Both Goodix devices have the same identifier. Preserve their per-device half-width calibration.
 input "1046:911:Goodix_Capacitive_TouchScreen" map_to_region 0 0 1280 480
 input "1046:911:Goodix_Capacitive_TouchScreen" events enabled
+seat seat1 attach "1046:911:Goodix_Capacitive_TouchScreen"
 floating_maximum_size 1920 x 480
 for_window [app_id="^emulationstation$"] floating enable
 for_window [app_id="^emulationstation$"] fullscreen disable
@@ -99,7 +100,6 @@ sway_temp=$(mktemp "$SWAY_CONFIG.multi-pop-rgds.XXXXXX")
 cp -p "$SWAY_CONFIG" "$sway_temp"
 awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus output DSI-2, output DSI-1 power off" '
     {
-        if ($0 ~ /seat seat1 attach.*Goodix_Capacitive_TouchScreen/) sub(/seat seat1/, "seat seat0")
         normalized = $0
         gsub(/[[:space:]]+/, " ", normalized)
         sub(/^ /, "", normalized)

@@ -3,11 +3,11 @@
   <formatVersion>7</formatVersion>
   <view name="gamecarousel">
     <text name="browse-hints" extra="true">
-      <text>Swipe ‹ › · Tap/A select · L1/R1 page · X options · B back</text>
-      <fontSize>0.033333333</fontSize>
+      <text>A Play  ·  X Game info  ·  L/R Page  ·  B Back</text>
+      <fontSize>0.029166667</fontSize>
     </text>
     <text name="top-touch-hints" extra="true">
-      <text>Swipe left/right to browse · Tap to select</text>
+      <text>Swipe to browse · Tap to select</text>
       <pos>0.411458333 0.940740741</pos>
       <size>0.248263889 0.044444444</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
@@ -15,13 +15,14 @@
       <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>6</zIndex>
+      <visible>false</visible>
     </text>
     <text name="library-back" extra="true">
       <text>‹</text>
       <pos>0.674193549 0.014814815</pos>
       <size>0.036559140 0.092592593</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.092592593</fontSize>
+      <fontSize>0.070833333</fontSize>
       <color>${accentInk}</color>
       <alignment>center</alignment>
       <verticalAlignment>center</verticalAlignment>
@@ -32,7 +33,7 @@
       <pos>0.338194444 0.014814815</pos>
       <size>0.023611111 0.092592593</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.092592593</fontSize>
+      <fontSize>0.070833333</fontSize>
       <color>${accentInk}</color>
       <alignment>center</alignment>
       <verticalAlignment>center</verticalAlignment>
@@ -49,15 +50,16 @@
       <alignment>center</alignment>
       <forceUppercase>true</forceUppercase>
       <zIndex>3</zIndex>
+      <visible>false</visible>
     </text>
     <text name="library-header" extra="true">
       <text>Library</text>
-      <pos>0.686021506 0.029629630</pos>
-      <size>0.294623656 0.075925926</size>
+      <pos>0.713541667 0.025000000</pos>
+      <size>0.273958333 0.066666667</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.062962963</fontSize>
+      <fontSize>0.043750000</fontSize>
       <color>${accentInk}</color>
-      <alignment>center</alignment>
+      <alignment>left</alignment>
       <zIndex>3</zIndex>
     </text>
     <image name="media-well" extra="true">
@@ -65,11 +67,13 @@
       <pos>0.411458333 0.074074074</pos>
       <size>0.168402777 0.673148148</size>
       <zIndex>2</zIndex>
+      <visible>false</visible>
+      <linearSmooth>true</linearSmooth>
     </image>
     <video name="md_video">
-      <pos>0.495659722 0.410648148</pos>
+      <pos>0.500000000 0.495833333</pos>
       <origin>0.5 0.5</origin>
-      <maxSize>0.162847222 0.643518519</maxSize>
+      <maxSize>0.312500000 0.691666667</maxSize>
       <delay>3</delay>
       <audio>false</audio>
       <effect>none</effect>
@@ -81,11 +85,11 @@
     <text name="preview-unavailable" extra="true">
       <text>Gameplay preview unavailable</text>
       <visible>empty(firstfile({game:image}, {game:thumbnail}, {game:video}))</visible>
-      <pos>0.416319444 0.363888889</pos>
-      <size>0.158680556 0.092592593</size>
+      <pos>0.358333333 0.450000000</pos>
+      <size>0.283333333 0.091666667</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.031481481</fontSize>
-      <color>FFFFFFFF</color>
+      <fontSize>0.031250000</fontSize>
+      <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>4</zIndex>
     </text>
@@ -98,19 +102,20 @@
       <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>6</zIndex>
+      <visible>false</visible>
     </text>
     <text name="preview-caption" extra="true">
       <text>{game:name}</text>
       <emptyTextDefaults>false</emptyTextDefaults>
-      <pos>0.586805556 0.087037037</pos>
-      <size>0.072916666 0.202777778</size>
-      <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath>
-      <fontSize>0.046296296</fontSize>
+      <pos>0.366666667 0.016666667</pos>
+      <size>0.208333333 0.108333333</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
+      <fontSize>0.034375000</fontSize>
       <lineSpacing>1</lineSpacing>
-      <verticalAlignment>top</verticalAlignment>
+      <verticalAlignment>center</verticalAlignment>
       <autoScroll>vertical</autoScroll>
       <autoScrollDelay>5000</autoScrollDelay>
-      <color>${ink}</color>
+      <color>${accentInk}</color>
       <alignment>left</alignment>
       <zIndex>6</zIndex>
     </text>
@@ -118,31 +123,31 @@
       <text>{game:genre}</text>
       <emptyTextDefaults>false</emptyTextDefaults>
       <visible>!empty({game:genre})</visible>
-      <pos>0.586805556 0.314814815</pos>
-      <size>0.072916666 0.087037037</size>
+      <pos>0.345833333 0.875000000</pos>
+      <size>0.308333333 0.050000000</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.029629630</fontSize>
+      <fontSize>0.029166667</fontSize>
       <lineSpacing>1</lineSpacing>
       <color>${ink}</color>
-      <alignment>left</alignment>
+      <alignment>center</alignment>
       <zIndex>6</zIndex>
     </text>
     <text name="preview-publisher" extra="true">
       <text>empty({game:releaseyear}) ? {game:publisher} : empty({game:publisher}) ? {game:releaseyear} : {game:releaseyear} + ' · ' + {game:publisher}</text>
       <emptyTextDefaults>false</emptyTextDefaults>
-      <pos>0.586805556 0.421296296</pos>
-      <size>0.072916666 0.096296296</size>
+      <pos>0.345833333 0.933333333</pos>
+      <size>0.308333333 0.045833333</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.029166667</fontSize>
+      <fontSize>0.027083333</fontSize>
       <lineSpacing>1</lineSpacing>
       <color>${muted}</color>
-      <alignment>left</alignment>
+      <alignment>center</alignment>
       <zIndex>6</zIndex>
     </text>
     <text name="preview-description" extra="true">
       <text>{game:desc}</text>
       <emptyTextDefaults>false</emptyTextDefaults>
-      <visible>!empty({game:desc})</visible>
+      <visible>false</visible>
       <pos>0.586805556 0.550925926</pos>
       <size>0.072916666 0.354629630</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
@@ -157,7 +162,7 @@
     </text>
     <gamecarousel name="gamecarousel">
       <type>horizontal</type>
-      <pos>0.833333333 0.446296296</pos>
+      <pos>0.833333333 0.450000000</pos>
       <origin>0.5 0.5</origin>
       <size>0.333333334 0.600000000</size>
       <logoSize>0.25 0.771604938</logoSize>
@@ -173,6 +178,7 @@
           <pos>0 0</pos>
           <size>1 1</size>
           <zIndex>0</zIndex>
+          <linearSmooth>true</linearSmooth>
         </image>
         <image name="cover" extra="true">
           <path>firstfile({game:thumbnail}, {game:image})</path>
@@ -181,6 +187,7 @@
           <origin>0.5 0.5</origin>
           <maxSize>0.94 0.94</maxSize>
           <zIndex>1</zIndex>
+          <linearSmooth>true</linearSmooth>
         </image>
         <text name="missing-cover-name" extra="true">
           <text>{game:name}</text>
@@ -208,27 +215,33 @@
       <visible>false</visible>
     </text>
     <text name="md_name">
-      <pos>0.683870968 0.747222222</pos>
-      <size>0.298924732 0.133333333</size>
+      <pos>0.679166667 0.754166667</pos>
+      <size>0.308333333 0.112500000</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.052777778</fontSize>
+      <fontSize>0.041666667</fontSize>
       <lineSpacing>1</lineSpacing>
       <color>${ink}</color>
       <alignment>center</alignment>
       <zIndex>6</zIndex>
+      <verticalAlignment>center</verticalAlignment>
+      <autoScroll>vertical</autoScroll>
+      <autoScrollDelay>5000</autoScrollDelay>
     </text>
     <text name="selected-game-meta" extra="true">
-      <text>empty({game:releaseyear}) ? {game:genre} : {game:genre} + ' · ' + {game:releaseyear}</text>
+      <text>empty({game:releaseyear}) ? {game:genre} : empty({game:genre}) ? {game:releaseyear} : {game:genre} + ' · ' + {game:releaseyear}</text>
       <emptyTextDefaults>false</emptyTextDefaults>
-      <pos>0.683870968 0.868518519</pos>
-      <size>0.298924732 0.046296296</size>
+      <pos>0.679166667 0.870833333</pos>
+      <size>0.308333333 0.050000000</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.035185185</fontSize>
+      <fontSize>0.029166667</fontSize>
       <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>6</zIndex>
     </text>
     <text name="md_description">
+      <visible>false</visible>
+    </text>
+    <text name="brand-caption" extra="true">
       <visible>false</visible>
     </text>
   </view>

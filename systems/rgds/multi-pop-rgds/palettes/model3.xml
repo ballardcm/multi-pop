@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>0765C2FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/model3.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/model3.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/model3.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>0765C2FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/model3.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/model3.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/model3.png</systemHero>
+    <manufacturer>Sega</manufacturer>
+    <hardwareTitle>Sega Model 3</hardwareTitle>
+    <hardwareYear>1996</hardwareYear>
+  </variables>
 </theme>

@@ -44,4 +44,6 @@ int main() {
 }''')
     subprocess.run(['c++','-std=c++11',str(work/'test.cpp'),'-o',str(work/'test')],check=True)
     subprocess.run([str(work/'test')],check=True)
+assert 'seat seat1 attach "1046:911:Goodix_Capacitive_TouchScreen"' in (THEME/'scripts/enable_multi_pop_rgds.sh').read_text()
+assert 'X Game info' in ET.parse(THEME/'layouts/games.xml').findtext(".//text[@name='browse-hints']/text")
 print('PASS: XML, assets, panel bounds, shell syntax, RG DS gesture behavior')

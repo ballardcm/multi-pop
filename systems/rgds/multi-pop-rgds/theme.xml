@@ -10,6 +10,9 @@
     <systemIcon>${themePath}/assets/systems/default.png</systemIcon>
     <systemCard>${themePath}/assets/cards/default.png</systemCard>
     <systemHero>${themePath}/assets/heroes/default.png</systemHero>
+    <manufacturer>Multi Pop</manufacturer>
+    <hardwareTitle>Library</hardwareTitle>
+    <hardwareYear />
   </variables>
   <include>./version.xml</include>
   <subset name="version" displayName="Installed version">

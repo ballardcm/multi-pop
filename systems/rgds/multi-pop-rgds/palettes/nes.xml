@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>B83931FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/nes.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/nes.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/nes.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>B83931FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/nes.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/nes.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/nes.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Nintendo Entertainment System</hardwareTitle>
+    <hardwareYear>1985</hardwareYear>
+  </variables>
 </theme>

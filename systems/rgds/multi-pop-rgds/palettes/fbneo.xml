@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>E9B33FFF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/fbneo.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/fbneo.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/fbneo.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>E9B33FFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/fbneo.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/fbneo.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/fbneo.png</systemHero>
+    <manufacturer>Arcade</manufacturer>
+    <hardwareTitle>Final Burn Neo</hardwareTitle>
+    <hardwareYear>2002</hardwareYear>
+  </variables>
 </theme>

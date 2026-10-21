@@ -12,5 +12,11 @@
     <hardwareYear>2003</hardwareYear>
     <accentWash>F7E9DAFF</accentWash>
     <selectionAccent>BF8130FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sammy.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/atomiswave.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

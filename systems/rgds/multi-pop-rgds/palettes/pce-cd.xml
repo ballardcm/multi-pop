@@ -12,5 +12,11 @@
     <hardwareYear>1988</hardwareYear>
     <accentWash>E9E4E3FF</accentWash>
     <selectionAccent>A88872FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nec.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/pce-cd.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

@@ -24,3 +24,10 @@ The documented restore-first removal was run on the RG DS, the theme folder was 
 Physical upper/lower screenshots verified the main menu, Network Settings, hostname on-screen keyboard, an update message box, game options, and savestate manager. Dialog controls stayed on the 640×480 upper panel; only the dimmed backdrop extended across the lower panel. Hostname entry was cancelled without edits. Theme Configuration showed Installed version 0.3.0, Automatic updates Off, and Check for updates.
 
 The automatic-update acceptance test is tracked in the release notes. Unit/integration coverage includes checksum rejection, incompatible firmware, older versions, startup-helper changes, staging/apply/confirmation, retry rollback, opt-out behavior and local-network failures. Packaging checks reject private inputs and unverified binaries and verify deterministic archives.
+
+
+## Thor design-language preview
+
+Adapted the approved Thor system browser to a 160px sidebar and a pale hardware stage on the 640×480 upper panel. The manufacturer and platform marks are palette-tinted and attributed. The lower header carries MULTI POP and the installed version; Library replaces its generic heading with the system identity. Full-width gameplay preview geometry remains unchanged. Carousel defaults are now instant with 100ms motion, replacing the implicit 500ms default.
+
+Validated locally on ROCKNIX 20261001: live system and Library screens, collection text/blank-year fallback, original controller select mapping, and passwordless SSH. Recordings are being reviewed. No public release or version bump is made by this PR; see releases.md for the planned numbering migration.

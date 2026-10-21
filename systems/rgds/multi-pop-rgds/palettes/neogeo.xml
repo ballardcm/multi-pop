@@ -12,5 +12,11 @@
     <hardwareYear>1990</hardwareYear>
     <accentWash>F1EAD6FF</accentWash>
     <selectionAccent>A8871FFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/snk.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/neogeo.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

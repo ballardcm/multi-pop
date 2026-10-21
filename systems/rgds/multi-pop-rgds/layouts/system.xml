@@ -8,7 +8,7 @@
     <text name="system-header" extra="true">
       <text>Systems</text>
       <pos>0.679166667 0.025000000</pos>
-      <size>0.308333333 0.066666667</size>
+      <size>0.195833333 0.066666667</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
       <fontSize>0.05416666666666667</fontSize>
       <color>${accentInk}</color>
@@ -17,18 +17,18 @@
     </text>
     <image name="system-hero" extra="true">
       <path>${systemIcon}</path>
-      <pos>0.5 0.53125</pos>
+      <pos>0.541666667 0.483333333</pos>
       <origin>0.5 0.5</origin>
       <zIndex>3</zIndex>
-      <maxSize>0.283333333 0.633333333</maxSize>
+      <maxSize>0.220833333 0.716666667</maxSize>
       <linearSmooth>true</linearSmooth>
     </image>
     <text name="hero-instruction" extra="true">
-      <text>Swipe either screen · Tap to select</text>
-      <pos>0.345833333 0.931250000</pos>
-      <size>0.308333333 0.054166667</size>
+      <text>Swipe · Tap to select</text>
+      <pos>0.422916667 0.933333333</pos>
+      <size>0.2375 0.05</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.0375</fontSize>
+      <fontSize>0.033333333</fontSize>
       <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>3</zIndex>
@@ -45,6 +45,8 @@
       <color>00000000</color>
       <systemInfoDelay>0</systemInfoDelay>
       <zIndex>5</zIndex>
+      <defaultTransition>instant</defaultTransition>
+      <transitionSpeed>100</transitionSpeed>
     </carousel>
     <image name="logo">
       <path>${systemCard}</path>
@@ -73,35 +75,94 @@
       <alignment>center</alignment>
       <zIndex>6</zIndex>
     </text>
-    <text name="hardware-heading" extra="true">
-      <text>${hardwareTitle}</text>
-      <pos>0.345833333 0.0125</pos>
-      <size>0.229166667 0.075</size>
-      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.05</fontSize>
-      <color>${accentInk}</color>
-      <alignment>left</alignment>
-      <verticalAlignment>center</verticalAlignment>
-      <lineSpacing>1</lineSpacing>
-      <zIndex>3</zIndex>
-    </text>
     <image name="hardware-stage" extra="true">
       <path>${themePath}/assets/ui/hardware-stage.svg</path>
-      <pos>0.345833333 0.191666667</pos>
-      <size>0.308333333 0.679166667</size>
+      <pos>0.422916667 0.016666667</pos>
+      <size>0.2375 0.9</size>
       <color>${accentWash}</color>
       <zIndex>2</zIndex>
       <linearSmooth>true</linearSmooth>
     </image>
-    <text name="hardware-provenance" extra="true">
-      <text>${manufacturer} · ${hardwareYear}</text>
-      <pos>0.345833333 0.091666667</pos>
-      <size>0.229166667 0.05</size>
-      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.029166667</fontSize>
+    <image name="sidebar" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.333333333 0</pos>
+      <size>0.083333333 1</size>
+      <color>${accent}</color>
+      <zIndex>2</zIndex>
+    </image>
+    <text name="manufacturer-text" extra="true">
+      <text>${manufacturer}</text>
+      <visible>${manufacturerTextVisible}</visible>
+      <pos>0.339583333 0.025</pos>
+      <size>0.070833333 0.1125</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
+      <fontSize>0.0375</fontSize>
+      <alignment>center</alignment>
+      <verticalAlignment>center</verticalAlignment>
+      <lineSpacing>1</lineSpacing>
       <color>${accentInk}</color>
-      <alignment>left</alignment>
+      <zIndex>4</zIndex>
+    </text>
+    <image name="manufacturer-logo" extra="true">
+      <path>${manufacturerLogo}</path>
+      <visible>${manufacturerLogoVisible}</visible>
+      <pos>0.375 0.083333333</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.064583333 0.095833333</maxSize>
+      <color>${accentInk}</color>
+      <linearSmooth>true</linearSmooth>
+      <zIndex>4</zIndex>
+    </image>
+    <image name="sidebar-hardware-badge" extra="true">
+      <path>${themePath}/assets/ui/hardware-badge.svg</path>
+      <pos>0.375 0.385416667</pos>
+      <origin>0.5 0.5</origin>
+      <size>0.070833333 0.233333333</size>
       <zIndex>3</zIndex>
+    </image>
+    <image name="sidebar-hardware" extra="true">
+      <path>${systemIcon}</path>
+      <pos>0.375 0.385416667</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.0625 0.25</maxSize>
+      <linearSmooth>true</linearSmooth>
+      <zIndex>4</zIndex>
+    </image>
+    <text name="platform-text" extra="true">
+      <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
+      <visible>${platformTextVisible}</visible>
+      <pos>0.339583333 0.583333333</pos>
+      <size>0.070833333 0.175</size>
+      <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath>
+      <fontSize>0.0375</fontSize>
+      <lineSpacing>1</lineSpacing>
+      <alignment>center</alignment>
+      <verticalAlignment>center</verticalAlignment>
+      <forceUppercase>true</forceUppercase>
+      <color>${accentInk}</color>
+      <zIndex>4</zIndex>
+    </text>
+    <image name="platform-logo" extra="true">
+      <path>${platformLogo}</path>
+      <visible>${platformLogoVisible}</visible>
+      <pos>0.375 0.675</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.070833333 0.133333333</maxSize>
+      <color>${accentInk}</color>
+      <linearSmooth>true</linearSmooth>
+      <zIndex>4</zIndex>
+    </image>
+    <text name="hardware-year" extra="true">
+      <text>${hardwareYear}</text>
+      <emptyTextDefaults>false</emptyTextDefaults>
+      <pos>0.339583333 0.775</pos>
+      <size>0.070833333 0.0625</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.0375</fontSize>
+      <alignment>center</alignment>
+      <verticalAlignment>center</verticalAlignment>
+      <color>${accentInk}</color>
+      <zIndex>4</zIndex>
     </text>
   </view>
 </theme>

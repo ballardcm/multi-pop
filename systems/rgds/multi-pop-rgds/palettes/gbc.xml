@@ -12,5 +12,11 @@
     <hardwareYear>1998</hardwareYear>
     <accentWash>E0EEDCFF</accentWash>
     <selectionAccent>649E3CFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/gbc.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

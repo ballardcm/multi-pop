@@ -12,5 +12,11 @@
     <hardwareYear>2006</hardwareYear>
     <accentWash>D4D6DBFF</accentWash>
     <selectionAccent>373B45FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/ps3.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

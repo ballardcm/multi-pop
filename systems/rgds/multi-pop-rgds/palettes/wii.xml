@@ -12,5 +12,11 @@
     <hardwareYear>2006</hardwareYear>
     <accentWash>E5EEF3FF</accentWash>
     <selectionAccent>73959DFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/wii.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

@@ -12,5 +12,11 @@
     <hardwareYear>1982</hardwareYear>
     <accentWash>D6E2E6FF</accentWash>
     <selectionAccent>427D80FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+    <manufacturerLogoVisible>false</manufacturerLogoVisible>
+    <manufacturerTextVisible>true</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/vectrex.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

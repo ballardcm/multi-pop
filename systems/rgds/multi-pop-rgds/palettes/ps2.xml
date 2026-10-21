@@ -12,5 +12,11 @@
     <hardwareYear>2000</hardwareYear>
     <accentWash>D1D8F3FF</accentWash>
     <selectionAccent>2448CCFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/ps2.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

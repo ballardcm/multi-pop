@@ -12,5 +12,11 @@
     <hardwareYear>1982</hardwareYear>
     <accentWash>DBDEE4FF</accentWash>
     <selectionAccent>5C6774FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/atari5200.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

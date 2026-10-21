@@ -12,5 +12,11 @@
     <hardwareYear>1993</hardwareYear>
     <accentWash>EBD3DAFF</accentWash>
     <selectionAccent>B6283DFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/atarijaguar.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

@@ -12,5 +12,11 @@
     <hardwareYear>1985</hardwareYear>
     <accentWash>F2E6E1FF</accentWash>
     <selectionAccent>B47C54FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/commodore.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/amiga.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

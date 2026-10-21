@@ -12,5 +12,11 @@
     <hardwareYear>1990</hardwareYear>
     <accentWash>CFE2E8FF</accentWash>
     <selectionAccent>177D8DFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/gamegear.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

@@ -12,5 +12,11 @@
     <hardwareYear>1977</hardwareYear>
     <accentWash>E6DAD6FF</accentWash>
     <selectionAccent>9B522BFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/atari2600.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

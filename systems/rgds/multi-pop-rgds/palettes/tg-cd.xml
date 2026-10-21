@@ -12,5 +12,11 @@
     <hardwareYear>1989</hardwareYear>
     <accentWash>DFE1EBFF</accentWash>
     <selectionAccent>707A9EFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nec.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/tg-cd.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

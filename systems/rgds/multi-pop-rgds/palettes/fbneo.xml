@@ -12,5 +12,11 @@
     <hardwareYear>2002</hardwareYear>
     <accentWash>F4ECDAFF</accentWash>
     <selectionAccent>AB842EFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+    <manufacturerLogoVisible>false</manufacturerLogoVisible>
+    <manufacturerTextVisible>true</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/fbneo.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

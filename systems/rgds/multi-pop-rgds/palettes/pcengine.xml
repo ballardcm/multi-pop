@@ -12,5 +12,11 @@
     <hardwareYear>1987</hardwareYear>
     <accentWash>F4F2EDFF</accentWash>
     <selectionAccent>968C6FFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nec.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/pcengine.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

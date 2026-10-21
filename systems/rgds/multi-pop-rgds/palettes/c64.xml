@@ -12,5 +12,11 @@
     <hardwareYear>1982</hardwareYear>
     <accentWash>D4DEEDFF</accentWash>
     <selectionAccent>3567A8FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/commodore.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/c64.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

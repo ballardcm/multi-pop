@@ -12,5 +12,11 @@
     <hardwareYear>1983</hardwareYear>
     <accentWash>ECDADFFF</accentWash>
     <selectionAccent>B9535AFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/msx.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/msx.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

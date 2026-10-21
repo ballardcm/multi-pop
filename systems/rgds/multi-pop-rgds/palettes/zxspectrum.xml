@@ -12,5 +12,11 @@
     <hardwareYear>1982</hardwareYear>
     <accentWash>F1EADDFF</accentWash>
     <selectionAccent>A7843FFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sinclair.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/zxspectrum.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

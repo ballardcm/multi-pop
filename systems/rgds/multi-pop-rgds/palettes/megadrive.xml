@@ -12,5 +12,11 @@
     <hardwareYear>1988</hardwareYear>
     <accentWash>CFD3D9FF</accentWash>
     <selectionAccent>172D3BFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/megadrive.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

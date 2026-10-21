@@ -12,5 +12,11 @@
     <hardwareYear />
     <accentWash>D6E0E2FF</accentWash>
     <selectionAccent>3F7269FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+    <manufacturerLogoVisible>false</manufacturerLogoVisible>
+    <manufacturerTextVisible>true</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+    <platformLogoVisible>false</platformLogoVisible>
+    <platformTextVisible>true</platformTextVisible>
   </variables>
 </theme>

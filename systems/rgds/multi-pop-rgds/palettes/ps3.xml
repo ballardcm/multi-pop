@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>373B45FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/ps3.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/ps3.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/ps3.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>373B45FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/ps3.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/ps3.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/ps3.png</systemHero>
+    <manufacturer>Sony</manufacturer>
+    <hardwareTitle>PlayStation 3</hardwareTitle>
+    <hardwareYear>2006</hardwareYear>
+    <accentWash>D4D6DBFF</accentWash>
+    <selectionAccent>373B45FF</selectionAccent>
+  </variables>
 </theme>

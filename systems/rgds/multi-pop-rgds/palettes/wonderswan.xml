@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>A7B5C0FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/wonderswan.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/wonderswan.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/wonderswan.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>A7B5C0FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/wonderswan.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/wonderswan.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/wonderswan.png</systemHero>
+    <manufacturer>Bandai</manufacturer>
+    <hardwareTitle>WonderSwan</hardwareTitle>
+    <hardwareYear>1999</hardwareYear>
+    <accentWash>E9ECF1FF</accentWash>
+    <selectionAccent>838D95FF</selectionAccent>
+  </variables>
 </theme>

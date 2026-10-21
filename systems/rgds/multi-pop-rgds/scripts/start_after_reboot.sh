@@ -17,7 +17,7 @@ config=/storage/.config/sway/config
 fragment=/storage/.config/sway/multi-pop-rgds.conf
 find_theme
 # A downloaded update is swapped in before the frontend starts, so an update never restarts the frontend under the player.
-auto_update="$THEME/scripts/auto_update.py" # not shipped in prototype
+auto_update="$THEME/scripts/auto_update.py"
 if [[ "$THEME" == /roms/themes/multi-pop-rgds && -f "$auto_update" ]]; then
     python3 "$auto_update" apply || true
 fi
@@ -37,7 +37,7 @@ awk '
     /^exec_always swaymsg/ {
         sub(/,[[:space:]]*output DSI-1 power off[[:space:]]*$/, "")
     }
-    { if ($0 ~ /seat seat1 attach.*Goodix_Capacitive_TouchScreen/) sub(/seat seat1/, "seat seat0"); print }
+    { if ($0 ~ /seat seat0 attach.*Goodix_Capacitive_TouchScreen/) sub(/seat seat0/, "seat seat1"); print }
 ' "$config" > "$staged"
 if ! grep -Fxq "$INCLUDE_LINE" "$staged"; then
     printf '\n# The Multi Pop RG DS fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$staged"

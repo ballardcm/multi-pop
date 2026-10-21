@@ -3,85 +3,105 @@
   <formatVersion>7</formatVersion>
   <view name="system">
     <text name="browse-hints" extra="true">
-      <text>Swipe ‹ › · Tap/A select · B jump · START menu</text>
-    </text>
-    <text name="top-system-name" extra="true">
-      <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
-      <pos>0.337500000 0.574074074</pos>
-      <size>0.065277777 0.212962963</size>
-      <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath>
-      <fontSize>0.040000000</fontSize>
-      <lineSpacing>1</lineSpacing>
-      <color>${accentInk}</color>
-      <alignment>center</alignment>
-      <forceUppercase>true</forceUppercase>
-      <zIndex>3</zIndex>
+      <text>‹ › browse · A select · START menu</text>
     </text>
     <text name="system-header" extra="true">
       <text>Systems</text>
-      <pos>0.686021506 0.029629630</pos>
-      <size>0.294623656 0.075925926</size>
+      <pos>0.679166667 0.025000000</pos>
+      <size>0.308333333 0.066666667</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.062962963</fontSize>
+      <fontSize>0.05416666666666667</fontSize>
       <color>${accentInk}</color>
-      <alignment>center</alignment>
+      <alignment>left</alignment>
       <zIndex>3</zIndex>
     </text>
     <image name="system-hero" extra="true">
-      <path>${systemHero}</path>
-      <pos>0.537326389 0.430092593</pos>
+      <path>${systemIcon}</path>
+      <pos>0.5 0.53125</pos>
       <origin>0.5 0.5</origin>
-      <size>0.248263889 0.712037037</size>
       <zIndex>3</zIndex>
+      <maxSize>0.283333333 0.633333333</maxSize>
+      <linearSmooth>true</linearSmooth>
     </image>
     <text name="hero-instruction" extra="true">
-      <text>Swipe left/right to browse · Tap to select</text>
-      <pos>0.415277778 0.855555556</pos>
-      <size>0.242013889 0.070370370</size>
-      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.044444444</fontSize>
-      <color>${ink}</color>
+      <text>Swipe either screen · Tap to select</text>
+      <pos>0.345833333 0.931250000</pos>
+      <size>0.308333333 0.054166667</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.0375</fontSize>
+      <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>3</zIndex>
     </text>
     <carousel name="systemcarousel">
       <type>horizontal</type>
-      <pos>0.833333333 0.446296296</pos>
+      <pos>0.833333333 0.450000000</pos>
       <origin>0.5 0.5</origin>
       <size>0.333333334 0.600000000</size>
       <logoSize>0.083333333 0.462962963</logoSize>
       <logoScale>1.15</logoScale>
       <maxLogoCount>3</maxLogoCount>
-      <minLogoOpacity>0.7</minLogoOpacity>
+      <minLogoOpacity>0.8</minLogoOpacity>
       <color>00000000</color>
       <systemInfoDelay>0</systemInfoDelay>
       <zIndex>5</zIndex>
     </carousel>
     <image name="logo">
       <path>${systemCard}</path>
+      <linearSmooth>true</linearSmooth>
     </image>
     <text name="logoText">
       <visible>false</visible>
     </text>
     <text name="selected-system-name" extra="true">
       <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
-      <pos>0.683870968 0.747222222</pos>
-      <size>0.298924732 0.133333333</size>
+      <pos>0.679166667 0.762500000</pos>
+      <size>0.308333333 0.083333333</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.052777778</fontSize>
+      <fontSize>0.05416666666666667</fontSize>
       <lineSpacing>1</lineSpacing>
       <color>${ink}</color>
       <alignment>center</alignment>
       <zIndex>6</zIndex>
     </text>
     <text name="systemInfo">
-      <pos>0.683870968 0.868518519</pos>
-      <size>0.298924732 0.046296296</size>
+      <pos>0.679166667 0.854166667</pos>
+      <size>0.308333333 0.050000000</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.035185185</fontSize>
+      <fontSize>0.0375</fontSize>
       <color>${muted}</color>
       <alignment>center</alignment>
       <zIndex>6</zIndex>
+    </text>
+    <text name="hardware-heading" extra="true">
+      <text>${hardwareTitle}</text>
+      <pos>0.345833333 0.0125</pos>
+      <size>0.229166667 0.075</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
+      <fontSize>0.05</fontSize>
+      <color>${accentInk}</color>
+      <alignment>left</alignment>
+      <verticalAlignment>center</verticalAlignment>
+      <lineSpacing>1</lineSpacing>
+      <zIndex>3</zIndex>
+    </text>
+    <image name="hardware-stage" extra="true">
+      <path>${themePath}/assets/ui/hardware-stage.svg</path>
+      <pos>0.345833333 0.191666667</pos>
+      <size>0.308333333 0.679166667</size>
+      <color>${accentWash}</color>
+      <zIndex>2</zIndex>
+      <linearSmooth>true</linearSmooth>
+    </image>
+    <text name="hardware-provenance" extra="true">
+      <text>${manufacturer} · ${hardwareYear}</text>
+      <pos>0.345833333 0.091666667</pos>
+      <size>0.229166667 0.05</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.029166667</fontSize>
+      <color>${accentInk}</color>
+      <alignment>left</alignment>
+      <zIndex>3</zIndex>
     </text>
   </view>
 </theme>

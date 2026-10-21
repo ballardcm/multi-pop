@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>9B522BFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atari2600.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/atari2600.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/atari2600.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>9B522BFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/atari2600.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/atari2600.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/atari2600.png</systemHero>
+    <manufacturer>Atari</manufacturer>
+    <hardwareTitle>Atari 2600</hardwareTitle>
+    <hardwareYear>1977</hardwareYear>
+    <accentWash>E6DAD6FF</accentWash>
+    <selectionAccent>9B522BFF</selectionAccent>
+  </variables>
 </theme>

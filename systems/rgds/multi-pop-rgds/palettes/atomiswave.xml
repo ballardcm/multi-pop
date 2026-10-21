@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>F5A53DFF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atomiswave.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/atomiswave.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/atomiswave.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>F5A53DFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/atomiswave.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/atomiswave.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/atomiswave.png</systemHero>
+    <manufacturer>Sammy</manufacturer>
+    <hardwareTitle>Atomiswave</hardwareTitle>
+    <hardwareYear>2003</hardwareYear>
+    <accentWash>F7E9DAFF</accentWash>
+    <selectionAccent>BF8130FF</selectionAccent>
+  </variables>
 </theme>

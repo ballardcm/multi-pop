@@ -1,35 +1,158 @@
 # Multi Pop for Anbernic RG DS
 
-A work-in-progress adaptation of [Multi Pop by Chris (ballardcm)](https://github.com/ballardcm/multi-pop-thor) for **Anbernic RG DS running ROCKNIX 20261001**. Private during prototyping; intended for public sharing after hardware testing and a source/license review.
+A colorful two-screen frontend for **Anbernic RG DS running ROCKNIX 20261001**. System artwork or a game preview appears above; a three-card library appears below. Touch works on both screens. This port of [Multi Pop Thor](https://github.com/ballardcm/multi-pop-thor) includes a patched EmulationStation frontend sized for the RG DS's two 640×480 displays.
 
-The two 640×480 displays show system artwork or a game preview above and a three-card library below. A patched EmulationStation frontend keeps dialogs on the upper display and supports shoulder-button paging and touch gestures. This is a prototype, not a claim of complete device compatibility.
+This is an early release for the original RG DS, not the RG DS Plus or other handhelds. It installs on the ROCKNIX card and does not replace Android or change your ROMs, BIOS, saves, or emulator configuration. See [hardware validation](docs/prototype-status.md) for tested behavior and outstanding checks.
 
-## Install a locally built prototype
+## Demo
 
-Build the frontend as described in [the build notes](frontend-build/README.md), then copy the `multi-pop-rgds` folder to `/roms/themes/` on the RG DS. Keep SSH enabled for recovery.
+A short recording of browsing systems and games on an Anbernic RG DS:
+
+https://github.com/user-attachments/assets/0ca63a22-ac90-4ded-bf09-afa9aacb8ac5
+
+The covers, gameplay previews, and game details shown are third-party media on the device; they are not bundled with the theme or source downloads.
+
+## Install
+
+### 1. Download and verify
+
+Download **multi-pop-rgds-rocknix-20261001.zip** and **SHA256SUMS** from the same [release](https://github.com/ballardcm/multi-pop-rgds/releases/latest). The source ZIP is for developers; it is not the installable theme. Do not install GitHub's automatically generated Source code ZIP.
+
+On macOS, in the folder containing the downloads:
+
+```sh
+shasum -a 256 multi-pop-rgds-rocknix-20261001.zip
+cat SHA256SUMS
+```
+
+Compare the printed hash with the line for that exact filename. Stop and download again if they differ. On Linux use `sha256sum`; on Windows PowerShell use `Get-FileHash .\multi-pop-rgds-rocknix-20261001.zip -Algorithm SHA256`.
+
+Extract the installable ZIP. It contains `multi-pop-rgds/` and `install-manifest.json`. Inside the folder, `frontend/emulationstation` must be present.
+
+### 2. Connect to ROCKNIX
+
+Boot ROCKNIX, press START, open **Network Settings**, and enable **SSH**. For Wi-Fi, connect your computer and RG DS to the same network and note the displayed IP. Alternatively, enable **USB gadget mode → Network**, exit settings to apply, and connect a USB data cable. On a Mac the USB hostname is normally `RK3566.local`.
+
+In a terminal, set the destination (replace the example with your device's IP or USB hostname):
+
+```sh
+RGDS_HOST=RK3566.local
+ssh "root@$RGDS_HOST"
+```
+
+Use the root password shown in **System Settings → Security** (`rocknix` by default). The examples below use a computer terminal unless explicitly labeled **on the RG DS**. Keep SSH enabled until you have tested installation and recovery.
+
+### 3. Copy the theme
+
+If Multi Pop is already installed, use its updater below. For a clean reinstall, remove the existing installation first; do not overwrite an active theme in place.
+
+From the folder containing the extracted `multi-pop-rgds` directory, in a second computer terminal:
+
+```sh
+RGDS_HOST=RK3566.local
+scp -r multi-pop-rgds "root@$RGDS_HOST:/roms/themes/"
+```
+
+Use `/roms/themes/` exactly. Do not copy the Thor version or your computer's source checkout as a substitute for the release ZIP.
+
+### 4. Activate
+
+Close any running game. **On the RG DS, in the SSH session:**
 
 ```sh
 bash /roms/themes/multi-pop-rgds/scripts/enable_multi_pop_rgds.sh
 ```
 
-Activation backs up settings and compositor configuration under `/storage/.config/multi-pop-rgds`. It leaves the stock frontend binary intact. To restore the previous setup:
+This selects Multi Pop, backs up the existing frontend settings and Sway display configuration under `/storage/.config/multi-pop-rgds/`, and restarts the frontend. The original `/usr/bin/emulationstation` remains intact. Success ends with a message that Multi Pop will start automatically after reboot. If the helper refuses because another theme owns startup, remove that theme using its own instructions first; do not delete its files or overrides blindly.
+
+You should see system artwork above and three selection cards below. Check both touchscreens, A/B navigation and START. The version is at the right of the lower header. Reboot once after installing to confirm startup on your device.
+
+## Advanced / experimental: install with a coding agent over USB
+
+This is an experimental convenience path, not a replacement for the steps above. You need a coding agent running on your own computer with terminal access. First boot ROCKNIX, enable **SSH** and **USB gadget mode → Network**, exit settings, and connect a USB data cable. Your computer must have Internet access to download the release; the RG DS itself does not need Internet for installation.
+
+Copy this prompt into Codex or Claude Code:
+
+```text
+Install the latest published Multi Pop RG DS release from
+https://github.com/ballardcm/multi-pop-rgds onto my USB-connected Anbernic RG DS.
+
+Read the repository's current README first. Identify the USB network interface
+and SSH destination; do not assume the first handheld or the address from a
+previous session is correct. If other handhelds are attached, use an
+interface-scoped address. Verify /proc/device-tree/model says Anbernic RG DS
+and /etc/os-release is the supported ROCKNIX build before making changes.
+
+Download the ready-to-install release ZIP and SHA256SUMS onto this computer,
+verify the exact archive checksum, extract it, and follow the README's copy
+and activation instructions. Do not build from source, reflash storage, or
+copy another device's firmware, emulator settings, ROMs, BIOS, or saves.
+If another theme owns frontend startup, stop and explain its removal path.
+If Multi Pop is already installed, follow its documented update or clean
+reinstall procedure rather than overwriting the active folder.
+
+Use the root password shown by ROCKNIX if authentication is needed; do not
+put credentials in the repository or publish them. Keep SSH enabled and
+keep the activation backups. Leave automatic updates off unless I ask for
+them. After installation verify the selected theme, installed version,
+running frontend, both displays and touch mapping. Give me the exact
+restore command and report any checks that still require my input.
+```
+
+The agent may need permission to reach the local network. An agent without access to your computer or USB network cannot perform this installation. Verify the reported device identity before approving any unexpected destructive action.
+
+## Automatic updates
+
+Automatic updates are **off by default**. In **START → User Interface Settings → Theme Configuration**, set **Automatic updates → On**. The device needs working Internet access and an accurate clock to contact GitHub over HTTPS. A USB cable alone provides a local connection, not Internet access.
+
+With updates on, Multi Pop checks after frontend startup, at most once every six hours. It downloads a newer release, checks its archive hash and firmware compatibility, and announces when it is ready. It does **not** interrupt a game. The staged update installs when EmulationStation next starts; reboot from the normal Quit menu when ready. The previous theme is retained for recovery. Turning automatic updates off discards an automatically staged update.
+
+For an immediate check, choose **Check for updates** in Theme Configuration, or run **on the RG DS**:
+
+```sh
+python3 /roms/themes/multi-pop-rgds/scripts/auto_update.py check
+```
+
+An explicit check works even when automatic updates are off. If an update cannot be downloaded, the current theme keeps running. Diagnostic log: `/storage/.config/multi-pop-rgds/update/auto-update.log`. Releases that change startup helpers require an explicit reinstall rather than an automatic swap. See [release maintenance](docs/releases.md) for USB relay testing and manual updates.
+
+## Remove completely
+
+**Run the restore helper before deleting the theme.** Deleting an active theme first can leave a black screen on the next boot.
+
+Close any game. **On the RG DS, over SSH:**
 
 ```sh
 bash /roms/themes/multi-pop-rgds/scripts/restore_multi_pop_rgds.sh
 ```
 
-Do not delete an active theme before restoring it. If its files were removed, stop `essway`, remove only its `multi-pop-rgds.conf` service drop-in, unmount the theme's bind mount on `/usr/bin/start_es.sh` if still present, restore the saved Sway configuration, reload systemd, and reboot.
+Wait for the success message saying the previous theme and ROCKNIX launcher were restored. The helper removes its startup override and launcher mount, restores the previous theme/display configuration, and keeps unrelated preference changes made since installation.
 
-## Scope
+Verify both commands below print nothing:
 
-- Artwork and layout derived from Thor commit `43bb7db07d4dcb39bf788db864a60c33f8874015`.
-- RG DS geometry: a 1920×480 virtual surface with a 640px hidden left margin, upper display in the middle, lower display at the right.
-- Separate frontend built against the RG DS's installed runtime libraries; no Thor firmware libraries are distributed.
-- Automatic updates are not shipped in the prototype.
-- Game performance is independent of the theme. A conservative transfer policy is documented in [compatibility](docs/compatibility.md).
+```sh
+systemctl show essway --property=DropInPaths --value
+grep ' /usr/bin/start_es.sh ' /proc/self/mountinfo
+```
 
-## Development and publication
+If either prints an unexpected entry or restore reports an error, stop and inspect it before deleting anything. Once the stock frontend is working, delete only Multi Pop's theme files:
 
-Run `python3 tools/check-rgds.py` before deploying. Validate controller navigation, both touchscreens, game launch/return, sleep/wake, reboot, and rollback on hardware. Keep private build outputs, ROMs, BIOS files, game media, credentials, device configuration, and service keys outside Git. Built frontends must be accompanied by matching source and notices before any public release.
+```sh
+rm -rf /roms/themes/multi-pop-rgds
+rm -rf /roms/themes/.multi-pop-rgds-backup-* /roms/themes/.multi-pop-rgds-failed-*
+```
 
-Original theme material retains **CC BY-NC-SA 4.0**; frontend and GPL launcher exceptions remain under their existing terms. See [LICENSE](LICENSE) and [licensing details](multi-pop-rgds/LICENSING.md). This adaptation was developed with AI assistance; inherited system illustrations were AI-generated.
+Your ROMs, BIOS and saves remain. Recovery records remain under `/storage/.config/multi-pop-rgds/`; a reinstall can reuse them. To remove those records too, **only after confirming removal works**, run:
+
+```sh
+rm -rf /storage/.config/multi-pop-rgds
+```
+
+### Recovery if you deleted the active folder
+
+SSH still works when the frontend is black. Download and verify the installable ZIP, then copy `multi-pop-rgds/` back to `/roms/themes/` as in step 3. **Do not run enable again.** Run the restore command above, confirm it succeeds, and then finish the removal steps. Keep the recovery records until the stock frontend works.
+
+## Development and license
+
+[Build instructions](frontend-build/README.md) explain how to rebuild the frontend. Run `python3 tools/check-rgds.py`, `python3 tools/test-auto-update.py`, and `python3 tools/test-package-release.py` before changes ship. Runtime libraries, ROMs, BIOS, game media, credentials, and device settings are excluded from Git and releases. Matching frontend sources and license notices accompany installable releases.
+
+Original theme material retains **CC BY-NC-SA 4.0**; frontend components, GPL launchers and fonts retain their own licenses. See [LICENSE](LICENSE) and [licensing scope](multi-pop-rgds/LICENSING.md). This adaptation was developed with AI assistance; inherited system illustrations were AI-generated.

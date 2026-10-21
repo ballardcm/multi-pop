@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>B16B49FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/tools.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/tools.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/tools.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>B16B49FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/tools.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/tools.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/tools.png</systemHero>
+    <manufacturer>Thor Utilities</manufacturer>
+    <hardwareTitle>Tools</hardwareTitle>
+    <hardwareYear />
+    <accentWash>EADFDCFF</accentWash>
+    <selectionAccent>B16B49FF</selectionAccent>
+  </variables>
 </theme>

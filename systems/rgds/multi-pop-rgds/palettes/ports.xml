@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>3F7269FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/ports.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/ports.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/ports.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>3F7269FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/ports.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/ports.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/ports.png</systemHero>
+    <manufacturer>PC Gaming</manufacturer>
+    <hardwareTitle>Ports</hardwareTitle>
+    <hardwareYear />
+    <accentWash>D6E0E2FF</accentWash>
+    <selectionAccent>3F7269FF</selectionAccent>
+  </variables>
 </theme>

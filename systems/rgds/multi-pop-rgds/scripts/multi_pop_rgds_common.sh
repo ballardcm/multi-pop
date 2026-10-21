@@ -25,6 +25,7 @@ check_host() {
     [[ $EUID -eq 0 ]] || fail 'Run this helper as root on the RG DS.'
     [[ $(tr -d '\000' </proc/device-tree/model) == 'Anbernic RG DS' ]] || fail 'This prototype requires Anbernic RG DS hardware.'
     [[ -x /roms/themes/multi-pop-rgds/frontend/emulationstation ]] || fail 'Build and install the RG DS frontend first.'
+    grep -q '^BUILD_ID="c445081a59518f37d9776e5412dd7b14910696f7"' /etc/os-release || fail 'This release requires ROCKNIX 20261001.'
     local command
     for command in awk cat chmod cmp cp dirname grep mkdir mktemp mount mountpoint mv rm rmdir sed sort stat swaymsg systemctl umount; do
         command -v "$command" >/dev/null 2>&1 || fail "Required command is missing: $command."

@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>707A9EFF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/tg-cd.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/tg-cd.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/tg-cd.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>707A9EFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/tg-cd.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/tg-cd.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/tg-cd.png</systemHero>
+    <manufacturer>NEC</manufacturer>
+    <hardwareTitle>TurboGrafx-CD</hardwareTitle>
+    <hardwareYear>1989</hardwareYear>
+    <accentWash>DFE1EBFF</accentWash>
+    <selectionAccent>707A9EFF</selectionAccent>
+  </variables>
 </theme>

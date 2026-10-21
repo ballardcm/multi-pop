@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>6D4776FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/default.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/default.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/default.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>6D4776FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/default.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/default.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/default.png</systemHero>
+    <manufacturer>Multi Pop</manufacturer>
+    <hardwareTitle>Game Library</hardwareTitle>
+    <hardwareYear />
+    <accentWash>DED8E4FF</accentWash>
+    <selectionAccent>6D4776FF</selectionAccent>
+  </variables>
 </theme>

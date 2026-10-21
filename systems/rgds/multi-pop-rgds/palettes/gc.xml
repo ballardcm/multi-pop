@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>5B32DFFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gc.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/gc.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/gc.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>5B32DFFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/gc.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/gc.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/gc.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>GameCube</hardwareTitle>
+    <hardwareYear>2001</hardwareYear>
+    <accentWash>DBD4F7FF</accentWash>
+    <selectionAccent>5B32DFFF</selectionAccent>
+  </variables>
 </theme>

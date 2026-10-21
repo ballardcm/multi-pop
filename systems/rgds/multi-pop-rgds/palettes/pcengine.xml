@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>E8D8AAFF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/pcengine.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/pcengine.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/pcengine.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>E8D8AAFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/pcengine.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/pcengine.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/pcengine.png</systemHero>
+    <manufacturer>NEC</manufacturer>
+    <hardwareTitle>PC Engine</hardwareTitle>
+    <hardwareYear>1987</hardwareYear>
+    <accentWash>F4F2EDFF</accentWash>
+    <selectionAccent>968C6FFF</selectionAccent>
+  </variables>
 </theme>

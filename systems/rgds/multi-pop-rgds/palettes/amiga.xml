@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>D99565FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/amiga.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/amiga.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/amiga.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>D99565FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/amiga.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/amiga.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/amiga.png</systemHero>
+    <manufacturer>Commodore</manufacturer>
+    <hardwareTitle>Amiga</hardwareTitle>
+    <hardwareYear>1985</hardwareYear>
+    <accentWash>F2E6E1FF</accentWash>
+    <selectionAccent>B47C54FF</selectionAccent>
+  </variables>
 </theme>

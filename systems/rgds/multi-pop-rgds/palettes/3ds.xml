@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>EB5E52FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/3ds.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/3ds.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/3ds.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>EB5E52FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/3ds.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/3ds.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/3ds.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Nintendo 3DS</hardwareTitle>
+    <hardwareYear>2011</hardwareYear>
+    <accentWash>F5DCDDFF</accentWash>
+    <selectionAccent>EB5E52FF</selectionAccent>
+  </variables>
 </theme>

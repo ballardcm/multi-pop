@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>D81F36FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/virtualboy.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/virtualboy.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/virtualboy.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>D81F36FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/virtualboy.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/virtualboy.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/virtualboy.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Virtual Boy</hardwareTitle>
+    <hardwareYear>1995</hardwareYear>
+    <accentWash>F1D1D8FF</accentWash>
+    <selectionAccent>D81F36FF</selectionAccent>
+  </variables>
 </theme>

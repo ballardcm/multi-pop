@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>172D3BFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/megadrive.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/megadrive.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/megadrive.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>172D3BFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/megadrive.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/megadrive.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/megadrive.png</systemHero>
+    <manufacturer>Sega</manufacturer>
+    <hardwareTitle>Mega Drive</hardwareTitle>
+    <hardwareYear>1988</hardwareYear>
+    <accentWash>CFD3D9FF</accentWash>
+    <selectionAccent>172D3BFF</selectionAccent>
+  </variables>
 </theme>

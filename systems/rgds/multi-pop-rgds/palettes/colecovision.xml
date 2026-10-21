@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>BD405BFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/colecovision.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/colecovision.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/colecovision.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>BD405BFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/colecovision.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/colecovision.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/colecovision.png</systemHero>
+    <manufacturer>Coleco</manufacturer>
+    <hardwareTitle>ColecoVision</hardwareTitle>
+    <hardwareYear>1982</hardwareYear>
+    <accentWash>EDD7DFFF</accentWash>
+    <selectionAccent>BD405BFF</selectionAccent>
+  </variables>
 </theme>

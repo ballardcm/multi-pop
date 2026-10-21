@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>993BCEFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/sega32x.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/sega32x.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/sega32x.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>993BCEFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/sega32x.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/sega32x.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/sega32x.png</systemHero>
+    <manufacturer>Sega</manufacturer>
+    <hardwareTitle>Sega 32X</hardwareTitle>
+    <hardwareYear>1994</hardwareYear>
+    <accentWash>E6D6F4FF</accentWash>
+    <selectionAccent>993BCEFF</selectionAccent>
+  </variables>
 </theme>

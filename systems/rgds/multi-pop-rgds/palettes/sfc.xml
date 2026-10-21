@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>EEEDEEFF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/sfc.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/sfc.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/sfc.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>EEEDEEFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/sfc.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/sfc.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/sfc.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Super Famicom</hardwareTitle>
+    <hardwareYear>1990</hardwareYear>
+    <accentWash>F5F6F9FF</accentWash>
+    <selectionAccent>888888FF</selectionAccent>
+  </variables>
 </theme>

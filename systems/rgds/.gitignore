@@ -7,3 +7,4 @@ frontend-build/*source.tar.gz
 multi-pop-rgds/frontend/emulationstation
 multi-pop-rgds/frontend/*.build.json
 *.log
+dist/

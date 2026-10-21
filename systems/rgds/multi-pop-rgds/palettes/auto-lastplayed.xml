@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>FAAE82FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/auto-lastplayed.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/auto-lastplayed.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/auto-lastplayed.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>FAAE82FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/auto-lastplayed.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/auto-lastplayed.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/auto-lastplayed.png</systemHero>
+    <manufacturer>Your Collection</manufacturer>
+    <hardwareTitle>Recently Played</hardwareTitle>
+    <hardwareYear />
+    <accentWash>F8EBE6FF</accentWash>
+    <selectionAccent>B88060FF</selectionAccent>
+  </variables>
 </theme>

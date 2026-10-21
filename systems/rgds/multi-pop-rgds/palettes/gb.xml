@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>A3AD46FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gb.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/gb.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/gb.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>A3AD46FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/gb.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/gb.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/gb.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Game Boy</hardwareTitle>
+    <hardwareYear>1989</hardwareYear>
+    <accentWash>E8EADBFF</accentWash>
+    <selectionAccent>87903AFF</selectionAccent>
+  </variables>
 </theme>

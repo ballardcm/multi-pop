@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>258BB1FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/wiiu.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/wiiu.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/wiiu.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>258BB1FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/wiiu.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/wiiu.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/wiiu.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Wii U</hardwareTitle>
+    <hardwareYear>2012</hardwareYear>
+    <accentWash>D1E4EEFF</accentWash>
+    <selectionAccent>258BB1FF</selectionAccent>
+  </variables>
 </theme>

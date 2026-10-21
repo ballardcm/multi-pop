@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>485B83FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/3do.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/3do.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/3do.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>485B83FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/3do.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/3do.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/3do.png</systemHero>
+    <manufacturer>Panasonic</manufacturer>
+    <hardwareTitle>3DO</hardwareTitle>
+    <hardwareYear>1993</hardwareYear>
+    <accentWash>D8DCE6FF</accentWash>
+    <selectionAccent>485B83FF</selectionAccent>
+  </variables>
 </theme>

@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>D7AD27FF</accent>
-        <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/neogeo.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/neogeo.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/neogeo.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>D7AD27FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/neogeo.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/neogeo.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/neogeo.png</systemHero>
+    <manufacturer>SNK</manufacturer>
+    <hardwareTitle>Neo Geo</hardwareTitle>
+    <hardwareYear>1990</hardwareYear>
+    <accentWash>F1EAD6FF</accentWash>
+    <selectionAccent>A8871FFF</selectionAccent>
+  </variables>
 </theme>

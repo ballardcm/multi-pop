@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>2A4D62FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/psp.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/psp.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/psp.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>2A4D62FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/psp.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/psp.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/psp.png</systemHero>
+    <manufacturer>Sony</manufacturer>
+    <hardwareTitle>PSP</hardwareTitle>
+    <hardwareYear>2004</hardwareYear>
+    <accentWash>D2D9E0FF</accentWash>
+    <selectionAccent>2A4D62FF</selectionAccent>
+  </variables>
 </theme>

@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>177D8DFF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gamegear.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/gamegear.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/gamegear.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>177D8DFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/gamegear.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/gamegear.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/gamegear.png</systemHero>
+    <manufacturer>Sega</manufacturer>
+    <hardwareTitle>Game Gear</hardwareTitle>
+    <hardwareYear>1990</hardwareYear>
+    <accentWash>CFE2E8FF</accentWash>
+    <selectionAccent>177D8DFF</selectionAccent>
+  </variables>
 </theme>

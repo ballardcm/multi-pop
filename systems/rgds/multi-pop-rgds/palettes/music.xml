@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>A42883FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/music.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/music.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/music.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>A42883FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/music.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/music.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/music.png</systemHero>
+    <manufacturer>Your Collection</manufacturer>
+    <hardwareTitle>Music Player</hardwareTitle>
+    <hardwareYear />
+    <accentWash>E8D3E6FF</accentWash>
+    <selectionAccent>A42883FF</selectionAccent>
+  </variables>
 </theme>

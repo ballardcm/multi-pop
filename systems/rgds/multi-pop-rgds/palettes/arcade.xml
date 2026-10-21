@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <theme>
-    <formatVersion>7</formatVersion>
-    <variables>
-        <accent>D33D23FF</accent>
-        <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/arcade.png</systemIcon>
-        <systemCard>${themePath}/assets/cards/arcade.png</systemCard>
-        <systemHero>${themePath}/assets/heroes/arcade.png</systemHero>
-    </variables>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>D33D23FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/arcade.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/arcade.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/arcade.png</systemHero>
+    <manufacturer>Coin-Op Classics</manufacturer>
+    <hardwareTitle>Arcade</hardwareTitle>
+    <hardwareYear />
+    <accentWash>F1D6D5FF</accentWash>
+    <selectionAccent>D33D23FF</selectionAccent>
+  </variables>
 </theme>

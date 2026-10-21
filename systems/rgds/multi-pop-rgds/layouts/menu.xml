@@ -5,27 +5,27 @@
     <menuBackground name="menubg">
       <color>E1E4EFFF</color>
       <centerColor>FAFBFEFF</centerColor>
-      <scrollbarColor>5B32DFFF</scrollbarColor>
+      <scrollbarColor>${accent}</scrollbarColor>
     </menuBackground>
     <menuText name="menutext, menutitle, menufooter">
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.034259259</fontSize>
+      <fontSize>0.031250000</fontSize>
       <color>${ink}</color>
     </menuText>
     <menuText name="menutext">
       <separatorColor>CFD4E2FF</separatorColor>
-      <selectorColor>5B32DFFF</selectorColor>
-      <selectorColorEnd>5B32DFFF</selectorColorEnd>
-      <selectedColor>FFFFFFFF</selectedColor>
+      <selectorColor>${accent}</selectorColor>
+      <selectorColorEnd>${accent}</selectorColorEnd>
+      <selectedColor>${accentInk}</selectedColor>
     </menuText>
     <menuTextSmall name="menutextsmall">
       <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
-      <fontSize>0.030555556</fontSize>
+      <fontSize>0.029166667</fontSize>
       <color>${muted}</color>
     </menuTextSmall>
     <menuGroup name="menugroup">
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.034259259</fontSize>
+      <fontSize>0.031250000</fontSize>
       <color>${ink}</color>
     </menuGroup>
   </view>

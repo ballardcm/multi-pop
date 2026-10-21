@@ -218,8 +218,8 @@
 +	// This Thor canvas places the top display between two 640-pixel side regions, so its navigation menu must stay within that display.
 +	const bool thorCanvas = Renderer::getScreenWidth() == 1920 && Renderer::getScreenHeight() == 480;
 +	if (thorCanvas)
-+		w = Math::min(w, 1800.0f);
-+	const float menuX = thorCanvas ? 2200.0f - w / 2.0f : 0.0f;
++		w = Math::min(w, 600.0f);
++	const float menuX = thorCanvas ? 960.0f - w / 2.0f : 0.0f;
 +	const float startX = thorCanvas ? 640.0f - w : -w;
 +
  	gs->getMenu().setSize(w, Renderer::getScreenHeight());

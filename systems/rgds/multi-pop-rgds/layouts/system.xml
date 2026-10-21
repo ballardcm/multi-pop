@@ -3,7 +3,7 @@
   <formatVersion>7</formatVersion>
   <view name="system">
     <text name="browse-hints" extra="true">
-      <text>‹ › browse · A select · START menu</text>
+      <text>A select · B jump · START menu</text>
     </text>
     <text name="system-header" extra="true">
       <text>Systems</text>

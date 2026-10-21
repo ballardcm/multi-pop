@@ -71,9 +71,9 @@
       <linearSmooth>true</linearSmooth>
     </image>
     <video name="md_video">
-      <pos>0.500000000 0.495833333</pos>
+      <pos>0.500000000 0.512500000</pos>
       <origin>0.5 0.5</origin>
-      <maxSize>0.312500000 0.691666667</maxSize>
+      <maxSize>0.312500000 0.658333333</maxSize>
       <delay>3</delay>
       <audio>false</audio>
       <effect>none</effect>

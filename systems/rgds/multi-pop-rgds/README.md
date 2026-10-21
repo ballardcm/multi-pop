@@ -1,5 +1,7 @@
 # Multi Pop for RG DS
 
+> **AI disclosure:** This theme was developed with the help of AI, and its original system illustrations were AI-generated. Third-party components and their credits are listed below.
+
 For Anbernic RG DS with ROCKNIX 20261001. This is the installable theme folder, including the patched frontend.
 
 Read the complete [install, update, removal and recovery instructions](https://github.com/ballardcm/multi-pop-rgds#install) before activating. Copy this folder to `/roms/themes/`, keep SSH enabled, then run:

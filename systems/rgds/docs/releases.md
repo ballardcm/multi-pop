@@ -6,7 +6,11 @@ A release has an installable `multi-pop-rgds-rocknix-20261001.zip`, a matching `
 
 Follow `frontend-build/README.md`. Register the validated binary hash, source/firmware revisions, and exact compiled input hashes in `frontend-build/release.json` and `multi-pop-rgds/frontend/compatibility.json`. Any frontend patch or compiler change requires rebuilding and testing a new binary. Theme-only updates may reuse that binary.
 
-Update `multi-pop-rgds/version.json` with a strictly increasing integer `version` and semantic `display_version`; keep `version.xml` consistent. For example, 300 / 0.3.0 followed by 301 / 0.3.1. A source-only change still needs its own release number if published. The updater accepts `vMAJOR.MINOR.PATCH` tags. No downgrade installs automatically.
+Published packages use date labels such as **10.21.26.1**: month, day, two-digit year, and that day's release revision. `release-version.json` records the local date (America/Los_Angeles) and revision. Start a new date at 1 and increment the revision for additional releases that day; coordinate the same label in Thor and RG DS when shipping together. The first release under this scheme is 10.21.26.1.
+
+Packaging writes the date label into the theme and derives a separate monotonic ordering integer for compatibility with existing updaters. That integer remains greater than legacy RG DS version 302 and is never used as the new theme's display label. The source version files are a development baseline; the release configuration determines the packaged label.
+
+The default branch is currently `prototype/rgds`. PRs get checked installable/source preview downloads; publishing occurs only when `release.yml` is manually dispatched on that default branch. Releases retain `build-<commit>` tags for updater compatibility. The workflow rejects duplicate public date labels, and existing release tags are never overwritten.
 
 Stage all intended source changes in Git, run the checks, and package:
 
@@ -23,11 +27,23 @@ python3 tools/package-release.py \
 
 The matching `pugixml-source.tar.gz` must be next to the upstream archive. All three archives are pinned in `frontend-build/release.json`. The packager inventories Git-tracked files, not ignored local storage. Make the final release from the reviewed merge commit on the default branch. Verify noreply commit metadata and retain the corresponding source download with every binary.
 
-## Next release: align numbering with Thor
+## Publish a reviewed release
 
-The next public RG DS release should adopt Thor’s simple increasing release-number presentation and reviewed-commit release process, instead of continuing the `0.3.x` display series. Finalize this in a release-preparation PR; this design PR does not bump either version file or publish a release.
+After the release PR checks and device acceptance pass, merge through GitHub using the repository-owner handle and noreply address. Verify the resulting commit metadata, then run:
 
-The currently shipped updater integer is **302** (display **0.3.2**). The first release under the aligned scheme must remain strictly greater than every previously shipped integer. Do not copy Thor’s smaller current number: existing RG DS devices would reject it as a downgrade. Choose and document a monotonic migration (for example, a first-parent commit-count offset) before switching the displayed number. Its GitHub tag parser currently accepts `vMAJOR.MINOR.PATCH`; a switch to Thor’s `build-<commit>` tags also needs an updater compatibility change and tests. Validate an actual 0.3.2-to-new-scheme update on the RG DS, including staging, confirmation, and rollback, before publishing.
+```sh
+gh workflow run release.yml --repo ballardcm/multi-pop-rgds --ref prototype/rgds
+```
+
+The workflow recovers the verified frontend and source inputs from the pinned 0.3.2 release, checks their individual hashes, packages the reviewed commit, and publishes the installable ZIP, matching source ZIP, and `SHA256SUMS`. This is a manual maintainer action: merging a PR does not publish a release.
+
+For local packaging, run `python3 tools/fetch-release-inputs.py` first. Downloads stay under ignored `.local/release-inputs`; each extracted input is checked against `frontend-build/release.json`. Use those paths with the packaging command above. Keep the release date and daily revision coordinated with Thor; do not reuse a published label.
+
+## Migration from 0.3.2
+
+The installed 0.3.2 updater already accepts build-commit tags and separate display labels. The first date-based package therefore upgrades normally without a bridge updater or changes to the startup helpers. Its integer ordering value is greater than 302, while the user sees **10.21.26.1**.
+
+Tests cover legacy-to-date staging/apply/confirmation, downgrade rejection, public-label stamping, daily revision ordering, the next-day reset, invalid dates, and deterministic packages. Device acceptance also exercises the shipped 0.3.2 updater, deliberate unconfirmed-candidate rollback, and successful confirmation of the final date-based package before publishing.
 
 ## Public automatic updates
 

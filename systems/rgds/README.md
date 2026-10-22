@@ -125,6 +125,8 @@ The agent may need permission to reach the local network. An agent without acces
 
 ## Automatic updates
 
+Releases now use date labels such as **10.21.26.1**—month, day, year, and the release revision for that day—aligned with Thor. Existing 0.3.2 installations can update normally. Packages come from reviewed default-branch commits and are published manually; see [release maintenance](docs/releases.md).
+
 Automatic updates are **off by default**. In **START → User Interface Settings → Theme Configuration**, set **Automatic updates → On**. The device needs working Internet access and an accurate clock to contact GitHub over HTTPS. A USB cable alone provides a local connection, not Internet access.
 
 With updates on, Multi Pop checks after frontend startup, at most once every six hours. It downloads a newer release, checks its archive hash and firmware compatibility, and announces when it is ready. It does **not** interrupt a game. The staged update installs when EmulationStation next starts; reboot from the normal Quit menu when ready. The previous theme is retained for recovery. Turning automatic updates off discards an automatically staged update.

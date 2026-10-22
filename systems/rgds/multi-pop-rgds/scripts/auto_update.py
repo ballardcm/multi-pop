@@ -223,7 +223,7 @@ def confirm(config):
         if old.name != keep and old.is_dir():
             shutil.rmtree(old)
     log(config, 'Confirmed ' + pending['tag'] + ' is running.')
-    version = pending.get('display_version') or pending.get('version')
+    version = pending.get('display_version') or (read_json(config.theme / 'version.json', {}) or {}).get('display_version') or pending.get('version')
     notify(config, 'Multi Pop updated' + (' to version ' + str(version) if version else '') + '.')
 
 

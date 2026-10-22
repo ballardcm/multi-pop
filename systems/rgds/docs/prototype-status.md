@@ -31,3 +31,9 @@ The automatic-update acceptance test is tracked in the release notes. Unit/integ
 Adapted the approved Thor system browser to a 160px sidebar and a pale hardware stage on the 640×480 upper panel. The manufacturer and platform marks are palette-tinted and attributed. The lower header carries MULTI POP and the installed version; Library replaces its generic heading with the system identity. Full-width gameplay preview geometry remains unchanged. Carousel defaults are now instant with 100ms motion, replacing the implicit 500ms default.
 
 Validated locally on ROCKNIX 20261001: live system and Library screens, collection text/blank-year fallback, original controller select mapping, and passwordless SSH. Recordings are being reviewed. No public release or version bump is made by this PR; see releases.md for the planned numbering migration.
+
+## Date-release acceptance: 10.21.26.1
+
+The exact shipped 0.3.2 installable archive was restored as a baseline. Its original updater staged the final date-based candidate through a loopback-only release feed. While the frontend was stopped, an intentionally unconfirmed application exercised the updater's retry threshold and restored every file in the original 0.3.2 manifest. The same candidate was then staged again, applied, started, and confirmed with the visible label 10.21.26.1. All 467 candidate files matched its install manifest; emulator configuration and Sway configuration hashes were unchanged. The startup helpers and verified frontend binary were unchanged.
+
+Automated checks include date/revision ordering, next-day/year rollover, legacy updater compatibility and display labels, source/package integrity, logo provenance, gesture behavior, and popup bounds. Both display geometries and the existing touch mapping are preserved. The final published artifact is installed and verified separately after the release workflow succeeds.

@@ -15,10 +15,12 @@ for p in (THEME/'layouts').glob('*.xml'):
     for view in ET.parse(p).getroot().findall('view'):
         for n in view:
             pos=n.find('pos'); size=n.find('size')
+            if size is None: size=n.find('maxSize')
             if pos is None or size is None or n.get('name')=='canvas': continue
             x,y=map(float,pos.text.split()); w,h=map(float,size.text.split())
             if x==1 and y==1: continue
             ox,oy=map(float,n.findtext('origin','0 0').split())
+            assert y-h*oy >= -1e-6 and y+h*(1-oy) <= 1+1e-6, (p,n.get('name'),'vertical bounds')
             left=x-w*ox; right=left+w
             assert (left>=1/3-1e-6 and right<=2/3+1e-6) or (left>=2/3-1e-6 and right<=1+1e-6), (p,n.get('name'),left,right)
 for p in (THEME/'scripts').glob('*.sh'):
@@ -59,3 +61,5 @@ for palette in (THEME / 'palettes').glob('*.xml'):
     outline = luminance(variables.findtext('selectionAccent'))
     assert (paper + .05) / (outline + .05) >= 3, palette
 print('PASS: XML, assets, panel bounds, shell syntax, RG DS gesture behavior')
+
+subprocess.run([__import__('sys').executable, str(ROOT/'tools/check-logo-assets.py'), str(THEME)], check=True)

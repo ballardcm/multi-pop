@@ -12,5 +12,11 @@
     <hardwareYear>1998</hardwareYear>
     <accentWash>F4E1D7FF</accentWash>
     <selectionAccent>D7702EFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/dreamcast.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

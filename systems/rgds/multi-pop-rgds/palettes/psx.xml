@@ -12,5 +12,11 @@
     <hardwareYear>1994</hardwareYear>
     <accentWash>E0E1E3FF</accentWash>
     <selectionAccent>77796FFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/psx.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

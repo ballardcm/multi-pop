@@ -12,5 +12,11 @@
     <hardwareYear>1979</hardwareYear>
     <accentWash>E5E0DBFF</accentWash>
     <selectionAccent>947146FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/mattel.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/intellivision.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

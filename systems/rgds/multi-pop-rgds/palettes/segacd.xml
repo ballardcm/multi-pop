@@ -12,5 +12,11 @@
     <hardwareYear>1992</hardwareYear>
     <accentWash>E6E9F6FF</accentWash>
     <selectionAccent>8088B4FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/segacd.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

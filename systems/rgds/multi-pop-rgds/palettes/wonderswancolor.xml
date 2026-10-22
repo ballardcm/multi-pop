@@ -12,5 +12,11 @@
     <hardwareYear>2000</hardwareYear>
     <accentWash>D8EAF1FF</accentWash>
     <selectionAccent>4096A7FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/bandai.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/wonderswancolor.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

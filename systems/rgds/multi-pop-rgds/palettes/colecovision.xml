@@ -12,5 +12,11 @@
     <hardwareYear>1982</hardwareYear>
     <accentWash>EDD7DFFF</accentWash>
     <selectionAccent>BD405BFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/coleco.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/colecovision.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

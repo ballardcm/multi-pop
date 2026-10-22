@@ -12,5 +12,11 @@
     <hardwareYear>2001</hardwareYear>
     <accentWash>D4E2D6FF</accentWash>
     <selectionAccent>357D28FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/microsoft.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/xbox.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

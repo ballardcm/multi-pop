@@ -34,7 +34,7 @@
       <size>0.023611111 0.092592593</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
       <fontSize>0.070833333</fontSize>
-      <color>${accentInk}</color>
+      <color>${ink}</color>
       <alignment>center</alignment>
       <verticalAlignment>center</verticalAlignment>
       <zIndex>6</zIndex>
@@ -53,14 +53,17 @@
       <visible>false</visible>
     </text>
     <text name="library-header" extra="true">
-      <text>Library</text>
+      <text>{game:system:collection} ? proper({game:system:fullName}) : {game:system:fullName}</text>
       <pos>0.713541667 0.025000000</pos>
-      <size>0.273958333 0.066666667</size>
+      <size>0.161458333 0.066666667</size>
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
-      <fontSize>0.043750000</fontSize>
+      <fontSize>0.0375</fontSize>
       <color>${accentInk}</color>
       <alignment>left</alignment>
       <zIndex>3</zIndex>
+      <visible>${platformTextVisible}</visible>
+      <verticalAlignment>center</verticalAlignment>
+      <autoScroll>horizontal</autoScroll>
     </text>
     <image name="media-well" extra="true">
       <path>${themePath}/assets/ui/preview-frame.svg</path>
@@ -115,7 +118,7 @@
       <verticalAlignment>center</verticalAlignment>
       <autoScroll>vertical</autoScroll>
       <autoScrollDelay>5000</autoScrollDelay>
-      <color>${accentInk}</color>
+      <color>${ink}</color>
       <alignment>left</alignment>
       <zIndex>6</zIndex>
     </text>
@@ -204,6 +207,8 @@
           <zIndex>2</zIndex>
         </text>
       </itemTemplate>
+      <defaultTransition>instant</defaultTransition>
+      <transitionSpeed>100</transitionSpeed>
     </gamecarousel>
     <text name="gamecarouselLogoText">
       <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
@@ -244,5 +249,22 @@
     <text name="brand-caption" extra="true">
       <visible>false</visible>
     </text>
+    <image name="top-header" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.333333333 0</pos>
+      <size>0.333333333 0.15</size>
+      <color>${accentWash}</color>
+      <zIndex>2</zIndex>
+    </image>
+    <image name="library-platform-logo" extra="true">
+      <path>${platformLogo}</path>
+      <visible>${platformLogoVisible}</visible>
+      <pos>0.794791667 0.058333333</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.1625 0.079166667</maxSize>
+      <color>${accentInk}</color>
+      <linearSmooth>true</linearSmooth>
+      <zIndex>4</zIndex>
+    </image>
   </view>
 </theme>

@@ -12,5 +12,11 @@
     <hardwareYear>1998</hardwareYear>
     <accentWash>DDDFE4FF</accentWash>
     <selectionAccent>646C78FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/snk.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/ngp.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
   </variables>
 </theme>

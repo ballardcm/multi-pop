@@ -23,3 +23,8 @@ The following paths are relative to this installable theme folder:
 | `frontend/` | Frontend patches and components retain the applicable upstream licenses and notices in `frontend/licenses/`. A separately built frontend retains those licenses, including the licenses of embedded components; it is not relicensed under CC BY-NC-SA. Compatibility reports are factual records of particular builds. |
 
 Downloaded dependencies, firmware libraries, ROMs, game covers, screenshots, descriptions, and videos are not covered by this project license. Retain their applicable terms and credits when obtaining or distributing them separately. Third-party names and trademarks are not licensed by this notice.
+
+
+## Third-party sidebar marks
+
+`assets/logos/` is excluded from claims of original Multi Pop artwork. HVR88’s usage permission, Carbon’s original licensing text and logo notices, author credits, exact source revisions, and adaptations are documented in [assets/logos/README.md](assets/logos/README.md) and its catalog. Original brand rights remain with their owners; the logos imply no affiliation or endorsement.

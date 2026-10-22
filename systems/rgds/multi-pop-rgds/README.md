@@ -19,3 +19,8 @@ bash /roms/themes/multi-pop-rgds/scripts/restore_multi_pop_rgds.sh
 Only delete this folder after restoration succeeds. Do not delete an active theme. Backups and user settings live outside the theme folder. Automatic updates are off until enabled under Theme Configuration; Check for updates runs an immediate check.
 
 See [LICENSING.md](LICENSING.md) for attribution and third-party exceptions. Matching public frontend source accompanies releases. AI assistance was used in development; inherited system artwork was AI-generated.
+
+
+## Logo artwork acknowledgments
+
+Our sidebar marks come from HVR88’s [Monochrome Gaming Logos](https://github.com/HVR88/Monochrome-Gaming-Logos), Rookervik and the [RetroPie Carbon contributors](https://github.com/RetroPie/es-theme-carbon), and [Fabrice Caruso’s expanded Carbon collection](https://github.com/fabricecaruso/es-theme-carbon). Carbon builds on Nils Bonenberger’s Simple theme. Please support their work and the [Pegasus](https://pegasus-frontend.org/) and [GameOS](https://github.com/PlayingKarrde/gameOS) projects that inspired HVR88. These are third-party logos, not AI-generated Multi Pop illustrations. Full credits, modifications, pinned sources, and unmodified notices ship in [assets/logos/README.md](assets/logos/README.md).

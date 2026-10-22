@@ -23,6 +23,12 @@ python3 tools/package-release.py \
 
 The matching `pugixml-source.tar.gz` must be next to the upstream archive. All three archives are pinned in `frontend-build/release.json`. The packager inventories Git-tracked files, not ignored local storage. Make the final release from the reviewed merge commit on the default branch. Verify noreply commit metadata and retain the corresponding source download with every binary.
 
+## Next release: align numbering with Thor
+
+The next public RG DS release should adopt Thor’s simple increasing release-number presentation and reviewed-commit release process, instead of continuing the `0.3.x` display series. Finalize this in a release-preparation PR; this design PR does not bump either version file or publish a release.
+
+The currently shipped updater integer is **302** (display **0.3.2**). The first release under the aligned scheme must remain strictly greater than every previously shipped integer. Do not copy Thor’s smaller current number: existing RG DS devices would reject it as a downgrade. Choose and document a monotonic migration (for example, a first-parent commit-count offset) before switching the displayed number. Its GitHub tag parser currently accepts `vMAJOR.MINOR.PATCH`; a switch to Thor’s `build-<commit>` tags also needs an updater compatibility change and tests. Validate an actual 0.3.2-to-new-scheme update on the RG DS, including staging, confirmation, and rollback, before publishing.
+
 ## Public automatic updates
 
 An Internet-connected device checks GitHub directly. Checks run after frontend startup when Automatic updates is On, at most every six hours. A manual Check for updates bypasses that interval and the Off setting. Downloads are validated, staged and applied only on the next frontend start. A started update is confirmed only when the installed theme frontend is the process serving the local API and its binary hash matches. After repeated unconfirmed starts, the old theme is restored. One backup is retained.

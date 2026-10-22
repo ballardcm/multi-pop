@@ -125,6 +125,17 @@ class ReleaseTests(unittest.TestCase):
         second = {path.name: path.read_bytes() for path in self.package()}
         self.assertEqual(first, second)
 
+    def test_numbered_release_replaces_legacy_display_version(self):
+        (self.root / 'release-numbering.json').write_text(json.dumps({'schema_version': 1, 'base_version': 302, 'base_commit': 'a' * 40}))
+        (self.root / 'multi-pop-rgds/version.json').write_text(json.dumps({'version': 302, 'display_version': '0.3.2'}))
+        subprocess.run(['git', 'add', '.'], cwd=self.root, check=True)
+        ready, _, _ = release.package(self.root, self.root / 'dist', self.binary, self.upstream, self.sdl, 303)
+        with zipfile.ZipFile(ready) as archive:
+            self.assertEqual(json.loads(archive.read('multi-pop-rgds/version.json')), {'version': 303})
+            self.assertIn(b'<multiPopVersion>303</multiPopVersion>', archive.read('multi-pop-rgds/version.xml'))
+        with self.assertRaisesRegex(ValueError, 'legacy version baseline'):
+            release.package(self.root, self.root / 'dist', self.binary, self.upstream, self.sdl, 302)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

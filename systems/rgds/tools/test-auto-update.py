@@ -233,6 +233,19 @@ class AutoUpdateTests(unittest.TestCase):
         auto_update.background(self.config)
         self.assertEqual(self.updates('staged.json')['tag'], 'v0.3.1')
 
+    def test_legacy302_accepts_numbered303_and_confirms_it(self):
+        (self.config.theme / 'version.json').write_text(json.dumps({'version': 302, 'display_version': '0.3.2'}))
+        self.publish(theme_files('new', number=303), tag=TAG)
+        auto_update.check(self.config)
+        self.assertEqual(self.updates('staged.json')['version'], 303)
+        auto_update.apply(self.config)
+        auto_update.confirm(self.config)
+        self.assertEqual(self.updates('installed.json')['version'], 303)
+        self.assertEqual(self.server.notifications[-1], 'Multi Pop updated to version 303.')
+        self.publish(theme_files('old', number=302), tag='v0.3.2')
+        auto_update.check(self.config)
+        self.assertIsNone(self.updates('staged.json'))
+
     def test_changed_startup_script_refuses_apply(self):
         files = theme_files('new')
         files['scripts/start_es_rgds.sh'] += b'# changed launcher\n'

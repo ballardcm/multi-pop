@@ -71,8 +71,21 @@ def verify_inputs(root, config, frontend, upstream_source, sdl_source):
 
 
 def release_version(root):
-    # Main only changes through merges, so its first-parent commit count only rises and never repeats between releases.
-    # A PR build checks out the merge it would make, so its preview carries the number main will have after that merge.
+    # Keep the legacy 302 floor, then count default-branch merges like Thor.
+    # PR merge checkouts therefore carry the same number as their eventual merge.
+    numbering_path = root / "release-numbering.json"
+    if numbering_path.exists():
+        numbering = json.loads(numbering_path.read_text())
+        base = numbering["base_version"]
+        anchor = numbering["base_commit"]
+        if numbering.get("schema_version") != 1 or type(base) is not int or base < 1:
+            raise ValueError("Invalid release-numbering baseline")
+        history = subprocess.check_output(
+            ["git", "rev-list", "--first-parent", "HEAD"], cwd=root, text=True
+        ).splitlines()
+        if anchor not in history:
+            raise ValueError("Release-numbering anchor is absent from first-parent history; fetch full history")
+        return base + history.index(anchor)
     version_path = root / THEME / "version.json"
     if version_path.exists():
         return json.loads(version_path.read_text())["version"]
@@ -102,9 +115,12 @@ def package(root, output, frontend, upstream_source, sdl_source, version):
     theme_files["scripts/update_theme.py"] = (root / "tools/install-multi-pop-theme.py").read_bytes()
     # The automatic updater compares this number so it never replaces an installation with an older release.
     version_path = root / THEME / "version.json"
-    display = json.loads(version_path.read_text()).get("display_version", str(version)) if version_path.exists() else str(version)
+    numbered = (root / "release-numbering.json").exists()
+    if numbered and version <= json.loads((root / "release-numbering.json").read_text())["base_version"]:
+        raise ValueError("A numbered release must advance beyond the legacy version baseline")
+    display = str(version) if numbered else json.loads(version_path.read_text()).get("display_version", str(version)) if version_path.exists() else str(version)
     version_data = {"version": version}
-    if version_path.exists():
+    if version_path.exists() and not numbered:
         version_data["display_version"] = display
     theme_files["version.json"] = (json.dumps(version_data) + "\n").encode()
     theme_files["version.xml"] = re.sub(rb"<multiPopVersion>[^<]*</multiPopVersion>",

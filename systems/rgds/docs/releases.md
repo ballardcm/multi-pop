@@ -6,9 +6,11 @@ A release has an installable `multi-pop-rgds-rocknix-20261001.zip`, a matching `
 
 Follow `frontend-build/README.md`. Register the validated binary hash, source/firmware revisions, and exact compiled input hashes in `frontend-build/release.json` and `multi-pop-rgds/frontend/compatibility.json`. Any frontend patch or compiler change requires rebuilding and testing a new binary. Theme-only updates may reuse that binary.
 
-Published packages now use a simple integer for both display and update comparison. `release-numbering.json` anchors the previously shipped internal value 302 to the reviewed design merge. Packaging adds the number of first-parent commits after that anchor; the first release is 303, and later reviewed default-branch merges increase it. Numbers may skip when several changes merge between releases, just as on Thor. The source version files are a development baseline; the packager writes the computed number into the installable ZIP.
+Published packages use date labels such as **10.21.26.1**: month, day, two-digit year, and that day's release revision. `release-version.json` records the local date (America/Los_Angeles) and revision. Start a new date at 1 and increment the revision for additional releases that day; coordinate the same label in Thor and RG DS when shipping together. The first release under this scheme is 10.21.26.1.
 
-The default branch is currently `prototype/rgds`. Every PR gets checked installable/source preview downloads; publishing occurs only when `release.yml` is manually dispatched on that default branch. Releases use `build-<12-character commit>` tags and are never overwritten. The installed 0.3.2 updater already accepts both these build tags and legacy semantic tags; no updater protocol or startup-helper change is required. No downgrade installs automatically.
+Packaging writes the date label into the theme and derives a separate monotonic ordering integer for compatibility with existing updaters. That integer remains greater than legacy RG DS version 302 and is never used as the new theme's display label. The source version files are a development baseline; the release configuration determines the packaged label.
+
+The default branch is currently `prototype/rgds`. PRs get checked installable/source preview downloads; publishing occurs only when `release.yml` is manually dispatched on that default branch. Releases retain `build-<commit>` tags for updater compatibility. The workflow rejects duplicate public date labels, and existing release tags are never overwritten.
 
 Stage all intended source changes in Git, run the checks, and package:
 
@@ -35,11 +37,13 @@ gh workflow run release.yml --repo ballardcm/multi-pop-rgds --ref prototype/rgds
 
 The workflow recovers the verified frontend and source inputs from the pinned 0.3.2 release, checks their individual hashes, packages the reviewed commit, and publishes the installable ZIP, matching source ZIP, and `SHA256SUMS`. This is a manual maintainer action: merging a PR does not publish a release.
 
-For local packaging, run `python3 tools/fetch-release-inputs.py` first. Downloads stay under ignored `.local/release-inputs`; each extracted input is checked against `frontend-build/release.json`. Use those paths with the packaging command above. Keep the numbering anchor unchanged; moving it could reuse or lower a release number.
+For local packaging, run `python3 tools/fetch-release-inputs.py` first. Downloads stay under ignored `.local/release-inputs`; each extracted input is checked against `frontend-build/release.json`. Use those paths with the packaging command above. Keep the release date and daily revision coordinated with Thor; do not reuse a published label.
 
 ## Migration from 0.3.2
 
-The first numbered release is **303**, greater than 0.3.2's internal **302**. A separate display counter or legacy bridge tag is unnecessary. Both the source and the installed 0.3.2 updater were checked for build-tag support. Automated tests cover 302→303 staging/apply/confirmation, rejection of a later 302 download, merge-count semantics, absent Git history, deterministic packages, and legacy display-version removal. Device acceptance must also exercise the actual shipped 0.3.2 updater, a deliberately unconfirmed candidate rollback, and successful confirmation of the new version before publishing.
+The installed 0.3.2 updater already accepts build-commit tags and separate display labels. The first date-based package therefore upgrades normally without a bridge updater or changes to the startup helpers. Its integer ordering value is greater than 302, while the user sees **10.21.26.1**.
+
+Tests cover legacy-to-date staging/apply/confirmation, downgrade rejection, public-label stamping, daily revision ordering, the next-day reset, invalid dates, and deterministic packages. Device acceptance also exercises the shipped 0.3.2 updater, deliberate unconfirmed-candidate rollback, and successful confirmation of the final date-based package before publishing.
 
 ## Public automatic updates
 

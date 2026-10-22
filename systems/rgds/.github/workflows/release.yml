@@ -26,7 +26,7 @@ jobs:
           python3 tools/check-rgds.py
           python3 tools/test-auto-update.py
           python3 tools/test-package-release.py
-          python3 tools/test-release-numbering.py
+          python3 tools/test-release-version.py
           python3 tools/test-popup-bounds.py
           git diff --check
       - name: Fetch verified frontend inputs
@@ -62,12 +62,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="build-${GITHUB_SHA:0:12}"
-          version=$(unzip -p dist/multi-pop-rgds-rocknix-*.zip multi-pop-rgds/version.json | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')
+          version=$(unzip -p dist/multi-pop-rgds-rocknix-*.zip multi-pop-rgds/version.json | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d.get("display_version", d["version"]))')
           if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             echo "Release already exists: $tag"
             exit 0
           fi
+          gh release list --repo "$GITHUB_REPOSITORY" --limit 100 --json name > /tmp/published-releases.json
+          python3 -c 'import json,sys; names=json.load(open("/tmp/published-releases.json")); needle="version "+sys.argv[1]+" ("; assert not any(needle in x["name"] for x in names), "Date version already published; increment the daily revision"' "$version"
           gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
             --title "Multi Pop RG DS version $version (${GITHUB_SHA:0:12})" \
-            --notes "Ready-to-install theme for RG DS on ROCKNIX 20261001, matching source ZIP, and SHA256SUMS. Upgrades from 0.3.2 (internal 302) use the existing updater. See the README for installation, contributor credits, and recovery." \
+            --notes "Ready-to-install theme for RG DS on ROCKNIX 20261001, matching source ZIP, and SHA256SUMS. Date-based public versions retain upgrade compatibility with 0.3.2. See the README for installation, contributor credits, and recovery." \
             dist/*

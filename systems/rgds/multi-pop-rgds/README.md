@@ -26,6 +26,6 @@ See [LICENSING.md](LICENSING.md) for attribution and third-party exceptions. Mat
 Our sidebar marks come from HVR88’s [Monochrome Gaming Logos](https://github.com/HVR88/Monochrome-Gaming-Logos), Rookervik and the [RetroPie Carbon contributors](https://github.com/RetroPie/es-theme-carbon), and [Fabrice Caruso’s expanded Carbon collection](https://github.com/fabricecaruso/es-theme-carbon). Carbon builds on Nils Bonenberger’s Simple theme. Please support their work and the [Pegasus](https://pegasus-frontend.org/) and [GameOS](https://github.com/PlayingKarrde/gameOS) projects that inspired HVR88. These are third-party logos, not AI-generated Multi Pop illustrations. Full credits, modifications, pinned sources, and unmodified notices ship in [assets/logos/README.md](assets/logos/README.md).
 
 
-## Numbered releases
+## Date-based releases
 
-Version 303 follows legacy 0.3.2 (internal version 302). Future packages use increasing Git-derived integer versions and build-commit tags, with a preserved monotonic baseline so existing devices upgrade normally. The displayed version and updater number are the same.
+Releases use labels such as **10.21.26.1**, aligned with Thor: month, day, year, and the release revision for that day. Existing 0.3.2 installations upgrade normally; the updater retains an internal ordering value separate from the displayed label.

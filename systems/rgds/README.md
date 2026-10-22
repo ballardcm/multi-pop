@@ -125,7 +125,7 @@ The agent may need permission to reach the local network. An agent without acces
 
 ## Automatic updates
 
-Releases now use increasing integer numbers, starting at **303** after legacy **0.3.2** (internal 302). Existing 0.3.2 installations can update normally. Packages come from reviewed default-branch commits and are published manually; see [release maintenance](docs/releases.md).
+Releases now use date labels such as **10.21.26.1**—month, day, year, and the release revision for that day—aligned with Thor. Existing 0.3.2 installations can update normally. Packages come from reviewed default-branch commits and are published manually; see [release maintenance](docs/releases.md).
 
 Automatic updates are **off by default**. In **START → User Interface Settings → Theme Configuration**, set **Automatic updates → On**. The device needs working Internet access and an accurate clock to contact GitHub over HTTPS. A USB cable alone provides a local connection, not Internet access.
 

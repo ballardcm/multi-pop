@@ -233,15 +233,17 @@ class AutoUpdateTests(unittest.TestCase):
         auto_update.background(self.config)
         self.assertEqual(self.updates('staged.json')['tag'], 'v0.3.1')
 
-    def test_legacy302_accepts_numbered303_and_confirms_it(self):
+    def test_legacy302_accepts_date_release_and_confirms_label(self):
         (self.config.theme / 'version.json').write_text(json.dumps({'version': 302, 'display_version': '0.3.2'}))
-        self.publish(theme_files('new', number=303), tag=TAG)
+        files = theme_files('new', number=20261021001)
+        files['version.json'] = json.dumps({'version': 20261021001, 'display_version': '10.21.26.1'}).encode()
+        self.publish(files, tag=TAG)
         auto_update.check(self.config)
-        self.assertEqual(self.updates('staged.json')['version'], 303)
+        self.assertEqual(self.updates('staged.json')['version'], 20261021001)
         auto_update.apply(self.config)
         auto_update.confirm(self.config)
-        self.assertEqual(self.updates('installed.json')['version'], 303)
-        self.assertEqual(self.server.notifications[-1], 'Multi Pop updated to version 303.')
+        self.assertEqual(self.updates('installed.json')['version'], 20261021001)
+        self.assertEqual(self.server.notifications[-1], 'Multi Pop updated to version 10.21.26.1.')
         self.publish(theme_files('old', number=302), tag='v0.3.2')
         auto_update.check(self.config)
         self.assertIsNone(self.updates('staged.json'))

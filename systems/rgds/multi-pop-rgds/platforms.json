@@ -443,6 +443,12 @@
     "year": "1993",
     "accent": "22DEE8"
   },
+  "n64dd": {
+    "title": "Nintendo 64 DD",
+    "manufacturer": "Nintendo",
+    "year": "1999",
+    "accent": "1A826B"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

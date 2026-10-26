@@ -419,6 +419,12 @@
     "year": "1986",
     "accent": "99132E"
   },
+  "msx2": {
+    "title": "MSX2",
+    "manufacturer": "MSX",
+    "year": "1985",
+    "accent": "161313"
+  },
   "megacd": {
     "title": "Mega CD",
     "manufacturer": "Sega",

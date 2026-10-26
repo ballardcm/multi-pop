@@ -413,6 +413,12 @@
     "year": "1978",
     "accent": "605f5A"
   },
+  "fds": {
+    "title": "Famicom Disk System",
+    "manufacturer": "Nintendo",
+    "year": "1986",
+    "accent": "99132E"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

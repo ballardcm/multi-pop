@@ -431,6 +431,12 @@
     "year": "1992",
     "accent": "7D89C4"
   },
+  "scv": {
+    "title": "Super Cassette Vision",
+    "manufacturer": "Epoch",
+    "year": "1984",
+    "accent": "E88F22"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

@@ -467,6 +467,12 @@
     "year": "2017",
     "accent": "275F7C"
   },
+  "wasm4": {
+    "title": "WASM-4",
+    "manufacturer": "Bruno Garcia",
+    "year": "2021",
+    "accent": "06540F"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

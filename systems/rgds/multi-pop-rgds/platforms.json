@@ -401,6 +401,12 @@
     "year": "1989",
     "accent": "707A9E"
   },
+  "channelf": {
+    "title": "Fairchild Channel F",
+    "manufacturer": "Fairchild",
+    "year": "1976",
+    "accent": "A36834"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

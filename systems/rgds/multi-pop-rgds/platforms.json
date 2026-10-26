@@ -419,6 +419,12 @@
     "year": "1986",
     "accent": "99132E"
   },
+  "megacd": {
+    "title": "Mega CD",
+    "manufacturer": "Sega",
+    "year": "1992",
+    "accent": "7D89C4"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

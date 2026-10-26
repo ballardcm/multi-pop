@@ -449,6 +449,12 @@
     "year": "1999",
     "accent": "1A826B"
   },
+  "pokemini": {
+    "title": "Pok\u00e9mon Mini",
+    "manufacturer": "Nintendo",
+    "year": "2001",
+    "accent": "5F1A82"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

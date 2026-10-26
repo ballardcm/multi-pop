@@ -407,6 +407,12 @@
     "year": "1976",
     "accent": "A36834"
   },
+  "odyssey": {
+    "title": "Odyssey\u00b2",
+    "manufacturer": "Magnavox",
+    "year": "1978",
+    "accent": "605f5A"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

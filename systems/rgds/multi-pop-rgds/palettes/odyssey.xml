@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>605f5AFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <accentWash>DDDCDCFF</accentWash>
+        <manufacturer>Magnavox</manufacturer>
+        <hardwareYear>1978</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/odyssey.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/odyssey.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/odyssey.png</systemHero>
+    </variables>
+</theme>

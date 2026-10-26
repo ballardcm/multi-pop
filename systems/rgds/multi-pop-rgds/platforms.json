@@ -461,6 +461,12 @@
     "year": "1993",
     "accent": "1C380A"
   },
+  "tic-80": {
+    "title": "TIC-80",
+    "manufacturer": "Nesbox",
+    "year": "2017",
+    "accent": "275F7C"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

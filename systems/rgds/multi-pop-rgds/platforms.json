@@ -455,6 +455,12 @@
     "year": "2001",
     "accent": "5F1A82"
   },
+  "doom": {
+    "title": "Doom",
+    "manufacturer": "ID",
+    "year": "1993",
+    "accent": "1C380A"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

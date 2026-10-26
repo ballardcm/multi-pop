@@ -10,7 +10,7 @@
         <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
         <manufacturerLogoVisible>true</manufacturerLogoVisible>
         <manufacturerTextVisible>false</manufacturerTextVisible>
-        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogo>${themePath}/assets/logos/platforms/fds.svg</platformLogo>
         <platformLogoVisible>false</platformLogoVisible>
         <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/fds.png</systemIcon>

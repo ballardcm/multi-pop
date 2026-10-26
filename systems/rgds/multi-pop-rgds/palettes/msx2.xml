@@ -10,7 +10,7 @@
         <manufacturerLogo>${themePath}/assets/logos/manufacturers/msx.svg</manufacturerLogo>
         <manufacturerLogoVisible>true</manufacturerLogoVisible>
         <manufacturerTextVisible>false</manufacturerTextVisible>
-        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogo>${themePath}/assets/logos/platforms/msx2.svg</platformLogo>
         <platformLogoVisible>false</platformLogoVisible>
         <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/msx2.png</systemIcon>

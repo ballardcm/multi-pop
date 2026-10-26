@@ -10,7 +10,7 @@
         <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
         <manufacturerLogoVisible>false</manufacturerLogoVisible>
         <manufacturerTextVisible>true</manufacturerTextVisible>
-        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogo>${themePath}/assets/logos/platforms/odyssey.svg</platformLogo>
         <platformLogoVisible>false</platformLogoVisible>
         <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/odyssey.png</systemIcon>

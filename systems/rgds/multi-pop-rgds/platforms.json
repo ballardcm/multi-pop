@@ -437,6 +437,12 @@
     "year": "1984",
     "accent": "E88F22"
   },
+  "megaduck": {
+    "title": "Mega Duck",
+    "manufacturer": "Welback",
+    "year": "1993",
+    "accent": "22DEE8"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

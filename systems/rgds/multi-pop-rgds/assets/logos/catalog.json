@@ -543,6 +543,14 @@
       "transform": "monochrome",
       "source_sha256": "b0a280c3ab95ea7c1724280efad1e7d245d3789c0f2fdaf1dcf08f207800810e",
       "sha256": "9c1dc61b0e4b3d238b4f144c94466dc69268c4db8029bbe21e802c10eaab7bcd"
+    },
+    "megaduck": {
+      "file": "platforms/megaduck.svg",
+      "source": "carbon-fbneo",
+      "source_path": "art/logos/megaduck.svg",
+      "transform": "monochrome",
+      "source_sha256": "4b035eea352d6319c1cfd31e891e5454476cb148f74a8181dcf93e4a5cde9bee",
+      "sha256": "ca8d2ce165e06d139cb151b8a203e0f3baa538e17a48e1a09eefb143bd35a2f0"
     }
   },
   "manufacturers": {
@@ -657,6 +665,22 @@
       "transform": "monochrome",
       "source_sha256": "24f490dfc86a128c89a9584a8adea052b50d9af37ad0db218ba86cddc727bcf2",
       "sha256": "e0c373ab2cf87f5a236b7d87a4909d363f5d726013e42ddcd0def737d5c117f3"
+    },
+    "Fairchild": {
+      "file": "manufacturers/fairchild.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_fairchild.svg",
+      "transform": "monochrome",
+      "source_sha256": "2150645eae2bf32ff0ac6068da675513c4623f226ba973bf0421b5ddd1402756",
+      "sha256": "820eb83313e91cd76ac608f42ce36f7722e245909049db3153f3cb997a55de6f"
+    },
+    "Magnavox": {
+      "file": "manufacturers/magnavox.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_magnavox.svg",
+      "transform": "monochrome",
+      "source_sha256": "9939ce6d77a24e3c5fcdd9921f86abab3eff83a94476001b34e48063775dfab1",
+      "sha256": "0ac891054bc60f8cc81ae02f162fdd3c5f02b9cac26dcab773a015c22499694e"
     }
   },
   "fallbacks": {
@@ -668,7 +692,14 @@
       "arcade": "Generic library/category label; keep readable text.",
       "auto-allgames": "Generic library/category label; keep readable text.",
       "auto-lastplayed": "Generic library/category label; keep readable text.",
-      "default": "Generic library/category label; keep readable text."
+      "default": "Generic library/category label; keep readable text.",
+      "supervision": "No suitable platforms mark in the selected sources.",
+      "n64dd": "No suitable platforms mark in the selected sources.",
+      "scv": "No suitable platforms mark in the selected sources.",
+      "pokemini": "No suitable platforms mark in the selected sources.",
+      "doom": "No suitable platforms mark in the selected sources.",
+      "wasm4": "No suitable platforms mark in the selected sources.",
+      "megacd": "No suitable platforms mark in the selected sources."
     },
     "manufacturers": {
       "Arcade": "Category label, not a manufacturer.",
@@ -678,6 +709,12 @@
       "Multi Pop": "Category label, not a manufacturer.",
       "PC Gaming": "Category label, not a manufacturer.",
       "Panasonic": "No suitable standalone manufacturer mark in the selected sources.",
+      "Watara": "No suitable standalone manufacturer mark in the selected sources.",
+      "Bruno Garcia": "No suitable standalone manufacturer mark in the selected sources.",
+      "Nesbox": "No suitable standalone manufacturer mark in the selected sources.",
+      "ID": "No suitable standalone manufacturer mark in the selected sources.",
+      "Welback": "No suitable standalone manufacturer mark in the selected sources.",
+      "Epoch": "No suitable standalone manufacturer mark in the selected sources.",
       "Thor Utilities": "Category label, not a manufacturer.",
       "Your Collection": "Category label, not a manufacturer."
     }

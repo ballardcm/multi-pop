@@ -2,10 +2,10 @@
 <theme>
     <formatVersion>7</formatVersion>
     <variables>
-        <accent>22DEE8FF</accent>
-        <selectionAccent>189EA6FF</selectionAccent>
+        <accent>159097FF</accent>
+        <selectionAccent>159097FF</selectionAccent>
         <accentInk>000000FF</accentInk>
-        <accentWash>D1F3F5FF</accentWash>
+        <accentWash>CFE5E7FF</accentWash>
         <manufacturer>Welback</manufacturer>
         <hardwareYear>1993</hardwareYear>
         <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>

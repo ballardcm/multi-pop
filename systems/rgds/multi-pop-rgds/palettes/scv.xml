@@ -2,10 +2,10 @@
 <theme>
     <formatVersion>7</formatVersion>
     <variables>
-        <accent>E88F22FF</accent>
-        <selectionAccent>CA7D1EFF</selectionAccent>
+        <accent>BB731BFF</accent>
+        <selectionAccent>BB731BFF</selectionAccent>
         <accentInk>000000FF</accentInk>
-        <accentWash>F5E5D1FF</accentWash>
+        <accentWash>EDE0D0FF</accentWash>
         <manufacturer>Epoch</manufacturer>
         <hardwareYear>1984</hardwareYear>
         <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>

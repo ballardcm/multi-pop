@@ -102,7 +102,7 @@
   <include if="${system.theme} == 'fds'">./palettes/fds.xml</include>
   <include if="${system.theme} == 'msx2'">./palettes/msx2.xml</include>
   <include if="${system.theme} == 'megacd'">./palettes/megacd.xml</include>
-  <include if="${system.theme} == 'supervision'">./palettes/scv.xml</include>
+  <include if="${system.theme} == 'supervision'">./palettes/supervision.xml</include>
   <include if="${system.theme} == 'megaduck'">./palettes/megaduck.xml</include>
   <include if="${system.theme} == 'n64dd'">./palettes/n64dd.xml</include>
   <include if="${system.theme} == 'pokemini'">./palettes/pokemini.xml</include>

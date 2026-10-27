@@ -114,6 +114,23 @@ def foreground(accent):
     dark = (luminance(accent) + .05) / (luminance(dark_ink) + .05)
     return "FFFFFF" if light >= dark else dark_ink
 
+def selection_accent(accent, paper="F7F8FC"):
+    paper_lum = luminance(paper)
+    def contrast(color):
+        return (paper_lum + 0.05) / (luminance(color) + 0.05)
+    if contrast(accent) >= 3:
+        return accent
+    low, high = 0.0, 1.0
+    for _ in range(32):
+        factor = (low + high) / 2
+        candidate = "".join(
+            f"{round(c * factor):02X}" for c in rgb(accent)
+        )
+        if contrast(candidate) >= 3.05:
+            low = factor
+        else:
+            high = factor
+    return "".join(f"{round(c * low):02X}" for c in rgb(accent))
 
 def tint(accent, amount):
     return tuple(round(c * amount + 248 * (1 - amount)) for c in rgb(accent))
@@ -208,6 +225,7 @@ def main():
             '<?xml version="1.0" encoding="UTF-8"?>\n<theme>\n    <formatVersion>7</formatVersion>\n'
             '    <variables>\n'
             f'        <accent>{accent}FF</accent>\n'
+            f'        <selectionAccent>{selection_accent(accent)}FF</selectionAccent>\n'
             f'        <accentInk>{foreground(accent)}FF</accentInk>\n'
             f'        <accentWash>{"".join(f"{c:02X}" for c in tint(accent, .18))}FF</accentWash>\n'
             f'        <manufacturer>{escape(details[1])}</manufacturer>\n'

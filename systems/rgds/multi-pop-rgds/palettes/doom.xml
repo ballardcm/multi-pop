@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>1C380AFF</accent>
+        <selectionAccent>1C380AFF</selectionAccent>
         <accentInk>FFFFFFFF</accentInk>
         <accentWash>D0D5CDFF</accentWash>
         <manufacturer>ID</manufacturer>

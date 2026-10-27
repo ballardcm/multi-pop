@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>161313FF</accent>
+        <selectionAccent>161313FF</selectionAccent>
         <accentInk>FFFFFFFF</accentInk>
         <accentWash>CFCFCFFF</accentWash>
         <manufacturer>MSX</manufacturer>

@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>E88F22FF</accent>
+        <selectionAccent>CA7D1EFF</selectionAccent>
         <accentInk>000000FF</accentInk>
         <accentWash>F5E5D1FF</accentWash>
         <manufacturer>Epoch</manufacturer>

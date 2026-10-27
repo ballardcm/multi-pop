@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>06540FFF</accent>
+        <selectionAccent>06540FFF</selectionAccent>
         <accentInk>FFFFFFFF</accentInk>
         <accentWash>CCDACEFF</accentWash>
         <manufacturer>Bruno Garcia</manufacturer>

@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>5F1A82FF</accent>
+        <selectionAccent>5F1A82FF</selectionAccent>
         <accentInk>FFFFFFFF</accentInk>
         <accentWash>DCD0E3FF</accentWash>
         <manufacturer>Nintendo</manufacturer>

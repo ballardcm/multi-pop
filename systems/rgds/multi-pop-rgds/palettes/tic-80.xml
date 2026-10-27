@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>275F7CFF</accent>
+        <selectionAccent>275F7CFF</selectionAccent>
         <accentInk>FFFFFFFF</accentInk>
         <accentWash>D2DCE2FF</accentWash>
         <manufacturer>Nesbox</manufacturer>

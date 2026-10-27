@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>605f5AFF</accent>
+        <selectionAccent>605f5AFF</selectionAccent>
         <accentInk>FFFFFFFF</accentInk>
         <accentWash>DDDCDCFF</accentWash>
         <manufacturer>Magnavox</manufacturer>

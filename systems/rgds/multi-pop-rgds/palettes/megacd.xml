@@ -3,6 +3,7 @@
     <formatVersion>7</formatVersion>
     <variables>
         <accent>7D89C4FF</accent>
+        <selectionAccent>7D89C4FF</selectionAccent>
         <accentInk>000000FF</accentInk>
         <accentWash>E2E4EFFF</accentWash>
         <manufacturer>Sega</manufacturer>

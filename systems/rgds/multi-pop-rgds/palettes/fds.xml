@@ -12,8 +12,8 @@
         <manufacturerLogoVisible>true</manufacturerLogoVisible>
         <manufacturerTextVisible>false</manufacturerTextVisible>
         <platformLogo>${themePath}/assets/logos/platforms/fds.svg</platformLogo>
-        <platformLogoVisible>false</platformLogoVisible>
-        <platformTextVisible>true</platformTextVisible>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/fds.png</systemIcon>
         <systemCard>${themePath}/assets/cards/fds.png</systemCard>
         <systemHero>${themePath}/assets/heroes/fds.png</systemHero>

@@ -8,12 +8,12 @@
         <accentWash>E9DED5FF</accentWash>
         <manufacturer>Fairchild</manufacturer>
         <hardwareYear>1976</hardwareYear>
-        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
-        <manufacturerLogoVisible>false</manufacturerLogoVisible>
-        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/fairchild.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
         <platformLogo>${themePath}/assets/logos/platforms/channelf.svg</platformLogo>
-        <platformLogoVisible>false</platformLogoVisible>
-        <platformTextVisible>true</platformTextVisible>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/channelf.png</systemIcon>
         <systemCard>${themePath}/assets/cards/channelf.png</systemCard>
         <systemHero>${themePath}/assets/heroes/channelf.png</systemHero>

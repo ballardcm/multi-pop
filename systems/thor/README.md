@@ -1,14 +1,5 @@
 # Multi Pop Thor
 
-> [!WARNING]
-> ## Multi Pop has moved to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop)
->
-> Multi Pop Thor now lives in the [Multi Pop monorepo](https://github.com/ballardcm/multi-pop), under [`systems/thor`](https://github.com/ballardcm/multi-pop/tree/main/systems/thor). **This repository will be deleted on 2026-11-27.**
->
-> - **Installed themes with Automatic updates on** switch to the new repository by themselves: installing this repository's final release, **10.28.26.Transition**, points the updater at the new repository's releases. Nothing else needs doing.
-> - **New installs and manual downloads** come from the [new repository's releases](https://github.com/ballardcm/multi-pop/releases). Thor releases are tagged `thor-`, such as `thor-10.28.26.2`.
-> - **Issues and pull requests** go to the [new repository](https://github.com/ballardcm/multi-pop/issues). This one accepts no new changes.
-
 > **AI disclosure:** This theme was developed with the help of AI, and its original system illustrations were AI-generated. Third-party components and their credits are listed below.
 
 A dual-screen theme for AYN Thor running ROCKNIX EmulationStation. The theme is called **Multi Pop**; its folder, runtime identifier, and source repository name are `multi-pop-thor`.
@@ -19,7 +10,7 @@ A 39-second, silent recording of the logo-based layout on an AYN Thor:
 
 https://github.com/user-attachments/assets/8b971ca4-df50-440d-98a0-4431a02531e2
 
-[Watch or download the demo](https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/multi-pop-thor-demo.mp4).
+[Watch or download the demo](https://github.com/ballardcm/multi-pop/releases/download/demo-media/multi-pop-thor-demo.mp4).
 
 The public copy is compressed to 720p, with audio, camera/location/date metadata, and extra data tracks removed. The covers, screenshots, and game details visible in it are third-party game media, not part of the source repository.
 
@@ -57,7 +48,7 @@ Multi Pop installs alongside ROCKNIX rather than replacing any of it. Activation
 
 ### 1. Download and check the release
 
-From the newest Thor release, tagged `thor-`, on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases), download `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
+From the newest Thor release, tagged `thor-`, on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=thor-), download `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
 
 ```sh
 shasum -a 256 --check --ignore-missing SHA256SUMS
@@ -164,7 +155,7 @@ Without SSH there is no simple way back in, which is why the install asks you to
 ### Go back to an earlier version
 
 1. On the Thor, open UI Settings → Theme Configuration and set **Automatic updates** to Off. Otherwise the Thor installs the newest release again.
-2. From the [Multi Pop releases](https://github.com/ballardcm/multi-pop/releases), download that `thor-` version's `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS`, and check it as in [step 1](#1-download-and-check-the-release).
+2. From the [Multi Pop releases](https://github.com/ballardcm/multi-pop/releases?q=thor-), download that `thor-` version's `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS`, and check it as in [step 1](#1-download-and-check-the-release).
 3. Copy the ZIP to the Thor:
 
    ```sh
@@ -225,7 +216,7 @@ Releases use date labels such as **10.21.26.1**—month, day, year, and the rele
 
 Automatic updates are **off by default**. To turn them on, open UI Settings → Theme Configuration and set **Automatic updates** to On; set it back to Off to stop them, which also discards an update that was downloaded but not yet installed. To check right away, choose **Check for updates** under Tools on that screen; it works whether or not Automatic updates is on. The same screen shows the **Installed version**, which also appears as "VERSION N" under MULTI POP in the lower display’s top bar.
 
-With updates on, an activated Thor checks the newest Thor release, tagged `thor-`, in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases) at most every six hours after Multi Pop starts; RG DS, frontend-input, draft and prerelease entries there are ignored. Installations older than 10.28.26.Transition still check this repository, and its final release moves them over. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, a "Multi Pop update ready" message appears, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped. Installing an older version is always a [manual step](#go-back-to-an-earlier-version). The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
+With updates on, an activated Thor checks the newest Thor release, tagged `thor-`, in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases?q=thor-) at most every six hours after Multi Pop starts; RG DS, frontend-input, draft and prerelease entries there are ignored. Installations older than 10.28.26.Transition still check this repository, and its final release moves them over. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, a "Multi Pop update ready" message appears, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped. Installing an older version is always a [manual step](#go-back-to-an-earlier-version). The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
 
 ## Artwork
 

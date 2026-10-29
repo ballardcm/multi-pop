@@ -1,6 +1,6 @@
 # Build your own frontend
 
-Normal installation uses the ready-to-install ZIP from [Releases](https://github.com/ballardcm/multi-pop-thor/releases); it already contains the patched frontend. These instructions are for rebuilding or modifying that frontend.
+Normal installation uses the ready-to-install ZIP from [Releases](https://github.com/ballardcm/multi-pop/releases?q=thor-); it already contains the patched frontend. These instructions are for rebuilding or modifying that frontend.
 
 The supported target is **AYN Thor running ROCKNIX 20261001**, firmware revision `c445081a59518f37d9776e5412dd7b14910696f7`. The frontend source is [ROCKNIX/emulationstation-next](https://github.com/ROCKNIX/emulationstation-next), revision `cada856d86e3115fbbf0bce09dd761b0ee8fa9fd`, with the popup and navigation patches in `multi-pop-thor/frontend/`. Source archive checksums are pinned in `frontend-build/release.json`.
 

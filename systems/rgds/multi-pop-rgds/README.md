@@ -6,7 +6,7 @@
 
 For Anbernic RG DS with ROCKNIX 20261001. This is the installable theme folder, including the patched frontend.
 
-Read the complete [install, update, removal and recovery instructions](https://github.com/ballardcm/multi-pop/tree/HEAD/systems/rgds) before activating. Copy this folder to `/roms/themes/`, keep SSH enabled, then run:
+Read the complete [install, update, removal and recovery instructions](https://github.com/ballardcm/multi-pop/tree/main/systems/rgds) before activating. Copy this folder to `/roms/themes/`, keep SSH enabled, then run:
 
 ```sh
 bash /roms/themes/multi-pop-rgds/scripts/enable_multi_pop_rgds.sh

@@ -1,15 +1,8 @@
 # Multi Pop for Anbernic RG DS
 
-> [!WARNING]
-> **Multi Pop has moved to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop). This repository will be deleted on 2026-11-27.**
->
-> RG DS now lives under [`systems/rgds`](https://github.com/ballardcm/multi-pop/tree/HEAD/systems/rgds) in the new repository, alongside Thor. Download future releases from [its releases page](https://github.com/ballardcm/multi-pop/releases), and open issues and pull requests there; this repository no longer accepts them.
->
-> If automatic updates are on, installing this release (**10.28.26.Transition**) switches your theme to the new repository, and later updates come from there with no further action. With automatic updates off, choose **Check for updates** once, or install the next release from the new repository by hand.
-
 > **AI disclosure:** This theme was developed with the help of AI, and its original system illustrations were AI-generated. Third-party components and their credits are listed below.
 
-A colorful two-screen frontend for **Anbernic RG DS running ROCKNIX 20261001**. System artwork or a game preview appears above; a three-card library appears below. Touch works on both screens. This port of Multi Pop Thor, now under [`systems/thor`](https://github.com/ballardcm/multi-pop/tree/HEAD/systems/thor) in the same repository, includes a patched EmulationStation frontend sized for the RG DS's two 640×480 displays.
+A colorful two-screen frontend for **Anbernic RG DS running ROCKNIX 20261001**. System artwork or a game preview appears above; a three-card library appears below. Touch works on both screens. This port of Multi Pop Thor, now under [`systems/thor`](https://github.com/ballardcm/multi-pop/tree/main/systems/thor) in the same repository, includes a patched EmulationStation frontend sized for the RG DS's two 640×480 displays.
 
 This is an early release for the original RG DS, not the RG DS Plus or other handhelds. It installs on the ROCKNIX card and does not replace Android or change your ROMs, BIOS, saves, or emulator configuration. See [hardware validation](docs/prototype-status.md) for tested behavior and outstanding checks.
 
@@ -35,7 +28,7 @@ A short recording of browsing systems and games on an Anbernic RG DS:
 
 https://github.com/user-attachments/assets/f038ef35-d6f7-4ab2-8db9-ee1692dc7c02
 
-[Watch or download the silent 51-second demo](https://github.com/ballardcm/multi-pop-rgds/releases/download/v0.3.0/multi-pop-rgds-demo.mp4).
+[Watch or download the silent 51-second demo](https://github.com/ballardcm/multi-pop/releases/download/demo-media/multi-pop-rgds-demo.mp4).
 
 The public copy is compressed to 720p, with audio, camera/location/date metadata, and extra data tracks removed. Original recordings are not included in Git or source releases.
 
@@ -45,7 +38,7 @@ The covers, gameplay previews, and game details shown are third-party media on t
 
 ### 1. Download and verify
 
-Download **multi-pop-rgds-rocknix-20261001.zip** and **SHA256SUMS** from the same RG DS release, the newest `rgds-` entry on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases); Thor releases share that page. The source ZIP is for developers; it is not the installable theme. Do not install GitHub's automatically generated Source code ZIP.
+Download **multi-pop-rgds-rocknix-20261001.zip** and **SHA256SUMS** from the same RG DS release, the newest `rgds-` entry on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=rgds-); Thor releases share that page. The source ZIP is for developers; it is not the installable theme. Do not install GitHub's automatically generated Source code ZIP.
 
 On macOS, in the folder containing the downloads:
 
@@ -134,7 +127,7 @@ The agent may need permission to reach the local network. An agent without acces
 
 Releases now use date labels such as **10.21.26.1**—month, day, year, and the release revision for that day—aligned with Thor. Existing 0.3.2 installations can update normally. Packages come from reviewed default-branch commits and are published manually; see [release maintenance](docs/releases.md).
 
-Updates now come from [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop/releases). The transition release, **10.28.26.Transition**, is the last one published here; once installed, the updater looks only for RG DS releases tagged `rgds-MM.DD.YY.N` in the new repository and ignores Thor and other releases there. Until the first such release appears, a check reports that Multi Pop is up to date.
+Updates come from the [Multi Pop releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-). The transition release, **10.28.26.Transition**, was the last one published from the old `ballardcm/multi-pop-rgds` repository; once installed, the updater looks only for RG DS releases tagged `rgds-MM.DD.YY.N` in the new repository and ignores Thor and other releases there. Until the first such release appears, a check reports that Multi Pop is up to date.
 
 Automatic updates are **off by default**. In **START → User Interface Settings → Theme Configuration**, set **Automatic updates → On**. The device needs working Internet access and an accurate clock to contact GitHub over HTTPS. A USB cable alone provides a local connection, not Internet access.
 

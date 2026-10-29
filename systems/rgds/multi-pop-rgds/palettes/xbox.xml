@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>357D28FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/xbox.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/xbox.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/xbox.png</systemHero>
+    <manufacturer>Microsoft</manufacturer>
+    <hardwareTitle>Xbox</hardwareTitle>
+    <hardwareYear>2001</hardwareYear>
+    <accentWash>D4E2D6FF</accentWash>
+    <selectionAccent>357D28FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/microsoft.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/xbox.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>5B32DFFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/gc.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/gc.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/gc.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>GameCube</hardwareTitle>
+    <hardwareYear>2001</hardwareYear>
+    <accentWash>DBD4F7FF</accentWash>
+    <selectionAccent>5B32DFFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/gc.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

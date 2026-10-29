@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>EF70A5FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/pico8.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/pico8.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/pico8.png</systemHero>
+    <manufacturer>Lexaloffle</manufacturer>
+    <hardwareTitle>PICO-8</hardwareTitle>
+    <hardwareYear>2015</hardwareYear>
+    <accentWash>F6E0ECFF</accentWash>
+    <selectionAccent>D46392FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+    <manufacturerLogoVisible>false</manufacturerLogoVisible>
+    <manufacturerTextVisible>true</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/pico8.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>3567A8FF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/c64.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/c64.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/c64.png</systemHero>
+    <manufacturer>Commodore</manufacturer>
+    <hardwareTitle>Commodore 64</hardwareTitle>
+    <hardwareYear>1982</hardwareYear>
+    <accentWash>D4DEEDFF</accentWash>
+    <selectionAccent>3567A8FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/commodore.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/c64.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

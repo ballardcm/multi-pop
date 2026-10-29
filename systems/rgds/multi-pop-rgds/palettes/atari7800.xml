@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>A9B0B7FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/atari7800.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/atari7800.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/atari7800.png</systemHero>
+    <manufacturer>Atari</manufacturer>
+    <hardwareTitle>Atari 7800</hardwareTitle>
+    <hardwareYear>1986</hardwareYear>
+    <accentWash>E9EBF0FF</accentWash>
+    <selectionAccent>84898FFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/atari7800.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

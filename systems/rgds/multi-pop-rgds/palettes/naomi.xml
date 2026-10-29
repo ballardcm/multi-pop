@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>98C8CCFF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/naomi.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/naomi.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/naomi.png</systemHero>
+    <manufacturer>Sega</manufacturer>
+    <hardwareTitle>Naomi</hardwareTitle>
+    <hardwareYear>1998</hardwareYear>
+    <accentWash>E6EFF3FF</accentWash>
+    <selectionAccent>6F9395FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/naomi.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

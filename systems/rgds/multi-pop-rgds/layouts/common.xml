@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <view name="screen">
+    <controllerActivity name="controllerActivity">
+      <visible>false</visible>
+    </controllerActivity>
+    <batteryIndicator name="batteryIndicator">
+      <pos>0.58125 0.029166667</pos>
+      <size>0.070833333 0.058333333</size>
+      <horizontalAlignment>right</horizontalAlignment>
+      <itemSpacing>0.003125</itemSpacing>
+      <color>${ink}</color>
+      <visible>true</visible>
+    </batteryIndicator>
+    <text name="clock">
+      <pos>1 1</pos>
+    </text>
+  </view>
+  <view name="system, gamecarousel">
+    <image name="canvas" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0 0</pos>
+      <size>1.000000000 1.000000000</size>
+      <color>171821FF</color>
+      <zIndex>0</zIndex>
+      <linearSmooth>true</linearSmooth>
+    </image>
+    <image name="top-paper" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.333333333 0.000000000</pos>
+      <size>0.333333333 1.000000000</size>
+      <color>${paper}</color>
+      <zIndex>1</zIndex>
+      <linearSmooth>true</linearSmooth>
+    </image>
+    <image name="bottom-paper" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.666666666 0.000000000</pos>
+      <size>0.333333334 1.000000000</size>
+      <color>${paper}</color>
+      <zIndex>1</zIndex>
+      <linearSmooth>true</linearSmooth>
+    </image>
+    <image name="bottom-header" extra="true">
+      <path>${themePath}/assets/ui/white.svg</path>
+      <pos>0.666666666 0.000000000</pos>
+      <size>0.333333333 0.116666667</size>
+      <color>${accent}</color>
+      <zIndex>2</zIndex>
+      <linearSmooth>true</linearSmooth>
+    </image>
+    <text name="bottom-brand" extra="true">
+      <text>MULTI POP</text>
+      <pos>0.883333333 0.0125</pos>
+      <size>0.104166667 0.041666667</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath>
+      <fontSize>0.029166667</fontSize>
+      <color>${accentInk}</color>
+      <alignment>center</alignment>
+      <zIndex>3</zIndex>
+      <verticalAlignment>center</verticalAlignment>
+    </text>
+    <image name="selected-card-frame" extra="true">
+      <path>${themePath}/assets/ui/selection.svg</path>
+      <color>${selectionAccent}</color>
+      <pos>0.833333333 0.450000000</pos>
+      <origin>0.5 0.5</origin>
+      <size>0.102083333 0.566666667</size>
+      <zIndex>4</zIndex>
+      <linearSmooth>true</linearSmooth>
+    </image>
+    <helpsystem name="help">
+      <textColor>00000000</textColor>
+      <iconColor>00000000</iconColor>
+    </helpsystem>
+    <text name="browse-hints" extra="true">
+      <text>Swipe ‹ › · Tap/A select · B back</text>
+      <pos>0.679166667 0.935416667</pos>
+      <size>0.308333333 0.050000000</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.0375</fontSize>
+      <color>${muted}</color>
+      <alignment>center</alignment>
+      <zIndex>6</zIndex>
+    </text>
+    <text name="bottom-version" extra="true">
+      <text>VERSION ${multiPopVersion}</text>
+      <pos>0.883333333 0.0625</pos>
+      <size>0.104166667 0.033333333</size>
+      <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath>
+      <fontSize>0.022916667</fontSize>
+      <color>${accentInk}</color>
+      <alignment>center</alignment>
+      <verticalAlignment>center</verticalAlignment>
+      <zIndex>3</zIndex>
+    </text>
+  </view>
+</theme>

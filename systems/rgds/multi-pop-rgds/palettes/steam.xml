@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>287BB5FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/steam.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/steam.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/steam.png</systemHero>
+    <manufacturer>PC Gaming</manufacturer>
+    <hardwareTitle>Steam</hardwareTitle>
+    <hardwareYear />
+    <accentWash>D2E2EFFF</accentWash>
+    <selectionAccent>287BB5FF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+    <manufacturerLogoVisible>false</manufacturerLogoVisible>
+    <manufacturerTextVisible>true</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/steam.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

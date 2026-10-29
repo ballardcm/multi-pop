@@ -1,0 +1,55 @@
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -31,6 +31,7 @@
+ #include "VolumeControl.h"
+ #include <SDL_events.h>
+ #include <algorithm>
++#include <cstdlib>
+ #include "utils/Platform.h"
+ #include "utils/FileSystemUtil.h"
+ 
+@@ -4917,6 +4918,17 @@
+ 			themeconfig->setVariable("reloadAll", true);
+ 			themeconfig->close();
+ 		});
++
++		// Multi Pop's updater runs on its own and answers through the HTTP API's message box, so a slow download never blocks the menu.
++		static const std::string thorUpdater = "/roms/themes/multi-pop-rgds/scripts/auto_update.py";
++		if (Settings::getInstance()->getString("ThemeSet") == "multi-pop-rgds" && Utils::FileSystem::exists(thorUpdater))
++		{
++			themeconfig->addEntry(_("CHECK FOR UPDATES"), false, [window]
++			{
++				std::system(("setsid python3 " + thorUpdater + " check </dev/null >/dev/null 2>&1 &").c_str());
++				window->displayNotificationMessage(_("Checking for Multi Pop updates..."));
++			});
++		}
+ 	}
+ 
+ 	//  theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region,
+@@ -5146,14 +5158,18 @@
+ 			for (auto it = styles.cbegin(); it != styles.cend(); it++)
+ 				gamelist_style->add(it->second, it->first, viewPreference == it->first);
+ 
+-			s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
+-			s->addSaveFunc([s, gamelist_style, window] {
+-				if (Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected()))
+-				{
+-					s->setVariable("reloadAll", true);
+-					s->setVariable("reloadGuiMenu", true);
+-				}
+-			});
++			// A theme with a single game view offers no real choice, so only Automatic would remain; the system menus hide it the same way.
++			if (styles.size() > 2)
++			{
++				s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
++				s->addSaveFunc([s, gamelist_style, window] {
++					if (Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected()))
++					{
++						s->setVariable("reloadAll", true);
++						s->setVariable("reloadGuiMenu", true);
++					}
++				});
++			}
+ 		}		
+ 	}
+ 

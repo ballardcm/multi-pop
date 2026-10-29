@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The raised cartridge crown, bowed lower edge, gray controls, and slanted speaker slots identify the original AGB-001. -->
+  <defs>
+    <linearGradient id="indigo" x1="0" y1="0" x2="0.75" y2="1"><stop stop-color="#8275C4"/><stop offset="0.45" stop-color="#5B50A0"/><stop offset="1" stop-color="#3C3579"/></linearGradient>
+    <linearGradient id="gray" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#E1E2E6"/><stop offset="0.55" stop-color="#B8BBC3"/><stop offset="1" stop-color="#8B909E"/></linearGradient>
+    <linearGradient id="bezel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3B3D45"/><stop offset="1" stop-color="#21242D"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#758789"/><stop offset="1" stop-color="#455958"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M80 181c0-28 18-44 52-49l105-13-27 47Z" fill="url(#gray)" stroke="#85899A" stroke-width="3"/>
+    <path d="M563 119l105 13c34 5 52 21 52 49l-130-15Z" fill="url(#gray)" stroke="#85899A" stroke-width="3"/>
+    <path d="M248 116c-17 0-31 9-47 19-24 15-72 23-106 31-11 43-21 115-28 208-3 45 8 71 44 83l102 30c85 28 289 28 374 0l102-30c36-12 47-38 44-83-7-93-17-165-28-208-34-8-82-16-106-31-16-10-30-19-47-19Z" fill="#393467" stroke="#3D365F" stroke-width="3"/>
+    <path d="M248 108c-17 0-31 9-47 19-24 15-72 23-106 31-11 43-21 115-28 208-3 45 8 71 44 83l102 30c85 28 289 28 374 0l102-30c36-12 47-38 44-83-7-93-17-165-28-208-34-8-82-16-106-31-16-10-30-19-47-19Z" fill="url(#indigo)" stroke="#4C417C" stroke-width="3"/>
+    <path d="M88 336c7-85 14-133 22-163 52-11 84-15 106-31 13-9 26-17 41-17h292c15 0 28 8 41 17 22 16 54 20 106 31" fill="none" stroke="#ADA2DD" stroke-width="3" opacity="0.6"/>
+    <path d="M268 158c69-8 195-8 264 0 21 2 30 12 33 35l11 211c1 26-8 40-31 46-78 22-212 22-290 0-23-6-32-20-31-46l11-211c3-23 12-33 33-35Z" fill="url(#bezel)" stroke="#343046" stroke-width="4"/>
+    <path d="M270 163c71-8 189-8 260 0" fill="none" stroke="#8C88A4" stroke-width="2"/>
+    <rect x="254" y="188" width="292" height="200" rx="2" fill="#151E25"/>
+    <rect x="260" y="194" width="280" height="187" fill="url(#lcd)"/>
+    <path d="M263 197h244L263 340Z" fill="#CDDDCA" opacity="0.1"/>
+    <rect x="355" y="128" width="90" height="19" rx="9" fill="#55498B" stroke="#9587C3" stroke-width="1.5"/>
+    <path d="M365 140v-8l6 8v-8m5 0h4m-2 0v8m-2 0h4m5 0v-8l6 8v-8m4 0h8m-4 0v8m14-8h-6v8h6m-6-4h5m6 4v-8l6 8v-8m5 8v-8h4l3 2v4l-3 2Zm13 0v-8h6v8Z" fill="none" stroke="#A395C8" stroke-width="1.2" transform="translate(-5 0)"/>
+    <path d="M146 233h29v28h28v29h-28v28h-29v-28h-28v-29h28Z" fill="#363046" stroke="#3D365B" stroke-width="7"/>
+    <path d="M146 230h29v28h28v29h-28v28h-29v-28h-28v-29h28Z" fill="url(#gray)" stroke="#9598A5" stroke-width="2"/>
+    <path d="M151 239h19m-43 26v15m28 26h15m23-27v-14" fill="none" stroke="#F2EFF5" stroke-width="2" opacity="0.7"/>
+    <circle cx="160.5" cy="272.5" r="8" fill="#9DA0AE"/>
+    <path d="M156 251l4-5 4 5m-27 18-5 4 5 4m47-8 5 4-5 4m-28 18 4 5 4-5" fill="none" stroke="#9699A5" stroke-width="1.5"/>
+    <circle cx="615" cy="285" r="26" fill="#3C355D"/>
+    <circle cx="675" cy="264" r="26" fill="#3C355D"/>
+    <circle cx="615" cy="282" r="23" fill="url(#gray)" stroke="#9D9FAC" stroke-width="2"/>
+    <circle cx="675" cy="261" r="23" fill="url(#gray)" stroke="#9D9FAC" stroke-width="2"/>
+    <path d="M610 272v19h6c8 0 8-10 0-10h-6m0-9h6c7 0 7 9 0 9m53-12 6-19 6 19m-10-6h8" fill="none" stroke="#9295A3" stroke-width="2.2"/>
+    <path d="M128 354l48 13m-49 23 49 13" stroke="#514789" stroke-width="23"/>
+    <path d="M126 346l45 12m-46 24 46 12" stroke="#8678BC" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="185" cy="370" r="10" fill="#373247"/>
+    <circle cx="183" cy="367" r="9" fill="url(#gray)" stroke="#969AA6" stroke-width="1.5"/>
+    <circle cx="185" cy="406" r="10" fill="#373247"/>
+    <circle cx="183" cy="403" r="9" fill="url(#gray)" stroke="#969AA6" stroke-width="1.5"/>
+    <g stroke="#2D2958" stroke-width="7">
+      <path d="M606 362l70-20"/><path d="M606 377l70-20"/><path d="M606 392l70-20"/><path d="M606 407l70-20"/><path d="M606 422l70-20"/>
+    </g>
+    <path d="M607 367l68-19m-68 34 68-19m-68 34 68-19m-68 34 68-19m-68 34 68-19" fill="none" stroke="#9482BF" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="616" cy="183" r="7" fill="#302C4B" stroke="#9585BD" stroke-width="1.5"/>
+    <circle cx="616" cy="182" r="4.5" fill="#A4CE72"/>
+    <!-- Outlined lettering keeps the familiar bezel label stable without depending on host fonts. -->
+    <g fill="none" stroke="#C4C4CF" stroke-width="2.3" stroke-linecap="square" transform="translate(300 426) skewX(-8)">
+      <path d="M9 0H0v12h9V6H5m8 6L17 0h2l4 12m-8-4h6m6 4V0l5 7 5-7v12m14-12H41v12h10m-10-6h8m13 6V0h7c5 0 5 6 0 6h-7m7 0c5 0 5 6 0 6h-7m16 0V0h9v12Zm15-12 5 6 5-6m-5 6v6m15 0 4-12h2l4 12m-8-4h6m8 4V0h6l4 3v6l-4 3Zm15-12 4 12h2l4-12m4 12 4-12h2l4 12m-8-4h6m8 4V0l9 12V0m14 0h-9v12h9m14-12h-9v12h9m-9-6h7"/>
+    </g>
+    <path d="M245 478c75 19 234 19 310 0" fill="none" stroke="#9985C2" stroke-width="2" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>2448CCFF</accent>
+    <accentInk>FFFFFFFF</accentInk>
+    <systemIcon>${themePath}/assets/systems/ps2.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/ps2.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/ps2.png</systemHero>
+    <manufacturer>Sony</manufacturer>
+    <hardwareTitle>PlayStation 2</hardwareTitle>
+    <hardwareYear>2000</hardwareYear>
+    <accentWash>D1D8F3FF</accentWash>
+    <selectionAccent>2448CCFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/ps2.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

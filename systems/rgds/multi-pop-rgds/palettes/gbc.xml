@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>78BE48FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/gbc.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/gbc.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/gbc.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Game Boy Color</hardwareTitle>
+    <hardwareYear>1998</hardwareYear>
+    <accentWash>E0EEDCFF</accentWash>
+    <selectionAccent>649E3CFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/gbc.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

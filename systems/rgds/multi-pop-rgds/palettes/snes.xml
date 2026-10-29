@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+    <accent>B49EE1FF</accent>
+    <accentInk>000000FF</accentInk>
+    <systemIcon>${themePath}/assets/systems/snes.png</systemIcon>
+    <systemCard>${themePath}/assets/cards/snes.png</systemCard>
+    <systemHero>${themePath}/assets/heroes/snes.png</systemHero>
+    <manufacturer>Nintendo</manufacturer>
+    <hardwareTitle>Super Nintendo</hardwareTitle>
+    <hardwareYear>1991</hardwareYear>
+    <accentWash>EBE8F7FF</accentWash>
+    <selectionAccent>9584BBFF</selectionAccent>
+    <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+    <manufacturerLogoVisible>true</manufacturerLogoVisible>
+    <manufacturerTextVisible>false</manufacturerTextVisible>
+    <platformLogo>${themePath}/assets/logos/platforms/snes.svg</platformLogo>
+    <platformLogoVisible>true</platformLogoVisible>
+    <platformTextVisible>false</platformTextVisible>
+  </variables>
+</theme>

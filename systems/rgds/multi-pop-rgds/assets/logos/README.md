@@ -18,14 +18,15 @@ The creator expressly permits use in collections and projects and asks for a not
 
 SVG geometry is retained, paint is normalized to white for the frontend's palette tint, and embedded descriptive metadata is removed from the renderable assets while source provenance is retained in [catalog.json](catalog.json). The Master System wordmark is isolated from Carbon's combined Sega/Master System mark, retaining ancestor transforms; Sega appears separately as the manufacturer. The builder does not rasterize, trace, or invent brand marks. Display scaling preserves aspect ratio.
 
-Every file has a source repository, pinned commit, source path, source SHA-256, transform name, and generated SHA-256. Source notices also have recorded hashes. Original source downloads stay outside Git. Rebuild from a cache with:
+Every file has a source repository, pinned commit, source path, source SHA-256, transform name, and generated SHA-256. Source notices also have recorded hashes. Original source downloads stay outside Git. Rebuild from a cache in either system's directory (`systems/thor` or `systems/rgds`) with:
 
 ```sh
 python3 tools/build-multi-pop-logos.py --cache /tmp/multi-pop-logo-sources --fetch
-python3 tools/build-logo-palettes.py
 ```
 
-Run these commands from the source repository. `--record-hashes` is reserved for intentional asset curation and review, not routine builds.
+Then copy `assets/logos` to the other system, because both systems ship the same logo bytes and `tools/check-shared-assets.py` at the repository root fails while they differ. Each system then refreshes its own palettes' logo routing: Thor with `python3 tools/build-multi-pop-art.py --palettes-only`, and RG DS with `python3 tools/build-logo-palettes.py`, which keeps its tuned palette colors and selection contrast.
+
+`--record-hashes` is reserved for intentional asset curation and review, not routine builds.
 
 ## Coverage and fallbacks
 

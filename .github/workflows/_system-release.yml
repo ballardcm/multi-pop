@@ -36,6 +36,11 @@ jobs:
             thor|rgds) ;;
             *) echo "Unknown system: ${{ inputs.system }}" >&2; exit 1 ;;
           esac
+      # The artwork, logos, fonts and platform list are copies of one set until they move into shared/, so either
+      # system's change must leave both copies byte-identical.
+      - name: Check the shared assets are identical in both systems
+        working-directory: .
+        run: python3 tools/check-shared-assets.py
       - name: Validate the Thor theme and media tools
         if: inputs.system == 'thor'
         run: |

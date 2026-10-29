@@ -171,7 +171,9 @@ def make_art(key, details, hardware):
     card.alpha_composite(small, ((400 - small.width) // 2, 205 + (286 - small.height) // 2))
     draw.text((28, 550), year or "YOUR LIBRARY", fill=rgb(INK), font=ImageFont.truetype(str(FONT), 34))
     draw.line((28, 527, 372, 527), fill=tint(accent, .45), width=3)
-    draw.text((28, 598), "MULTI POP  /  RGDS", fill="#646A80", font=ImageFont.truetype(str(REGULAR), 17))
+    # The footer names only the theme, because Thor and RG DS ship the same card bytes and a device name would be
+    # wrong on one of them.
+    draw.text((28, 598), "MULTI POP", fill="#646A80", font=ImageFont.truetype(str(REGULAR), 17))
     card.save(ROOT / "assets/cards" / (key + ".png"))
 
     # An opaque rectangular stage fills the upper panel without a card floating over a second background.

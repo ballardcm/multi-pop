@@ -2,7 +2,8 @@ name: System release
 
 # Thor and RG DS share one release pipeline so the two systems check, package and publish the same way. Each system
 # keeps its own tools and tests in systems/<system>, and every step runs there because those tools locate the project
-# root from their own path and inventory sources with git ls-files relative to it.
+# root from their own path and inventory sources with git ls-files relative to it. The working directory is set per job
+# because workflow-level defaults cannot read inputs.
 on:
   workflow_call:
     inputs:
@@ -15,12 +16,11 @@ on:
 permissions:
   contents: read
 
-defaults:
-  run:
-    working-directory: systems/${{ inputs.system }}
-
 jobs:
   package:
+    defaults:
+      run:
+        working-directory: systems/${{ inputs.system }}
     runs-on: ubuntu-latest
     steps:
       # Keep complete source history available for provenance and the published tag's duplicate check.
@@ -114,6 +114,9 @@ jobs:
           retention-days: 30
 
   publish:
+    defaults:
+      run:
+        working-directory: systems/${{ inputs.system }}
     needs: package
     # Merging never publishes: a release goes out only when a maintainer starts the workflow on main, so several
     # merged PRs can be tested together and shipped as one version.
@@ -144,7 +147,7 @@ jobs:
           # a release that no device ever sees.
           python3 -c 'import re, sys; assert re.fullmatch(r"(thor|rgds)-\d{2}\.\d{2}\.\d{2}\.\d{1,3}", sys.argv[1]), "Tag " + sys.argv[1] + " would be ignored by the updater; use a numbered revision"' "$tag"
           # The packaged label must be the one the tag claims, or the device would show a different version.
-          packaged=$(unzip -p dist/multi-pop-$SYSTEM-rocknix-*.zip multi-pop-$SYSTEM/version.json | python3 -c 'import json, sys; print(json.load(sys.stdin).get("display_version", ""))')
+          packaged=$(unzip -p "dist/multi-pop-$SYSTEM-rocknix-"*.zip "multi-pop-$SYSTEM/version.json" | python3 -c 'import json, sys; print(json.load(sys.stdin).get("display_version", ""))')
           test "$packaged" = "$label" || { echo "Packaged version $packaged does not match $label" >&2; exit 1; }
           # A label is published once. Re-running the same commit is harmless, but a different commit under an
           # existing tag means the daily revision was not incremented.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>48AABDFF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>D8EAEDFF</accentWash>
+        <manufacturer>Bandai</manufacturer>
+        <hardwareYear>2000</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/bandai.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/wonderswancolor.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/wonderswancolor.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/wonderswancolor.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/wonderswancolor.png</systemHero>
+    </variables>
+</theme>

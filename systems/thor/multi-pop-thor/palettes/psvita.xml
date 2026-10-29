@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>1686C7FF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>CFE3EFFF</accentWash>
+        <manufacturer>Sony</manufacturer>
+        <hardwareYear>2011</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/psvita.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/psvita.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/psvita.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/psvita.png</systemHero>
+    </variables>
+</theme>

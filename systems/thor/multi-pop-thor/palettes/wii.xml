@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>93BFC9FF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>E6EEF0FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>2006</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/wii.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/wii.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/wii.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/wii.png</systemHero>
+    </variables>
+</theme>

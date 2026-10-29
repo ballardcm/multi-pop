@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>EB5E52FF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>F6DCDAFF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>2011</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/3ds.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/3ds.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/3ds.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/3ds.png</systemHero>
+    </variables>
+</theme>

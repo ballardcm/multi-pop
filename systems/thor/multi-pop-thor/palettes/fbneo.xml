@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>E9B33FFF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>F5ECD7FF</accentWash>
+        <manufacturer>Arcade</manufacturer>
+        <hardwareYear>2002</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/fbneo.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/fbneo.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/fbneo.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/fbneo.png</systemHero>
+    </variables>
+</theme>

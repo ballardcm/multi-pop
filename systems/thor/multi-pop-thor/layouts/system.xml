@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <view name="system">
+        <text name="browse-hints" extra="true"><text>Swipe ‹ › · Tap/A select · B jump · START menu</text></text>
+        <text name="hardware-manufacturer" extra="true">
+            <pos>0.289090909 0.029629630</pos>
+        </text>
+        <image name="manufacturer-logo" extra="true">
+            <pos>0.329545455 0.075925926</pos>
+        </image>
+        <text name="top-system-name" extra="true">
+            <visible>${platformTextVisible}</visible>
+            <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
+            <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
+            <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.04</fontSize><lineSpacing>1</lineSpacing>
+            <color>${accentInk}</color><alignment>center</alignment><forceUppercase>true</forceUppercase><zIndex>3</zIndex>
+        </text>
+        <text name="system-header" extra="true">
+            <text>Systems</text>
+            <pos>0.730909091 0.029629630</pos><size>0.18 0.075925926</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.062962963</fontSize>
+            <color>${accentInk}</color><alignment>left</alignment><zIndex>3</zIndex>
+        </text>
+
+        <!-- Keep identity in the rail/header and show the original hardware without baked-in labels. -->
+        <image name="hardware-stage" extra="true">
+            <path>${themePath}/assets/ui/hardware-stage.svg</path>
+            <pos>0.384090909 0.014814815</pos><size>0.325 0.890740741</size>
+            <color>${accentWash}</color><linearSmooth>true</linearSmooth><zIndex>2</zIndex>
+        </image>
+        <image name="system-hero" extra="true">
+            <path>${systemIcon}</path>
+            <pos>0.547727273 0.511111111</pos><origin>0.5 0.5</origin>
+            <maxSize>0.313636364 0.755555556</maxSize><linearSmooth>true</linearSmooth><zIndex>3</zIndex>
+        </image>
+        <text name="hero-instruction" extra="true">
+            <text>Swipe left/right to browse · Tap to select</text>
+            <pos>0.389090909 0.940740741</pos><size>0.316818182 0.044444444</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>${muted}</color><alignment>center</alignment><zIndex>3</zIndex>
+        </text>
+
+        <!-- System logos use screen coordinates, unlike the game carousel's local logo coordinates. -->
+        <carousel name="systemcarousel">
+            <type>horizontal</type><pos>0.859090909 0.446296296</pos><origin>0.5 0.5</origin>
+            <size>0.281818182 0.6</size><logoSize>0.070454545 0.462962963</logoSize>
+            <logoScale>1.15</logoScale><maxLogoCount>3</maxLogoCount><minLogoOpacity>0.7</minLogoOpacity>
+            <color>00000000</color><systemInfoDelay>0</systemInfoDelay><zIndex>5</zIndex>
+        </carousel>
+        <image name="logo">
+            <path>${systemCard}</path>
+        </image>
+        <text name="logoText"><visible>false</visible></text>
+        <text name="selected-system-name" extra="true">
+            <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
+            <pos>0.732727273 0.747222222</pos><size>0.252727273 0.133333333</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.052777778</fontSize><lineSpacing>1</lineSpacing>
+            <color>${ink}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="systemInfo">
+            <pos>0.732727273 0.868518519</pos><size>0.252727273 0.046296296</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.035185185</fontSize>
+            <color>${muted}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+    </view>
+</theme>

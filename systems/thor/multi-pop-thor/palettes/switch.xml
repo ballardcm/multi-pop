@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>DE564DFF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>F3DBD9FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>2017</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/switch.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/switch.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/switch.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/switch.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>77796FFF</accent>
+        <accentInk>000000FF</accentInk>
+        <accentWash>E1E1DFFF</accentWash>
+        <manufacturer>Sony</manufacturer>
+        <hardwareYear>1994</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/psx.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/psx.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/psx.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/psx.png</systemHero>
+    </variables>
+</theme>

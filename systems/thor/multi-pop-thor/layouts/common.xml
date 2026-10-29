@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+
+    <!-- The unused 1240px area keeps native menus centered on the Thor's upper panel. -->
+    <!-- The upper display occupies x=1240..3160 and the lower display occupies x=3160..4400. -->
+    <view name="screen">
+        <controllerActivity name="controllerActivity"><visible>false</visible></controllerActivity>
+        <!-- Keep larger native Wi-Fi and battery indicators in the upper status strip. -->
+        <batteryIndicator name="batteryIndicator">
+            <pos>0.631818182 0.024074074</pos><size>0.072727273 0.051851852</size>
+            <horizontalAlignment>right</horizontalAlignment><itemSpacing>0.003636364</itemSpacing>
+            <color>${ink}</color><visible>true</visible>
+        </batteryIndicator>
+        <text name="clock"><pos>1 1</pos></text>
+    </view>
+
+    <view name="system, gamecarousel">
+        <image name="canvas" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0 0</pos><size>1 1</size><color>171821FF</color><zIndex>0</zIndex>
+        </image>
+        <image name="top-paper" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.281818182 0</pos><size>0.436363636 1</size><color>${paper}</color><zIndex>1</zIndex>
+        </image>
+        <image name="system-color-column" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.281818182 0</pos><size>0.095454545 1</size><color>${accent}</color><zIndex>2</zIndex>
+        </image>
+        <!-- The library view leaves space above this label for its back arrow. -->
+        <text name="hardware-manufacturer" extra="true">
+            <text>${manufacturer}</text>
+            <visible>${manufacturerTextVisible}</visible>
+            <pos>0.289090909 0.133333333</pos><size>0.080909091 0.092592593</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.035185185</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><lineSpacing>1</lineSpacing><zIndex>3</zIndex>
+        </text>
+        <!-- Monochrome marks follow the same palette ink as the text they replace. -->
+        <image name="manufacturer-logo" extra="true">
+            <path>${manufacturerLogo}</path><visible>${manufacturerLogoVisible}</visible>
+            <pos>0.329545455 0.179629630</pos><origin>0.5 0.5</origin><maxSize>0.059090909 0.088888889</maxSize>
+            <color>${accentInk}</color><linearSmooth>true</linearSmooth><zIndex>4</zIndex>
+        </image>
+        <image name="platform-logo" extra="true">
+            <path>${platformLogo}</path><visible>${platformLogoVisible}</visible>
+            <pos>0.329545455 0.675925926</pos><origin>0.5 0.5</origin><maxSize>0.080909091 0.125925926</maxSize>
+            <color>${accentInk}</color><linearSmooth>true</linearSmooth><zIndex>4</zIndex>
+        </image>
+        <text name="hardware-year" extra="true">
+            <text>${hardwareYear}</text><emptyTextDefaults>false</emptyTextDefaults>
+            <pos>0.287272727 0.748148148</pos><size>0.085454545 0.05</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.035185185</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>3</zIndex>
+        </text>
+        <image name="bottom-paper" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.718181818 0</pos><size>0.281818182 1</size><color>${paper}</color><zIndex>1</zIndex>
+        </image>
+        <image name="bottom-header" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.718181818 0</pos><size>0.281818182 0.122222222</size><color>${accent}</color><zIndex>2</zIndex>
+        </image>
+        <image name="system-mark-badge" extra="true">
+            <path>${themePath}/assets/ui/hardware-badge.svg</path>
+            <pos>0.329545455 0.381481481</pos><origin>0.5 0.5</origin>
+            <size>0.072727273 0.240740741</size><zIndex>2.5</zIndex>
+        </image>
+        <image name="system-mark" extra="true">
+            <path>${systemIcon}</path>
+            <pos>0.329545455 0.381481481</pos><origin>0.5 0.5</origin>
+            <maxSize>0.063636364 0.259259259</maxSize><zIndex>3</zIndex>
+        </image>
+        <text name="brand-caption" extra="true">
+            <text>MULTI POP</text>
+            <pos>0.922727273 0.025925926</pos><size>0.068181818 0.037037037</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.027777778</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+        </text>
+        <!-- The installed release number tells players which version they are running and whether an update applied. -->
+        <text name="version-caption" extra="true">
+            <text>VERSION ${multiPopVersion}</text>
+            <pos>0.922727273 0.066666667</pos><size>0.068181818 0.029629630</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.018518519</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+        </text>
+
+        <!-- The fixed central frame identifies selection while neighboring covers stay fully visible. -->
+        <image name="selected-card-frame" extra="true">
+            <path>${themePath}/assets/ui/selection.svg</path><color>${accent}</color>
+            <pos>0.859090909 0.446296296</pos><origin>0.5 0.5</origin>
+            <size>0.088636364 0.566666667</size><zIndex>4</zIndex>
+        </image>
+        <!-- Native hints use the entire virtual width, so a concise footer prevents lower-screen overflow. -->
+        <helpsystem name="help"><textColor>00000000</textColor><iconColor>00000000</iconColor></helpsystem>
+        <text name="browse-hints" extra="true">
+            <text>Swipe ‹ › · Tap/A select · B back</text>
+            <pos>0.730909091 0.940740741</pos><size>0.256363636 0.044444444</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.037037037</fontSize>
+            <color>${ink}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+    </view>
+</theme>

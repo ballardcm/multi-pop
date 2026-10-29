@@ -1,7 +1,7 @@
 # Release maintenance and update testing
 
 > [!IMPORTANT]
-> **No further releases may be published from this repository after the transition release (10.28.26.Transition).** Multi Pop RG DS is now developed and released from [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop) under `systems/rgds`, and this repository will be deleted on 2026-11-27. A later `build-` release here would reach only devices that have not yet installed the transition, and would strand them on a repository that is going away.
+> **Never publish from the old `ballardcm/multi-pop-rgds` repository.** RG DS is developed and released here under `systems/rgds`, and the old repository is deleted on 2026-11-27. A later `build-` release there would reach only devices that have not yet installed the transition, and would strand them on a repository that is going away.
 
 A release has an installable `multi-pop-rgds-rocknix-20261001.zip`, a matching `multi-pop-rgds-source.zip`, and `SHA256SUMS`. The source download contains the tracked project files, pinned upstream frontend sources, SDL headers source, and pugixml source. Firmware libraries, credentials, user data and compiler caches are excluded. Install manifests hash every shipped theme file. The packager rejects unverified binaries, changed build inputs, substituted source archives, symlinks and embedded service-key literals.
 
@@ -13,7 +13,7 @@ Published packages use date labels such as **10.21.26.1**: month, day, two-digit
 
 Packaging writes the date label into the theme and derives a separate monotonic ordering integer for compatibility with existing updaters. That integer remains greater than legacy RG DS version 302 and is never used as the new theme's display label. The source version files are a development baseline; the release configuration determines the packaged label.
 
-The default branch is currently `prototype/rgds`. PRs get checked installable/source preview downloads; publishing occurs only when `release.yml` is manually dispatched on that default branch. Releases retain `build-<commit>` tags for updater compatibility. The workflow rejects duplicate public date labels, and existing release tags are never overwritten.
+PRs that touch `systems/rgds` get checked installable/source preview downloads; publishing occurs only when `rgds.yml` is manually dispatched on `main`. Releases are tagged `rgds-<label>`, such as `rgds-10.28.26.2`, because the updater accepts only that form, and are never marked as the repository's Latest, since Thor publishes here too. A worded label such as Transition cannot be published from here. The workflow rejects duplicate public date labels, and existing release tags are never overwritten.
 
 Stage all intended source changes in Git, run the checks, and package:
 
@@ -35,10 +35,12 @@ The matching `pugixml-source.tar.gz` must be next to the upstream archive. All t
 After the release PR checks and device acceptance pass, merge through GitHub using the repository-owner handle and noreply address. Verify the resulting commit metadata, then run:
 
 ```sh
-gh workflow run release.yml --repo ballardcm/multi-pop-rgds --ref prototype/rgds
+gh workflow run rgds.yml \
+  --repo ballardcm/multi-pop \
+  --ref main
 ```
 
-The workflow recovers the verified frontend and source inputs from the pinned 0.3.2 release, checks their individual hashes, packages the reviewed commit, and publishes the installable ZIP, matching source ZIP, and `SHA256SUMS`. This is a manual maintainer action: merging a PR does not publish a release.
+The workflow recovers the verified frontend and source inputs from the pinned `rgds-frontend-v0.3.2` prerelease (a copy of the old repository's 0.3.2 release), checks their individual hashes, packages the reviewed commit, and publishes the installable ZIP, matching source ZIP, and `SHA256SUMS`. This is a manual maintainer action: merging a PR does not publish a release.
 
 For local packaging, run `python3 tools/fetch-release-inputs.py` first. Downloads stay under ignored `.local/release-inputs`; each extracted input is checked against `frontend-build/release.json`. Use those paths with the packaging command above. Keep the release date and daily revision coordinated with Thor; do not reuse a published label.
 
@@ -50,7 +52,7 @@ Its one functional change is where the updater looks. It reads the release list 
 
 Monorepo RG DS releases must therefore keep an integer `version` above 20261028001, the same firmware revision and the same three startup helpers, or they will be skipped or refused just as before.
 
-`tools/fetch-release-inputs.py` still recovers the pinned frontend inputs from this repository's 0.3.2 release; set `release_repo` in `frontend-build/release.json` to fetch them from another repository once they are republished there.
+`tools/fetch-release-inputs.py` recovers the pinned frontend inputs from the `release_repo` and `release_tag` in `frontend-build/release.json`: the `rgds-frontend-v0.3.2` prerelease of `ballardcm/multi-pop`, which the updater never matches.
 
 ## Migration from 0.3.2
 

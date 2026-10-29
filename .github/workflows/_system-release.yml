@@ -1,0 +1,170 @@
+name: System release
+
+# Thor and RG DS share one release pipeline so the two systems check, package and publish the same way. Each system
+# keeps its own tools and tests in systems/<system>, and every step runs there because those tools locate the project
+# root from their own path and inventory sources with git ls-files relative to it. The working directory is set per job
+# because workflow-level defaults cannot read inputs.
+on:
+  workflow_call:
+    inputs:
+      system:
+        description: thor or rgds
+        required: true
+        type: string
+
+# Pull request builds need only read access; publishing is isolated to a manual run on main.
+permissions:
+  contents: read
+
+jobs:
+  package:
+    defaults:
+      run:
+        working-directory: systems/${{ inputs.system }}
+    runs-on: ubuntu-latest
+    steps:
+      # Keep complete source history available for provenance and the published tag's duplicate check.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject an unknown system
+        run: |
+          case "${{ inputs.system }}" in
+            thor|rgds) ;;
+            *) echo "Unknown system: ${{ inputs.system }}" >&2; exit 1 ;;
+          esac
+      # The artwork, logos, fonts and platform list are copies of one set until they move into shared/, so either
+      # system's change must leave both copies byte-identical.
+      - name: Check the shared assets are identical in both systems
+        working-directory: .
+        run: python3 tools/check-shared-assets.py
+      - name: Validate the Thor theme and media tools
+        if: inputs.system == 'thor'
+        run: |
+          python3 tools/check-multi-pop.py
+          python3 tools/test-install-multi-pop-media.py
+          python3 tools/test-package-release.py
+          python3 tools/test-release-version.py
+          python3 tools/test-thor-touch.py
+          python3 tools/test-thor-startup.py
+          python3 tools/test-auto-update.py
+      # RG DS used to run these in a separate check.yml on every push as well; folding them in here keeps one place
+      # that decides whether an RG DS change is releasable.
+      - name: Check the RG DS theme and updater
+        if: inputs.system == 'rgds'
+        run: |
+          python3 tools/check-rgds.py
+          python3 tools/test-auto-update.py
+          python3 tools/test-package-release.py
+          python3 tools/test-release-version.py
+          python3 tools/test-popup-bounds.py
+      - name: Check whitespace in this system's files
+        run: git diff --check
+      # The verified frontend binary and its source archives are maintainer prereleases of this repository, named in
+      # frontend-build/release.json. release_repo is honoured so a fork can still package from the upstream inputs.
+      - name: Fetch the verified Thor frontend and its source archives
+        if: inputs.system == 'thor'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          config = json.loads(Path('frontend-build/release.json').read_text())
+          repo = config.get('release_repo') or os.environ['GITHUB_REPOSITORY']
+          command = ['gh', 'release', 'download', config['release_tag'],
+                     '--repo', repo, '--dir', 'native-build/release-inputs']
+          for key in ('frontend', 'upstream_source', 'sdl_source', 'pugixml_source'):
+              command.extend(['--pattern', config[key]['asset']])
+          subprocess.run(command, check=True)
+          PY
+      - name: Build the Thor installable and source archives
+        if: inputs.system == 'thor'
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          config = json.loads(Path('frontend-build/release.json').read_text())
+          command = ['python3', 'tools/package-release.py']
+          for flag, key in (('--frontend', 'frontend'), ('--upstream-source', 'upstream_source'), ('--sdl-source', 'sdl_source')):
+              command.extend([flag, str(Path('native-build/release-inputs') / config[key]['asset'])])
+          subprocess.run(command, check=True)
+          PY
+      - name: Fetch the verified RG DS frontend inputs
+        if: inputs.system == 'rgds'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/fetch-release-inputs.py
+      - name: Build the RG DS installable and source archives
+        if: inputs.system == 'rgds'
+        run: |
+          python3 tools/package-release.py \
+            --frontend .local/release-inputs/emulationstation-aarch64 \
+            --upstream-source .local/release-inputs/emulationstation-source-cada856d.tar.gz \
+            --sdl-source .local/release-inputs/SDL2-2.32.10.tar.gz
+      # upload-artifact ignores the default working directory, so the path names the system explicitly.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: multi-pop-${{ inputs.system }}-downloads-${{ github.event.pull_request.number || github.sha }}
+          path: systems/${{ inputs.system }}/dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    defaults:
+      run:
+        working-directory: systems/${{ inputs.system }}
+    needs: package
+    # Merging never publishes: a release goes out only when a maintainer starts the workflow on main, so several
+    # merged PRs can be tested together and shipped as one version.
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: multi-pop-${{ inputs.system }}-downloads-${{ github.sha }}
+          path: systems/${{ inputs.system }}/dist
+      - name: Publish a release from main's current commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SYSTEM: ${{ inputs.system }}
+        run: |
+          case "$SYSTEM" in
+            thor) name="Thor"; notes="Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. Installation, removal and rollback steps: https://github.com/ballardcm/multi-pop/tree/main/systems/thor#install Other firmware versions require a newly validated frontend." ;;
+            rgds) name="RG DS"; notes="Ready-to-install theme for RG DS on ROCKNIX 20261001, matching source ZIP, and SHA256SUMS. See https://github.com/ballardcm/multi-pop/tree/main/systems/rgds#readme for installation, contributor credits, and recovery." ;;
+          esac
+          label=$(python3 -c 'import sys; sys.path.insert(0, "tools"); from pathlib import Path; from release_version import read_release; print(read_release(Path("."))[1])')
+          tag="$SYSTEM-$label"
+          # The installed updaters accept only <system>-MM.DD.YY.N, so a worded label such as Transition would publish
+          # a release that no device ever sees.
+          python3 -c 'import re, sys; assert re.fullmatch(r"(thor|rgds)-\d{2}\.\d{2}\.\d{2}\.\d{1,3}", sys.argv[1]), "Tag " + sys.argv[1] + " would be ignored by the updater; use a numbered revision"' "$tag"
+          # The packaged label must be the one the tag claims, or the device would show a different version.
+          packaged=$(unzip -p "dist/multi-pop-$SYSTEM-rocknix-"*.zip "multi-pop-$SYSTEM/version.json" | python3 -c 'import json, sys; print(json.load(sys.stdin).get("display_version", ""))')
+          test "$packaged" = "$label" || { echo "Packaged version $packaged does not match $label" >&2; exit 1; }
+          # A label is published once. Re-running the same commit is harmless, but a different commit under an
+          # existing tag means the daily revision was not incremented.
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            published=$(git rev-list -n 1 "refs/tags/$tag" 2>/dev/null || true)
+            if [ "$published" != "$GITHUB_SHA" ]; then
+              echo "$tag is already published from ${published:-another commit}; increment the daily revision" >&2
+              exit 1
+            fi
+            echo "Release already exists: $tag"
+            exit 0
+          fi
+          # Both systems publish into this repository, so neither may become the repository's single Latest release.
+          gh release create "$tag" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Multi Pop $name $label (${GITHUB_SHA:0:12})" \
+            --notes "$notes" \
+            --latest=false \
+            dist/*

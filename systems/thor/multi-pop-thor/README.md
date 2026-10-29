@@ -14,7 +14,7 @@ Battery status and connected Wi-Fi appear at the upper display's top right. They
 
 ## Install
 
-Step-by-step installation, removal and rollback instructions are in the project README: [Install](https://github.com/ballardcm/multi-pop-thor#install) and [Remove or roll back](https://github.com/ballardcm/multi-pop-thor#remove-or-roll-back). In short, copy this `multi-pop-thor` folder to `/roms/themes/` on an AYN Thor running **ROCKNIX 20261001**, then run this from an SSH session and select `multi-pop-thor` under UI Settings → Theme Set:
+Step-by-step installation, removal and rollback instructions are in the project README: [Install](https://github.com/ballardcm/multi-pop/tree/main/systems/thor#install) and [Remove or roll back](https://github.com/ballardcm/multi-pop/tree/main/systems/thor#remove-or-roll-back). In short, copy this `multi-pop-thor` folder to `/roms/themes/` on an AYN Thor running **ROCKNIX 20261001**, then run this from an SSH session and select `multi-pop-thor` under UI Settings → Theme Set:
 
 ```sh
 bash \
@@ -63,7 +63,7 @@ Every release has a version number that goes up with each release. Besides Theme
 
 ### How an update happens
 
-1. After each Multi Pop start, a background check looks for the newest Thor release, tagged `thor-` (such as `thor-10.28.26.2`), in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases). RG DS and frontend-input releases published there, drafts, and prereleases are ignored, and a release counts only when it carries `SHA256SUMS` and the installable ZIP. It checks at most every six hours, so restarting sooner does not check again. Releases up to 10.28.26.Transition checked the old `multi-pop-thor` repository instead; that release moved the check here.
+1. After each Multi Pop start, a background check looks for the newest Thor release, tagged `thor-` (such as `thor-10.28.26.2`), in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases?q=thor-). RG DS and frontend-input releases published there, drafts, and prereleases are ignored, and a release counts only when it carries `SHA256SUMS` and the installable ZIP. It checks at most every six hours, so restarting sooner does not check again. Releases up to 10.28.26.Transition checked the old `multi-pop-thor` repository instead; that release moved the check here.
 2. A release is downloaded only when its version number is higher than the installed one, so an automatic update never moves you to an older version. The download must match the release's `SHA256SUMS` and the archive manifest, and its frontend must target the installed firmware.
 3. Once nothing is running (no game, scrape or install), a "Multi Pop update ready" message appears; close it with OK.
 4. The update installs the next time EmulationStation starts, after a reboot or Quit → Restart EmulationStation, so it never restarts the frontend while you are using it. A "Multi Pop updated to version N" message confirms it.
@@ -94,7 +94,7 @@ bash \
   /roms/themes/multi-pop-thor/scripts/restore_multi_pop_thor.sh
 ```
 
-Restore removes the automatic startup override and the launcher mount, and moves the layout fragment into `/storage/.config/multi-pop-thor/`. It reverts only the settings Multi Pop changes (`ThemeSet`, `GamelistViewStyle`, `FullScreenMenu` and `GameTransitionStyle`) to their values in the original backup, and only while each still holds Multi Pop's value; every other setting changed since activation is kept. An unedited Sway configuration returns to the original backup; an edited one keeps its edits and loses only the Multi Pop include. Restore still stops without changing anything if another launcher or service override has taken over startup; the project README's [Remove Multi Pop](https://github.com/ballardcm/multi-pop-thor#remove-multi-pop) gives hand-removal steps for that case and for a Thor that already shows a black screen. Activating again after a restore takes fresh backups and moves the earlier record into a `restored-*` folder.
+Restore removes the automatic startup override and the launcher mount, and moves the layout fragment into `/storage/.config/multi-pop-thor/`. It reverts only the settings Multi Pop changes (`ThemeSet`, `GamelistViewStyle`, `FullScreenMenu` and `GameTransitionStyle`) to their values in the original backup, and only while each still holds Multi Pop's value; every other setting changed since activation is kept. An unedited Sway configuration returns to the original backup; an edited one keeps its edits and loses only the Multi Pop include. Restore still stops without changing anything if another launcher or service override has taken over startup; the project README's [Remove Multi Pop](https://github.com/ballardcm/multi-pop/tree/main/systems/thor#remove-multi-pop) gives hand-removal steps for that case and for a Thor that already shows a black screen. Activating again after a restore takes fresh backups and moves the earlier record into a `restored-*` folder.
 
 ## Validation and credits
 

@@ -1,7 +1,7 @@
 # Release downloads
 
 > [!WARNING]
-> **No further releases may be published from this repository after 10.28.26.Transition.** Every Thor still on an older updater checks this repository's latest release and would install anything published here, bypassing the move to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop). Publish Thor releases from the monorepo, tagged `thor-MM.DD.YY.N`, with a `version.json` integer above 20261028001; the transition used revision 1 of 10.28.26, so the first monorepo release that day must be revision 2 or later.
+> **Never publish from the old `ballardcm/multi-pop-thor` repository.** Every Thor still on an updater from before 10.28.26.Transition checks that repository's latest release and would install anything published there, bypassing the move to this monorepo. Thor releases are published here, tagged `thor-MM.DD.YY.N`, with a `version.json` integer above 20261028001; the transition used revision 1 of 10.28.26, so the first monorepo release that day is revision 2.
 
 Every PR runs theme, media, and packaging checks and uploads a preview artifact containing three files:
 
@@ -11,17 +11,17 @@ Every PR runs theme, media, and packaging checks and uploads a preview artifact 
 
 Merging a PR does not publish anything. Releases are published manually from the reviewed default branch and use a date label such as **10.21.26.1**: month, day, two-digit year, and that day's release revision. `release-version.json` records the local date (America/Los_Angeles) and revision. Start a new date at 1 and increment the revision for additional releases that day. Coordinate the same label in Thor and RG DS when shipping them together. The first release under this scheme is 10.21.26.1.
 
-The workflow retains immutable `build-<commit>` tags for updater compatibility, titles the release with the date label, and refuses to publish the same label under a different commit. The installable theme displays the label in Theme Configuration and its lower header. `version.json` also carries an integer ordering value for old updaters; this implementation detail is not the user-facing version. Packaging derives it deterministically from the full date and daily revision, making it newer than legacy Thor and RG DS releases.
+The workflow tags each release `thor-<label>`, such as `thor-10.28.26.2`, because the updater accepts only that form; it titles the release with the date label and source commit, never marks it as the repository's Latest (RG DS publishes here too), and refuses to publish the same label under a different commit. A worded label such as Transition cannot be published from here, because no updater would match its tag. The installable theme displays the label in Theme Configuration and its lower header. `version.json` also carries an integer ordering value for old updaters; this implementation detail is not the user-facing version. Packaging derives it deterministically from the full date and daily revision, making it newer than legacy Thor and RG DS releases.
 
-PR previews are retained for 30 days and contain the configured upcoming date release. Published releases stay under [Releases](https://github.com/ballardcm/multi-pop-thor/releases). The source revision and archive checksums identify the exact build independently of its display label.
+PR previews are retained for 30 days and contain the configured upcoming date release. Published releases stay under [Releases](https://github.com/ballardcm/multi-pop/releases?q=thor-); releases up to 10.28.26.Transition remain in the old repository until it is deleted on 2026-11-27, and their tags are kept here as `legacy/thor/*`. The source revision and archive checksums identify the exact build independently of its display label.
 
 ## Publish a release
 
 Once everything meant for the release is merged, start the workflow on `main`:
 
 ```sh
-gh workflow run release.yml \
-  --repo ballardcm/multi-pop-thor \
+gh workflow run thor.yml \
+  --repo ballardcm/multi-pop \
   --ref main
 ```
 
@@ -31,14 +31,14 @@ Publishing reaches every Thor with Automatic updates turned on within about six 
 
 `frontend-build/release.json` selects a separate frontend release and pins the binary hash, firmware and frontend revisions, public source archives, and hashes of the frontend patches and compiler inputs. The separate frontend release is a maintainer input to packaging; users normally download the combined installable ZIP.
 
-The current frontend release is `frontend-rocknix-20261001-5`. The binaries from `-1` and `-2` were withdrawn because they had service keys compiled in; their source archives remain. Each release's assets are:
+The current frontend release is the prerelease `thor-frontend-rocknix-20261001-5`, a copy of the old repository's `frontend-rocknix-20261001-5`; the `thor-frontend-` prefix keeps it apart from RG DS inputs and from the `thor-MM.DD.YY.N` releases the updater installs. The binaries from `-1` and `-2` were withdrawn because they had service keys compiled in; their source archives remain. Each release's assets are:
 
 - `emulationstation-aarch64`
 - `emulationstation-source-cada856d.tar.gz`
 - `SDL2-2.32.10.tar.gz`
 - `pugixml-source.tar.gz`
 
-Packaging downloads those assets from this repository, checks their hashes, verifies ARM64 ELF identity, and checks the current compatibility report. The public upstream snapshot plus the current patches was checked against all 981 source files used for the tested frontend. Binary and source provenance remain separate from runtime-library collections and compiler caches. Frontend binaries contain no online-service keys; each Thor generates its own `integration.env` at activation.
+Packaging downloads those assets from the `release_repo` named in `frontend-build/release.json`, checks their hashes, verifies ARM64 ELF identity, and checks the current compatibility report. The public upstream snapshot plus the current patches was checked against all 981 source files used for the tested frontend. Binary and source provenance remain separate from runtime-library collections and compiler caches. Frontend binaries contain no online-service keys; each Thor generates its own `integration.env` at activation.
 
 Theme-only PRs reuse the verified frontend. A changed frontend patch or compiler input blocks packaging until a matching frontend is built, validated, and registered. This prevents a release from describing behavior its bundled binary does not implement.
 

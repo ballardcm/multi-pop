@@ -20,4 +20,4 @@ These systems were contributed to Multi Pop RG DS in [PR #9](https://github.com/
 
 Supervision is the Watara system; Super Cassette Vision is the separate Epoch system. Odyssey² and TIC-80 intentionally use palette filenames that differ from the firmware theme values.
 
-The system illustrations and SVG logos are byte-identical to the RG DS theme. The cards and hero panels were regenerated with `tools/build-multi-pop-art.py`, so they carry the Thor label. Artwork credit and AI provenance are recorded in the project and installable READMEs and `multi-pop-thor/LICENSING.md`. The port was prepared with AI assistance (Claude Code).
+The system illustrations and SVG logos are byte-identical to the RG DS theme. The cards and hero panels were regenerated with `tools/build-multi-pop-art.py`. In the monorepo they were rebuilt once more with a footer that names only Multi Pop and copied to RG DS, so every card and hero is now byte-identical in both themes. Artwork credit and AI provenance are recorded in the project and installable READMEs and `multi-pop-thor/LICENSING.md`. The port was prepared with AI assistance (Claude Code).

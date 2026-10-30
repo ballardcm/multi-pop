@@ -35,6 +35,15 @@ python3 tools/test-popup-bounds.py
 
 From the root: `python3 tools/check-shared-assets.py`. `check-multi-pop.py` and `check-rgds.py` already run `tools/check-logo-assets.py` with the theme path; run alone, it needs that path as its argument.
 
+The RG DS Plus preview is generated from `systems/rgds` by
+`tools/prepare-plus-prototype.py DESTINATION --release`. It has separate pinned
+inputs in `frontend-build/plus-release.json`, compatibility data and
+`release-version-plus.json`. Run the generated tree's `check-rgds.py` and
+`test-popup-bounds.py`, plus the source tree's `test-plus-profile.py DESTINATION`.
+`rgds-plus.yml` packages PR previews and publishes only when manually run on main.
+Input binaries can be staged as a draft frontend prerelease for PR checks; the
+manual main workflow publishes that draft and the installable Plus prerelease.
+
 ## Big files
 
 Read these by section (`grep -n` for the symbol, then `sed -n`):

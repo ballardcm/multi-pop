@@ -10,6 +10,13 @@ Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.ym
 
 Never publish a release from the old `ballardcm/multi-pop-thor` or `ballardcm/multi-pop-rgds` repositories. Devices that have not yet installed 10.28.26.Transition still poll them, and would install anything published there. Every new release comes from this repository, tagged `thor-MM.DD.YY.N` or `rgds-MM.DD.YY.N` with a version integer above 20261028001.
 
+The RG DS Plus preview is an explicit exception: `rgds-plus-MM.DD.YY.Preview`,
+marked as a prerelease and never Latest, with the same monotonic integer rule.
+It is published only by the manual `rgds-plus.yml` workflow on main. Its pinned
+`rgds-frontend-plus-*` input prerelease may be staged as a draft for PR checks;
+only the manual main workflow publishes it. Existing device updaters must never
+consume Plus previews.
+
 ## Identity and attribution
 
 The repository owner's personal email must stay out of public commit metadata. Use `3799765+ballardcm@users.noreply.github.com` for local commits and pass `--author-email 3799765+ballardcm@users.noreply.github.com` when merging with `gh pr merge`, because GitHub's merge API can otherwise use the account email. Verify the resulting merge commit's author email before publishing a release or changing repository visibility.

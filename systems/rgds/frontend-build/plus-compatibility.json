@@ -1,0 +1,22 @@
+{
+  "hardware": "Anbernic RG DS Plus",
+  "architecture": "aarch64",
+  "firmware": "20261001",
+  "canvas": [
+    3072,
+    768
+  ],
+  "panel": [
+    1024,
+    768
+  ],
+  "device_validation": "RG DS Plus hardware: native dual-screen layout inspected, lower touchscreen swipe/tap confirmed by tester, and reboot verified with both panels active, Wi-Fi and Tailscale restored. Broad game compatibility, suspend/resume and long-term stability not yet validated.",
+  "artifact_sha256": "bbe12e2972d65e158f39a768bd970f8d2b003a314c40c8bd47b9bc5495605244",
+  "artifact_bytes": 10414976,
+  "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+  "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
+  "service_keys_compiled_in": false,
+  "target_loader_and_help_checks_passed": true,
+  "sha256": "bbe12e2972d65e158f39a768bd970f8d2b003a314c40c8bd47b9bc5495605244",
+  "bytes": 10414976
+}

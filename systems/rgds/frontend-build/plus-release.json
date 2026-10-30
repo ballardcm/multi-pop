@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_repo": "ballardcm/multi-pop",
+  "release_tag": "rgds-frontend-plus-20261030-preview1",
+  "firmware_version": "20261001",
+  "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
+  "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+  "upstream_source": {
+    "asset": "emulationstation-source-cada856d.tar.gz",
+    "url": "https://github.com/ROCKNIX/emulationstation-next/archive/cada856d86e3115fbbf0bce09dd761b0ee8fa9fd.tar.gz",
+    "sha256": "c92eb0fd6e1e2b5fa603391f6c0b540d4fad858664c23321237df32efecf68ad"
+  },
+  "sdl_source": {
+    "asset": "SDL2-2.32.10.tar.gz",
+    "url": "https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-2.32.10.tar.gz",
+    "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+  },
+  "pugixml_source": {
+    "asset": "pugixml-source.tar.gz",
+    "url": "https://github.com/zeux/pugixml/archive/61c944895e071872370219cadade8423dc6e04dc.tar.gz",
+    "sha256": "d82e28c844f46165bdb2c160466073087888ec81ea87fbe66e3dc7f36aa5c835"
+  },
+  "frontend": {
+    "sha256": "bbe12e2972d65e158f39a768bd970f8d2b003a314c40c8bd47b9bc5495605244",
+    "asset": "emulationstation-rgds-plus-aarch64"
+  },
+  "build_inputs": {
+    "multi-pop-rgds/frontend/rgds-game-paging.patch": "42b259e982e602c55aabca7c6faffec391d5e08aa7da0bfe0f2a94ce5b687dbe",
+    "multi-pop-rgds/frontend/rgds-menu-options.patch": "7a977d32078adbce2f786a32e6fc87c92b6d0e99a87a21fc484d6ba0889586b5",
+    "multi-pop-rgds/frontend/rgds-popup-placement.patch": "96b4603a06f2b296f8d407d6ca6a1787eb84362b83f6d81a4a44b0be9ae0c1f0",
+    "multi-pop-rgds/frontend/rgds-runtime-integration.patch": "0104ca55e20e149b1e6bfa6ccda8ea129e74e54dd6f9b7daa16317945251b1a3",
+    "frontend-build/build-frontend.sh": "31c918b613126cb15e812c277bd074f5dba612dc659c5bf40fc46a436953e4ca",
+    "frontend-build/Dockerfile": "6db99d7d782be9bfddc202f3e7055b1ecedead23c6761d04156441bc8550eadd"
+  }
+}

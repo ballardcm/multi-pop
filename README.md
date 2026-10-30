@@ -10,6 +10,7 @@ Multi Pop is a colorful dual-screen theme for ROCKNIX EmulationStation on handhe
 | --- | --- | --- | --- |
 | Thor | AYN Thor, ROCKNIX 20261001 | [`systems/thor`](systems/thor/README.md) | [`thor-` releases](https://github.com/ballardcm/multi-pop/releases?q=thor-) |
 | RG DS | Anbernic RG DS, ROCKNIX 20261001 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
+| RG DS Plus (preview) | Anbernic RG DS Plus, ROCKNIX 20261001 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus-preview.md) | [10.30.26.Preview](https://github.com/ballardcm/multi-pop/releases/tag/rgds-plus-10.30.26.Preview) |
 
 Install from the newest release for your device, following its system README. Both systems publish to the same releases page, so download the installable ZIP and `SHA256SUMS` from a release whose tag names your device. GitHub's automatically generated Source code archives are not installable themes.
 
@@ -17,6 +18,7 @@ Install from the newest release for your device, following its system README. Bo
 
 - `thor-MM.DD.YY.N` and `rgds-MM.DD.YY.N`, such as `thor-10.28.26.2`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, and they skip drafts and prereleases.
 - `thor-frontend-*` and `rgds-frontend-*` are prereleases holding each system's verified frontend binary and source archives, which packaging downloads. They are not installable themes.
+- `rgds-plus-MM.DD.YY.Preview` is a manually installed RG DS Plus prerelease. It is isolated from the existing devices' automatic updates; the Plus source is generated from the RG DS profile with its own pinned frontend inputs.
 - `demo-media` is a prerelease holding the demo videos the READMEs link to.
 - `legacy/thor/*` and `legacy/rgds/*` are the tags carried over from the old repositories, such as `legacy/thor/build-49a05568ed99` or `legacy/rgds/v0.3.2`. They mark history only; their releases were never copied here.
 
@@ -33,6 +35,8 @@ Original Multi Pop material is licensed under [CC BY-NC-SA 4.0](https://creative
 ## Moved from the per-device repositories
 
 Multi Pop was developed in two repositories, `ballardcm/multi-pop-thor` and `ballardcm/multi-pop-rgds`, until 10.28.26. Their full histories are imported here under `systems/thor` and `systems/rgds`. Their final release, 10.28.26.Transition, pointed installed updaters at this repository; both old repositories are deleted on 2026-11-27, and nothing is published from them any more.
+
+For an existing Thor or original RG DS installation, run **two consecutive upgrades**, rebooting between them: the first installs the transition release and redirects the updater here; the second installs the current monorepo release. Alternatively, install fresh from this repository. Devices already on a monorepo release need no migration.
 
 ## Credits
 

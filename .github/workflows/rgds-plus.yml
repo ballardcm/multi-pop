@@ -1,0 +1,113 @@
+name: RG DS Plus preview
+
+on:
+  pull_request:
+    paths:
+      - 'systems/rgds/**'
+      - 'tools/**'
+      - '.github/workflows/rgds-plus.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rgds-plus-preview-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  inputs:
+    runs-on: ubuntu-latest
+    permissions:
+      # GitHub requires push access to read unpublished release drafts. This
+      # job never checks out or executes PR code; packaging remains read-only.
+      contents: write
+    steps:
+      - name: Fetch fixed frontend draft inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download rgds-frontend-plus-20261030-preview1 \
+            --repo "$GITHUB_REPOSITORY" --dir inputs \
+            --pattern emulationstation-rgds-plus-aarch64 \
+            --pattern emulationstation-source-cada856d.tar.gz \
+            --pattern SDL2-2.32.10.tar.gz \
+            --pattern pugixml-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rgds-plus-inputs-${{ github.event.pull_request.number || github.sha }}
+          path: inputs/*
+          if-no-files-found: error
+          retention-days: 7
+
+  package:
+    needs: inputs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 tools/check-shared-assets.py
+      - name: Prepare the pinned native-resolution Plus profile
+        run: python3 systems/rgds/tools/prepare-plus-prototype.py systems/rgds/.local/plus-preview --release
+      - name: Validate Plus geometry, touch and hardware isolation
+        run: |
+          python3 systems/rgds/.local/plus-preview/tools/check-rgds.py
+          python3 systems/rgds/.local/plus-preview/tools/test-popup-bounds.py
+          python3 systems/rgds/tools/test-plus-profile.py systems/rgds/.local/plus-preview
+      - name: Package verified frontend and matching sources
+        uses: actions/download-artifact@v4
+        with:
+          name: rgds-plus-inputs-${{ github.event.pull_request.number || github.sha }}
+          path: systems/rgds/.local/plus-inputs
+      - name: Package verified frontend and matching sources
+        run: |
+          python3 systems/rgds/tools/package-plus-preview.py \
+            --source systems/rgds/.local/plus-preview \
+            --inputs systems/rgds/.local/plus-inputs \
+            --output systems/rgds/.local/plus-dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rgds-plus-preview-${{ github.event.pull_request.number || github.sha }}
+          path: systems/rgds/.local/plus-dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    needs: package
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: rgds-plus-preview-${{ github.sha }}
+          path: dist
+      - name: Publish the validated frontend and Plus preview from main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          frontend=$(python3 -c 'import json; print(json.load(open("systems/rgds/frontend-build/plus-release.json"))["release_tag"])')
+          # Maintainers stage pinned inputs as a draft so PRs can verify them;
+          # only this manual main-branch workflow publishes the prerelease.
+          if [ "$(gh release view "$frontend" --json isDraft --jq .isDraft)" = true ]; then
+            gh release edit "$frontend" --draft=false --prerelease --latest=false --target "$GITHUB_SHA"
+          fi
+          label=$(python3 -c 'import sys; sys.path.insert(0,"systems/rgds/tools"); from pathlib import Path; from release_version import read_release; import json,tempfile; p=Path(tempfile.mkdtemp()); (p/"release-version.json").write_text(Path("systems/rgds/release-version-plus.json").read_text()); print(read_release(p)[1])')
+          tag="rgds-plus-$label"
+          python3 -c 'import re,sys; assert re.fullmatch(r"rgds-plus-\d{2}\.\d{2}\.\d{2}\.Preview",sys.argv[1])' "$tag"
+          packaged=$(unzip -p dist/multi-pop-rgds-plus-rocknix-*.zip multi-pop-rgds/version.json | python3 -c 'import json,sys; print(json.load(sys.stdin)["display_version"])')
+          test "$packaged" = "$label"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            test "$(git rev-list -n 1 "refs/tags/$tag")" = "$GITHUB_SHA"
+            exit 0
+          fi
+          gh release create "$tag" --target "$GITHUB_SHA" \
+            --title "Multi Pop RG DS Plus $label" --prerelease --latest=false \
+            --notes-file systems/rgds/docs/rgds-plus-release-notes.md dist/*

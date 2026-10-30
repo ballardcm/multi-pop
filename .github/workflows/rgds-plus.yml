@@ -16,7 +16,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  inputs:
+    runs-on: ubuntu-latest
+    permissions:
+      # GitHub requires push access to read unpublished release drafts. This
+      # job never checks out or executes PR code; packaging remains read-only.
+      contents: write
+    steps:
+      - name: Fetch fixed frontend draft inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download rgds-frontend-plus-20261030-preview1 \
+            --repo "$GITHUB_REPOSITORY" --dir inputs \
+            --pattern emulationstation-rgds-plus-aarch64 \
+            --pattern emulationstation-source-cada856d.tar.gz \
+            --pattern SDL2-2.32.10.tar.gz \
+            --pattern pugixml-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rgds-plus-inputs-${{ github.event.pull_request.number || github.sha }}
+          path: inputs/*
+          if-no-files-found: error
+          retention-days: 7
+
   package:
+    needs: inputs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,13 +57,16 @@ jobs:
           python3 systems/rgds/.local/plus-preview/tools/test-popup-bounds.py
           python3 systems/rgds/tools/test-plus-profile.py systems/rgds/.local/plus-preview
       - name: Package verified frontend and matching sources
-        env:
-          GH_TOKEN: ${{ github.token }}
+        uses: actions/download-artifact@v4
+        with:
+          name: rgds-plus-inputs-${{ github.event.pull_request.number || github.sha }}
+          path: systems/rgds/.local/plus-inputs
+      - name: Package verified frontend and matching sources
         run: |
           python3 systems/rgds/tools/package-plus-preview.py \
             --source systems/rgds/.local/plus-preview \
             --inputs systems/rgds/.local/plus-inputs \
-            --output systems/rgds/.local/plus-dist --fetch
+            --output systems/rgds/.local/plus-dist
       - uses: actions/upload-artifact@v4
         with:
           name: rgds-plus-preview-${{ github.event.pull_request.number || github.sha }}

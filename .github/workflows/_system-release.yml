@@ -161,6 +161,10 @@ jobs:
             echo "Release already exists: $tag"
             exit 0
           fi
+          # What changed in this release is written in the PR that prepares it; the standing text follows it.
+          if [ -s docs/release-notes.md ]; then
+            notes="$(cat docs/release-notes.md)"$'\n\n'"$notes"
+          fi
           # Both systems publish into this repository, so neither may become the repository's single Latest release.
           gh release create "$tag" \
             --repo "$GITHUB_REPOSITORY" \

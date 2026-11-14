@@ -58,7 +58,7 @@ Read these by section (`grep -n` for the symbol, then `sed -n`):
 - `systems/thor/multi-pop-thor/frontend/thor-popup-placement.patch` 546, `systems/rgds/multi-pop-rgds/frontend/rgds-popup-placement.patch` 546: hashed in `frontend-build/release.json`; any edit needs a new verified frontend.
 - `systems/thor/multi-pop-thor/assets/logos/catalog.json` 722, `systems/thor/multi-pop-thor/platforms.json` 488, identical in RG DS.
 - `systems/thor/README.md` 273, `systems/rgds/README.md` 191, `systems/rgds/docs/releases.md` 116.
-- `.github/workflows/_system-release.yml` 171.
+- `.github/workflows/_system-release.yml` 175.
 - `systems/thor/multi-pop-thor/frontend/licenses/Embedded-source-notices.txt` 3562, `systems/rgds/multi-pop-rgds/frontend/licenses/Embedded-source-notices.txt` 3562: third-party license text; never read it end to end.
 
 ## Noisy or slow commands

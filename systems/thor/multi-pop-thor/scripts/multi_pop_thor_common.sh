@@ -10,6 +10,9 @@ STATE=/storage/.config/multi-pop-thor
 LAUNCHER_TARGET=/usr/bin/start_es.sh
 SERVICE_OVERRIDE=/storage/.config/system.d/essway.service.d/multi-pop-thor.conf
 INCLUDE_LINE='include "/storage/.config/sway/multi-pop-thor.conf"'
+# ROCKNIX 20261101 added a startup one-shot that ends by powering the lower panel off. This pattern names it both in
+# the Sway configuration and, as a running process, in the process table.
+STOCK_LOWER_ROTATION='swaymsg output DSI-1 power on; sleep 1; swaymsg output DSI-1 transform 90; sleep 1; swaymsg output DSI-1 power off'
 SERVICE_STOPPED=false
 
 fail() {

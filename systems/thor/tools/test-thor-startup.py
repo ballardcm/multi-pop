@@ -8,6 +8,7 @@ import shutil
 import socket
 import subprocess
 import tempfile
+import time
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,7 @@ SCRIPTS = ROOT / 'multi-pop-thor/scripts'
 class StartupTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='mp-start-', dir='/tmp')
-        self.addCleanup(self.temp.cleanup)
+        self.addCleanup(self.remove_tree)
         self.root = Path(self.temp.name)
         self.config = self.root / 'storage/.config'
         self.state = self.config / 'multi-pop-thor'
@@ -73,6 +74,18 @@ elif command == 'stat':
         self.env = dict(os.environ, TEST_ROOT=str(self.root), PATH=str(self.bin) + os.pathsep + os.environ['PATH'])
         self.install_theme('roms/themes/multi-pop-thor')
 
+    def remove_tree(self):
+        # The startup helper leaves a detached focus loop behind, as it does on the device, and that loop logs its
+        # stubbed commands into this tree for a moment after the helper returns.
+        for attempt in range(50):
+            try:
+                self.temp.cleanup()
+                return
+            except OSError:
+                time.sleep(0.1)
+                self.root.mkdir(exist_ok=True)
+        self.temp.cleanup()
+
     def write(self, path, text, mode=0o644):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
@@ -121,6 +134,28 @@ elif command == 'stat':
         self.assertEqual(self.mountinfo.read_text(), '')
         self.helper('enable_multi_pop_thor.sh', '--prepare')
         self.assertTrue(self.override.exists())
+
+    def test_firmware_that_powers_the_lower_panel_off_after_rotating_it(self):
+        # ROCKNIX 20261101 generates this one-shot; left in place it darkens the lower screen two seconds after startup.
+        rotation = ("exec sh -c 'swaymsg output DSI-1 power on; sleep 1; swaymsg output DSI-1 transform 90; "
+                    "sleep 1; swaymsg output DSI-1 power off'\n")
+        self.helper('enable_multi_pop_thor.sh')
+        self.stock_sway += rotation
+        self.reboot()
+        self.assertNotIn('power off', self.sway.read_text())
+        self.assertIn('multi-pop-thor.conf', self.sway.read_text())
+        commands = (self.root / 'commands').read_text()
+        self.assertGreater(commands.rindex('swaymsg output * power on'), commands.rindex('swaymsg reload'))
+        # The record follows what the new firmware generates, so activating again and restoring both still work.
+        self.assertEqual(self.sway.read_bytes(), (self.state / 'installed.sway').read_bytes())
+        self.assertEqual((self.state / 'sway.backup').read_text(), self.stock_sway)
+        self.helper('enable_multi_pop_thor.sh')
+        self.assertNotIn('power off', self.sway.read_text())
+        self.helper('restore_multi_pop_thor.sh')
+        self.assertEqual(self.sway.read_text(), self.stock_sway)
+        # A first activation on that firmware accepts the line instead of stopping at an unfamiliar power-off.
+        self.helper('enable_multi_pop_thor.sh')
+        self.assertNotIn('power off', self.sway.read_text())
 
     def test_prepare_preserves_stock_theme_after_reboot(self):
         self.helper('enable_multi_pop_thor.sh', '--prepare')

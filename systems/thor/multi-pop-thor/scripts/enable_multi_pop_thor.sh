@@ -98,13 +98,16 @@ SWAY
 
 sway_temp=$(mktemp "$SWAY_CONFIG.multi-pop-thor.XXXXXX")
 cp -p "$SWAY_CONFIG" "$sway_temp"
-awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus output DSI-2, output DSI-1 power off" '
+awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus output DSI-2, output DSI-1 power off" \
+    -v stock_rotation="exec sh -c '$STOCK_LOWER_ROTATION'" '
     {
         normalized = $0
         gsub(/[[:space:]]+/, " ", normalized)
         sub(/^ /, "", normalized)
         sub(/ $/, "", normalized)
         if (normalized == "output DSI-1 power off") next
+        # ROCKNIX 20261101 rotates the lower panel with a one-shot that powers it off; the fragment rotates it instead.
+        if (normalized == stock_rotation) next
         # Remove the stock asynchronous override so it cannot disable the fragment input after reload.
         if (normalized == "exec_always swaymsg input \"0:0:bottom_touchscreen\" events disabled") next
         if (normalized == stock_exec) {

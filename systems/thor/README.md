@@ -42,7 +42,7 @@ Multi Pop installs alongside ROCKNIX rather than replacing any of it. Activation
 
 ### Before you start
 
-- An **AYN Thor running ROCKNIX 20261001**. This is the only firmware the bundled frontend has been verified on; other versions need a separately validated frontend.
+- An **AYN Thor running ROCKNIX 20261001**. This is the only firmware the bundled frontend has been verified on; other versions need a separately validated frontend. On **ROCKNIX 20261101** the same frontend starts and both displays work from release 11.14.26.1 on, whose startup helpers account for that firmware's lower-screen change; the full control checklist has not been repeated there yet.
 - A computer on the same Wi-Fi network with `ssh` and `scp`. macOS, Linux, and Windows 10 or later (in PowerShell) all have them.
 - If you have set up another dual-screen theme or layout on the Thor, remove it with its own instructions and reboot first. Step 4 checks for one.
 
@@ -218,6 +218,12 @@ Automatic updates are **off by default**. To turn them on, open UI Settings → 
 
 With updates on, an activated Thor checks the newest Thor release, tagged `thor-`, in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases?q=thor-) at most every six hours after Multi Pop starts; RG DS, frontend-input, draft and prerelease entries there are ignored. Installations older than 10.28.26.Transition still check this repository, and its final release moves them over. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, a "Multi Pop update ready" message appears, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped. Installing an older version is always a [manual step](#go-back-to-an-earlier-version). The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
 
+## Steam games
+
+ROCKNIX lists each Steam shortcut under its Steam system: Steam writes one when a game is installed with **Create desktop shortcut** ticked, or from the game's **Manage → Add desktop shortcut**. Multi Pop gives those entries their cover, a screenshot, a muted trailer preview, and the description, genre, developer, publisher and release date, so a game can be started from the library without opening Steam first.
+
+The cover comes from the artwork Steam has already cached on the Thor and appears the first time EmulationStation starts after the shortcut exists. The rest comes from the public Steam store: after Multi Pop starts, and once the network is up, the Thor asks `store.steampowered.com` about the app ids of those shortcuts and downloads one screenshot and the first minute of the first trailer, about 20 MB per game, which show from the next start. Nothing is sent but the app ids, and nothing is asked for a game whose media is complete. Fields you or a scraper filled in are kept. Media is stored in `/storage/.local/share/applications/media/steam/`, with a copy of the game list as it was before the first change; the log is `/storage/.config/multi-pop-thor/steam-library.log`.
+
 ## Artwork
 
 The 81 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the transparent PNG sources are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them. The earlier SVG illustrations remain alongside them as legacy sources. The set also includes Wii, Wii U, Switch, 3DO, Amiga, Atari ST, ZX Spectrum, MSX, the original monochrome WonderSwan with its own pearl-white hardware illustration, TurboGrafx-16, and TurboGrafx-CD. Thirteen further systems, from Channel F to Watara Supervision, were contributed by DekosAnjo; see [Credits and source status](#credits-and-source-status).
@@ -229,6 +235,8 @@ The 81 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlaySt
 A selects or plays, B goes back, X opens a game's options (hold A instead if ROCKNIX's "Access game options with North button" setting is off), and L1/R1 page three games left/right in the game browser. Paging stops at the ends and keeps the current system selected. The patched frontend also keeps menus and popups on the upper display, including the B navigation popup, savestate manager, game options, message boxes, and the on-screen keyboard used for Wi-Fi passwords and searches.
 
 Touchscreen controls work on both displays: swipe left or right to browse games and systems, then tap any visible cover to open that item, including the left and right covers on the lower display. On the upper preview, swipes browse and a short tap selects the highlighted item. These controls have been tested on the Thor with the touch-enabled frontend; older releases need the updated frontend and activation helpers.
+
+ROCKNIX 20261101 starts Sway with a command that powers the lower panel off two seconds after startup, which left the lower screen dark under releases before 11.14.26.1. The startup helper now waits for that command to finish before turning the panel on, and removes it from the prepared configuration.
 
 The tested setup is ROCKNIX 20261001 on AYN Thor, with a 1920×1080 upper display, a 1240×1080 lower display, and a 4400×1080 frontend canvas. It uses a hidden 1240-pixel margin to place menus correctly. This theme targets ROCKNIX EmulationStation; other firmware and ES-DE on Android need separate validation.
 

@@ -15,6 +15,8 @@ The workflow tags each release `thor-<label>`, such as `thor-10.28.26.2`, becaus
 
 PR previews are retained for 30 days and contain the configured upcoming date release. Published releases stay under [Releases](https://github.com/ballardcm/multi-pop/releases?q=thor-); releases up to 10.28.26.Transition remain in the old repository until it is deleted on 2026-11-27, and their tags are kept here as `legacy/thor/*`. The source revision and archive checksums identify the exact build independently of its display label.
 
+Each release's own notes are in `docs/release-notes.md`, rewritten by the PR that prepares the release; the workflow publishes them above the standing download text.
+
 ## Publish a release
 
 Once everything meant for the release is merged, start the workflow on `main`:

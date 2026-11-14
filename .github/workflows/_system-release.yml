@@ -51,6 +51,7 @@ jobs:
           python3 tools/test-thor-touch.py
           python3 tools/test-thor-startup.py
           python3 tools/test-auto-update.py
+          python3 tools/test-steam-library.py
       # RG DS used to run these in a separate check.yml on every push as well; folding them in here keeps one place
       # that decides whether an RG DS change is releasable.
       - name: Check the RG DS theme and updater
@@ -159,6 +160,10 @@ jobs:
             fi
             echo "Release already exists: $tag"
             exit 0
+          fi
+          # What changed in this release is written in the PR that prepares it; the standing text follows it.
+          if [ -s docs/release-notes.md ]; then
+            notes="$(cat docs/release-notes.md)"$'\n\n'"$notes"
           fi
           # Both systems publish into this repository, so neither may become the repository's single Latest release.
           gh release create "$tag" \

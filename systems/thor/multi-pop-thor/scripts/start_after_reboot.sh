@@ -102,6 +102,10 @@ setsid bash -c 'for attempt in {1..60}; do sleep 1; if swaymsg "[app_id=\"^emula
 if [[ "$THEME" == /roms/themes/multi-pop-thor && -f "$auto_update" ]]; then
     setsid python3 "$auto_update" background </dev/null >/dev/null 2>&1 &
 fi
+# ROCKNIX 20261101 lets a game render below the panel's size by scaling the output, and its own launcher undoes that
+# scaling when a game ended without doing so. The Multi Pop launcher cannot change without a reinstall, so the reset
+# runs here, in its own shell because ROCKNIX's profile scripts fail under this script's strict mode.
+bash -c '. /etc/profile >/dev/null 2>&1; declare -F scanout_reset_stale >/dev/null && scanout_reset_stale' >/dev/null 2>&1 || true
 # Descriptions, screenshots and trailers come from the Steam store once the network is up, for the next start to show.
 if [[ -f "$steam_library" ]]; then
     setsid python3 "$steam_library" fetch </dev/null >/dev/null 2>&1 &

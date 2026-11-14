@@ -35,4 +35,4 @@ The hardware illustrations, cards, heroes, logos, fonts and `platforms.json` mus
 
 ## Releases and the updater
 
-A changed frontend patch or compiler input needs a newly built and validated frontend, registered as a new `thor-frontend-` or `rgds-frontend-` prerelease, rather than reusing the old binary. The installed updaters refuse a release that changes the firmware revision in `frontend/compatibility.json` or, on RG DS, the startup helpers `start_es_rgds.sh`, `start_after_reboot.sh` and `multi_pop_rgds_common.sh`; such changes need a reinstall and must be planned as one. See each system's `docs/releases.md`.
+A changed frontend patch or compiler input needs a newly built and validated frontend, registered as a new `thor-frontend-` or `rgds-frontend-` prerelease, rather than reusing the old binary. The installed updaters refuse a release that changes the firmware revision in `frontend/compatibility.json`, the launcher `start_es_thor.sh` on Thor or, on RG DS, the startup helpers `start_es_rgds.sh`, `start_after_reboot.sh` and `multi_pop_rgds_common.sh`; such changes need a reinstall and must be planned as one. See each system's `docs/releases.md`.

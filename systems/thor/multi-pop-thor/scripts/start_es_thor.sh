@@ -14,11 +14,5 @@ for multi_pop_root in /roms/themes/multi-pop-thor /storage/.config/emulationstat
     fi
 done
 
-# ROCKNIX 20261101 lets a game render below the panel's size by scaling the output, and its own launcher undoes that
-# scaling here when the game ended without doing so. Older firmware has no such helper.
-if declare -F scanout_reset_stale >/dev/null; then
-    scanout_reset_stale || true
-fi
-
 # The hidden 1240-pixel margin centers native menus on the Thor's upper display.
 exec "$multi_pop_binary" --log-path /var/log --no-splash --resolution 4400 1080

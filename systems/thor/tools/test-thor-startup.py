@@ -122,6 +122,28 @@ elif command == 'stat':
         self.helper('enable_multi_pop_thor.sh', '--prepare')
         self.assertTrue(self.override.exists())
 
+    def test_firmware_that_powers_the_lower_panel_off_after_rotating_it(self):
+        # ROCKNIX 20261101 generates this one-shot; left in place it darkens the lower screen two seconds after startup.
+        rotation = ("exec sh -c 'swaymsg output DSI-1 power on; sleep 1; swaymsg output DSI-1 transform 90; "
+                    "sleep 1; swaymsg output DSI-1 power off'\n")
+        self.helper('enable_multi_pop_thor.sh')
+        self.stock_sway += rotation
+        self.reboot()
+        self.assertNotIn('power off', self.sway.read_text())
+        self.assertIn('multi-pop-thor.conf', self.sway.read_text())
+        commands = (self.root / 'commands').read_text()
+        self.assertGreater(commands.rindex('swaymsg output * power on'), commands.rindex('swaymsg reload'))
+        # The record follows what the new firmware generates, so activating again and restoring both still work.
+        self.assertEqual(self.sway.read_bytes(), (self.state / 'installed.sway').read_bytes())
+        self.assertEqual((self.state / 'sway.backup').read_text(), self.stock_sway)
+        self.helper('enable_multi_pop_thor.sh')
+        self.assertNotIn('power off', self.sway.read_text())
+        self.helper('restore_multi_pop_thor.sh')
+        self.assertEqual(self.sway.read_text(), self.stock_sway)
+        # A first activation on that firmware accepts the line instead of stopping at an unfamiliar power-off.
+        self.helper('enable_multi_pop_thor.sh')
+        self.assertNotIn('power off', self.sway.read_text())
+
     def test_prepare_preserves_stock_theme_after_reboot(self):
         self.helper('enable_multi_pop_thor.sh', '--prepare')
         self.assertIn('system-theme', self.settings.read_text())

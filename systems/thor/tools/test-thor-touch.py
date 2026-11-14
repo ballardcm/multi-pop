@@ -17,20 +17,24 @@ def check_sway_filters():
     # Exercise the actual embedded filters against stock and unrelated input directives.
     filters = [
         activation.split("awk -v stock_exec=", 1)[1].split("'\n", 1)[1].split("\n' \"$SWAY_CONFIG\"", 1)[0],
-        reboot.split("awk '\n", 1)[1].split("\n' \"$config\"", 1)[0],
+        reboot.split("awk -v rotation=\"$STOCK_LOWER_ROTATION\" '\n", 1)[1].split("\n' \"$config\"", 1)[0],
     ]
+    # Both filters take ROCKNIX 20261101's lower-panel one-shot from the shared helper, as the scripts pass it.
+    rotation = (scripts / "multi_pop_thor_common.sh").read_text().split("STOCK_LOWER_ROTATION='", 1)[1].split("'\n", 1)[0]
+    variables = ["-v", "rotation=" + rotation, "-v", "stock_rotation=exec sh -c '" + rotation + "'"]
     stock = 'exec_always swaymsg input "0:0:bottom_touchscreen" events disabled'
     top = 'exec_always swaymsg input "0:0:top_touchscreen" events disabled'
     mapping = 'exec_always swaymsg input "0:0:bottom_touchscreen" map_to_output DSI-1'
-    fixture = "\n".join([stock, "  " + stock.replace(" ", "  ") + "  ", top, mapping, "# " + stock, "output DSI-1 power off"]) + "\n"
+    fixture = "\n".join([stock, "  " + stock.replace(" ", "  ") + "  ", top, mapping, "# " + stock, "output DSI-1 power off",
+                         "exec sh -c '" + rotation + "'"]) + "\n"
     for program in filters:
-        result = subprocess.run(["awk", program], input=fixture, text=True, capture_output=True, check=True).stdout
+        result = subprocess.run(["awk", *variables, program], input=fixture, text=True, capture_output=True, check=True).stdout
         assert result == "\n".join([top, mapping, "# " + stock]) + "\n", result
-        assert subprocess.run(["awk", program], input=result, text=True, capture_output=True, check=True).stdout == result
+        assert subprocess.run(["awk", *variables, program], input=result, text=True, capture_output=True, check=True).stdout == result
     fragment = activation.split("<<'SWAY'\n", 1)[1].split("\nSWAY", 1)[0]
     assert 'input "0:0:bottom_touchscreen" events enabled' in fragment
     assert 'input "0:0:bottom_touchscreen" map_to_output DSI-1' in fragment
-    print("Sway checks passed: stock override removed, other inputs preserved, repeat activation unchanged")
+    print("Sway checks passed: stock override and lower-panel one-shot removed, other inputs preserved, repeat activation unchanged")
 
 
 def main():

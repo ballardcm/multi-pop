@@ -51,6 +51,7 @@ jobs:
           python3 tools/test-thor-touch.py
           python3 tools/test-thor-startup.py
           python3 tools/test-auto-update.py
+          python3 tools/test-steam-library.py
       # RG DS used to run these in a separate check.yml on every push as well; folding them in here keeps one place
       # that decides whether an RG DS change is releasable.
       - name: Check the RG DS theme and updater

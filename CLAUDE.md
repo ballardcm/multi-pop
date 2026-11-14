@@ -21,6 +21,7 @@ python3 tools/test-release-version.py
 python3 tools/test-thor-touch.py
 python3 tools/test-thor-startup.py
 python3 tools/test-auto-update.py
+python3 tools/test-steam-library.py
 ```
 
 From `systems/rgds`:
@@ -49,14 +50,15 @@ manual main workflow publishes that draft and the installable Plus prerelease.
 Read these by section (`grep -n` for the symbol, then `sed -n`):
 
 - `systems/thor/multi-pop-thor/scripts/auto_update.py` 435, `systems/rgds/multi-pop-rgds/scripts/auto_update.py` 437: the on-device updaters; release selection is in `thor_release` / `latest_release`.
+- `systems/thor/multi-pop-thor/scripts/steam_library.py` 443: gives Steam shortcuts their game-list entries; `merge` is the offline pass before the frontend starts, `fetch` the background store download. Tested by `systems/thor/tools/test-steam-library.py`.
 - `systems/thor/tools/test-auto-update.py` 373, `systems/rgds/tools/test-auto-update.py` 349.
 - `systems/thor/tools/install-multi-pop-media.py` 481, `systems/thor/tools/fetch-multi-pop-screenshots.py` 444.
 - `systems/thor/tools/install-multi-pop-theme.py` 321, `systems/rgds/tools/install-multi-pop-theme.py` 321: shipped on devices as `scripts/update_theme.py`.
 - `systems/thor/tools/build-multi-pop-art.py` 238, `systems/rgds/tools/build-multi-pop-art.py` 256: the `SYSTEMS` table near the top is the platform list.
 - `systems/thor/multi-pop-thor/frontend/thor-popup-placement.patch` 546, `systems/rgds/multi-pop-rgds/frontend/rgds-popup-placement.patch` 546: hashed in `frontend-build/release.json`; any edit needs a new verified frontend.
 - `systems/thor/multi-pop-thor/assets/logos/catalog.json` 722, `systems/thor/multi-pop-thor/platforms.json` 488, identical in RG DS.
-- `systems/thor/README.md` 265, `systems/rgds/README.md` 191, `systems/rgds/docs/releases.md` 116.
-- `.github/workflows/_system-release.yml` 167.
+- `systems/thor/README.md` 273, `systems/rgds/README.md` 191, `systems/rgds/docs/releases.md` 116.
+- `.github/workflows/_system-release.yml` 171.
 - `systems/thor/multi-pop-thor/frontend/licenses/Embedded-source-notices.txt` 3562, `systems/rgds/multi-pop-rgds/frontend/licenses/Embedded-source-notices.txt` 3562: third-party license text; never read it end to end.
 
 ## Noisy or slow commands

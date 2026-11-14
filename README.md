@@ -10,15 +10,15 @@ Multi Pop is a colorful dual-screen theme for ROCKNIX EmulationStation on handhe
 | --- | --- | --- | --- |
 | Thor | AYN Thor, ROCKNIX 20261001 | [`systems/thor`](systems/thor/README.md) | [`thor-` releases](https://github.com/ballardcm/multi-pop/releases?q=thor-) |
 | RG DS | Anbernic RG DS, ROCKNIX 20261001 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
-| RG DS Plus (preview) | Anbernic RG DS Plus, ROCKNIX 20261001 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus-preview.md) | [10.30.26.Preview](https://github.com/ballardcm/multi-pop/releases/tag/rgds-plus-10.30.26.Preview) |
+| RG DS Plus | Anbernic RG DS Plus, ROCKNIX 20261001 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus.md) | [`rgds-plus-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-) |
 
 Install from the newest release for your device, following its system README. Both systems publish to the same releases page, so download the installable ZIP and `SHA256SUMS` from a release whose tag names your device. GitHub's automatically generated Source code archives are not installable themes.
 
 ## Release tags
 
-- `thor-MM.DD.YY.N` and `rgds-MM.DD.YY.N`, such as `thor-10.28.26.2`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, and they skip drafts and prereleases.
+- `thor-MM.DD.YY.N`, `rgds-MM.DD.YY.N` and `rgds-plus-MM.DD.YY.N`, such as `thor-10.28.26.2`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, each device only its own, and they skip drafts and prereleases.
 - `thor-frontend-*` and `rgds-frontend-*` are prereleases holding each system's verified frontend binary and source archives, which packaging downloads. They are not installable themes.
-- `rgds-plus-MM.DD.YY.Preview` is a manually installed RG DS Plus prerelease. It is isolated from the existing devices' automatic updates; the Plus source is generated from the RG DS profile with its own pinned frontend inputs.
+- `rgds-plus-10.30.26.Preview` is the earlier RG DS Plus prerelease, installed by hand; its updater follows no published tag. The Plus source is generated from the RG DS profile with its own pinned frontend inputs, held in `rgds-frontend-plus-*` prereleases.
 - `demo-media` is a prerelease holding the demo videos the READMEs link to.
 - `legacy/thor/*` and `legacy/rgds/*` are the tags carried over from the old repositories, such as `legacy/thor/build-49a05568ed99` or `legacy/rgds/v0.3.2`. They mark history only; their releases were never copied here.
 

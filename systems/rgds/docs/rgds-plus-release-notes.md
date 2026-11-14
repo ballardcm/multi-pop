@@ -1,5 +1,5 @@
-First **RG DS Plus preview**, for **ROCKNIX 20261001**. This is an early build,
-not a fully tested stable release.
+First numbered **RG DS Plus** release, for **ROCKNIX 20261001**. It replaces
+10.30.26.Preview and turns on Plus automatic updates for later releases.
 
 - Native 1024×768 dual-screen layout, with system artwork/game previews above
   and a three-card library below.
@@ -9,14 +9,15 @@ not a fully tested stable release.
 
 Basic layout, lower touch and reboot persistence have been tested on hardware. Broad game coverage,
 suspend/resume, long sessions and the full recovery matrix remain unverified.
-Automatic updates do not install this preview on Thor or the original RG DS.
+Thor and original RG DS updaters never install Plus releases. A Plus still on
+10.30.26.Preview does not update itself: install this release by hand once.
 
 Download **multi-pop-rgds-plus-rocknix-20261001.zip** and **SHA256SUMS**.
 The ZIP contains `multi-pop-rgds/`; this is intentional. Restore an existing
-test installation before copying this release. Do not use the original RG DS
+installation, including the preview, before copying this release. Do not use the original RG DS
 package on the Plus.
 
-[Install, restore, credits and known testing limits](https://github.com/ballardcm/multi-pop/blob/main/systems/rgds/docs/rgds-plus-preview.md)
+[Install, restore, credits and known testing limits](https://github.com/ballardcm/multi-pop/blob/main/systems/rgds/docs/rgds-plus.md)
 
 Multi Pop has moved to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop).
 Existing Thor/original RG DS users can run **two consecutive upgrades**, rebooting

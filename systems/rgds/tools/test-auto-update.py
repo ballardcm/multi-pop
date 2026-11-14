@@ -126,6 +126,7 @@ class AutoUpdateTests(unittest.TestCase):
         # Each would be chosen if the filter let it through, and none of its downloads exist.
         return [
             self.entry('thor-12.31.26.9', '/thor', 'multi-pop-thor-rocknix-20261001.zip'),
+            self.entry('rgds-plus-12.31.26.9', '/plus', 'multi-pop-rgds-plus-rocknix-20261001.zip'),
             self.entry('rgds-frontend-12.31.26.1', '/frontend'),
             self.entry('rgds-12.31.26.1', '/prerelease', prerelease=True),
             self.entry('rgds-12.31.26.2', '/draft', draft=True),

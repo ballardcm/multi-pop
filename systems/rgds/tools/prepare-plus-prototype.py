@@ -60,9 +60,26 @@ def prepare(destination, release=False):
     common = theme / 'scripts/multi_pop_rgds_common.sh'
     common.write_text(common.read_text().replace("== 'Anbernic RG DS'", "== 'Anbernic RG DS Plus'")
                       .replace('requires Anbernic RG DS hardware', 'requires Anbernic RG DS Plus hardware'))
-    # A private test build must never consume an original-RG-DS automatic update.
+    # A Plus build must never consume an original-RG-DS automatic update, and the original RG DS must never take a
+    # Plus one, so the Plus updater follows its own tag and archive names. A private test build keeps a tag no
+    # workflow publishes, which leaves it without automatic updates at all.
     updater = theme / 'scripts/auto_update.py'
-    updater.write_text(updater.read_text().replace("r'rgds-(", "r'rgds-plus-prototype-("))
+    text = updater.read_text()
+    if text.count("r'rgds-(") != 1 or text.count('multi-pop-rgds-rocknix-') != 2:
+        raise ValueError('The updater no longer names its release tag and archive as the Plus profile expects')
+    text = text.replace("r'rgds-(", "r'rgds-plus-(" if release else "r'rgds-plus-prototype-(")
+    text = text.replace('multi-pop-rgds-rocknix-', 'multi-pop-rgds-plus-rocknix-')
+    updater.write_text(text.replace('No RG DS release is published yet.', 'No RG DS Plus release is published yet.'))
+    # The packager ships this installer as scripts/update_theme.py, and both a manual update and the automatic one
+    # run it. It refuses a frontend that is not at the expected viewport, which must be the Plus's own.
+    installer = destination / 'tools/install-multi-pop-theme.py'
+    text = installer.read_text()
+    for original, scaled in (('(-640, 0, 1920, 480)', '(-1024, 0, 3072, 768)'),
+                             ("[b'--resolution', b'1920', b'480']", "[b'--resolution', b'3072', b'768']")):
+        if text.count(original) != 1:
+            raise ValueError('The installer no longer states its viewport as the Plus profile expects: ' + original)
+        text = text.replace(original, scaled)
+    installer.write_text(text.replace('expected RG DS viewport', 'expected RG DS Plus viewport'))
     report = theme / 'frontend/compatibility.json'
     report.write_text(json.dumps({'hardware': 'Anbernic RG DS Plus', 'architecture': 'aarch64',
         'firmware': '20261001', 'canvas': [3072, 768], 'panel': [1024, 768],
@@ -97,8 +114,8 @@ def prepare(destination, release=False):
             if hashlib.sha256((destination / name).read_bytes()).hexdigest() != expected:
                 raise ValueError('Plus compiler input changed; rebuild and validate a new frontend: ' + name)
         shutil.copy2(destination / 'README.md', destination / 'docs/original-rgds-readme.md')
-        shutil.copy2(ROOT / 'docs/rgds-plus-preview.md', destination / 'README.md')
-        shutil.copy2(ROOT / 'docs/rgds-plus-preview.md', theme / 'README.md')
+        shutil.copy2(ROOT / 'docs/rgds-plus.md', destination / 'README.md')
+        shutil.copy2(ROOT / 'docs/rgds-plus.md', theme / 'README.md')
         # Reuse the standard packager's Git-only source inventory in an isolated
         # index. No commits, identities, runtime libraries or build caches enter it.
         subprocess.run(['git', 'init', '--quiet', str(destination)], check=True)
@@ -109,6 +126,6 @@ def prepare(destination, release=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('destination', type=Path)
-    parser.add_argument('--release', action='store_true', help='Use the pinned Plus preview release metadata')
+    parser.add_argument('--release', action='store_true', help='Use the pinned Plus release metadata')
     args = parser.parse_args()
     prepare(args.destination.resolve(), args.release)

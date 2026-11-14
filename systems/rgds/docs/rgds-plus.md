@@ -1,8 +1,8 @@
-# Multi Pop for RG DS Plus — 10.30.26.Preview
+# Multi Pop for RG DS Plus
 
-> **Preview:** Early hardware-tested build for **Anbernic RG DS Plus on ROCKNIX
-> 20261001**. It is not fully tested. Please report issues with the device model,
-> firmware version and steps to reproduce.
+> **Testing status:** Hardware-tested build for **Anbernic RG DS Plus on ROCKNIX
+> 20261001**. The checks below are the ones that have been done; please report
+> issues with the device model, firmware version and steps to reproduce.
 >
 > **AI disclosure:** AI assistance (Codex) was used for this adaptation, build and
 > validation. Original system illustrations were AI-generated. Upstream code,
@@ -21,20 +21,32 @@ without modifying its bytes.
 ## What has been checked
 
 - Installed and running on RG DS Plus with ROCKNIX 20261001.
+- On ROCKNIX 20261101: 10.30.26.Preview starts with both panels and the lower touchscreen active after the firmware update. Nothing else has been repeated there yet.
 - Native dual-screen layout, visible version and lower-screen swipe/tap.
 - Reboot persistence: frontend and both panels return; Wi-Fi and Tailscale reconnect.
 - Target runtime loader/help checks, generated gesture and popup-bound tests,
   source and binary checksums, and original RG DS regression checks.
 
 Broad game/emulator compatibility, suspend/resume, long sessions and the full
-recovery matrix are not yet validated. This release is marked as a GitHub
-prerelease and is not offered to existing Thor or RG DS automatic updaters.
-Preview updates are manual; leave automatic updates off.
+recovery matrix are not yet validated.
+
+## Updates
+
+Plus releases are tagged `rgds-plus-MM.DD.YY.N` and are never offered to Thor
+or original RG DS updaters, which accept only their own tags and archives. From
+11.14.26.1 on, a Plus with **Automatic updates** turned on in Theme
+Configuration follows those releases the same way the original RG DS follows
+its own; a release that changes the startup helpers or targets other firmware
+still needs a manual install.
+
+**Coming from 10.30.26.Preview:** that build's updater follows a tag nothing
+publishes, so it reports itself up to date and never updates. Install the first
+numbered release by hand, as below.
 
 ## Install
 
 1. Download **multi-pop-rgds-plus-rocknix-20261001.zip** and **SHA256SUMS** from
-   [the Plus preview release](https://github.com/ballardcm/multi-pop/releases/tag/rgds-plus-10.30.26.Preview).
+   the newest [`rgds-plus-` release](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-).
    Verify the ZIP with `shasum -a 256` (macOS) or `sha256sum` (Linux).
    Do not install the source ZIP or GitHub's automatically generated source archives.
 2. Extract the ZIP. It deliberately contains a folder named **multi-pop-rgds**,
@@ -59,8 +71,8 @@ Activation backs up the existing frontend settings and Sway configuration under
 `/storage/.config/multi-pop-rgds/`. It retains the stock frontend. Test the lower
 touchscreen, A/B navigation, START menu, a game launch/return and reboot.
 
-If a previous Multi Pop test is installed, **restore it before copying this
-release**. Do not overwrite an active installation. If another theme owns
+If a previous Multi Pop build is installed, including 10.30.26.Preview,
+**restore it before copying this release**. Do not overwrite an active installation. If another theme owns
 startup, use that theme's removal instructions first.
 
 ## Restore the previous frontend

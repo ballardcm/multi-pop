@@ -10,12 +10,14 @@ Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.ym
 
 Never publish a release from the old `ballardcm/multi-pop-thor` or `ballardcm/multi-pop-rgds` repositories. Devices that have not yet installed 10.28.26.Transition still poll them, and would install anything published there. Every new release comes from this repository, tagged `thor-MM.DD.YY.N` or `rgds-MM.DD.YY.N` with a version integer above 20261028001.
 
-The RG DS Plus preview is an explicit exception: `rgds-plus-MM.DD.YY.Preview`,
-marked as a prerelease and never Latest, with the same monotonic integer rule.
-It is published only by the manual `rgds-plus.yml` workflow on main. Its pinned
-`rgds-frontend-plus-*` input prerelease may be staged as a draft for PR checks;
-only the manual main workflow publishes it. Existing device updaters must never
-consume Plus previews.
+RG DS Plus releases are tagged `rgds-plus-MM.DD.YY.N`, with the same monotonic
+integer rule, and are published only by the manual `rgds-plus.yml` workflow on
+main: not a prerelease, and never Latest. Only a Plus updater may consume them;
+Thor and original RG DS updaters must keep rejecting the tag and the
+`multi-pop-rgds-plus-rocknix-` archive. The pinned `rgds-frontend-plus-*` input
+prerelease may be staged as a draft for PR checks; only the manual main workflow
+publishes it. `rgds-plus-10.30.26.Preview` was the one prerelease under the
+earlier scheme, and its updater follows no published tag.
 
 ## Identity and attribution
 

@@ -165,7 +165,7 @@ jobs:
           if [ -s docs/release-notes.md ]; then
             notes="$(cat docs/release-notes.md)"$'\n\n'"$notes"
           fi
-          # Both systems publish into this repository, so neither may become the repository's single Latest release.
+          # Every device publishes into this repository, so none of their releases may become its single Latest release.
           gh release create "$tag" \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
@@ -173,3 +173,12 @@ jobs:
             --notes "$notes" \
             --latest=false \
             dist/*
+          # GitHub always shows one full release as Latest, and with none chosen it picks the newest by commit date, which
+          # would be one device's download. The file-less `downloads` entry holds the mark instead and points at every
+          # device's releases; marking it again after each publish keeps it there.
+          if gh release view downloads --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit downloads --repo "$GITHUB_REPOSITORY" --latest --notes-file ../../.github/downloads-release.md
+          else
+            gh release create downloads --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --latest \
+              --title "Multi Pop downloads: pick your device" --notes-file ../../.github/downloads-release.md
+          fi

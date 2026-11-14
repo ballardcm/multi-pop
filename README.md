@@ -19,6 +19,7 @@ Install from the newest release for your device, following its system README. Bo
 - `thor-MM.DD.YY.N`, `rgds-MM.DD.YY.N` and `rgds-plus-MM.DD.YY.N`, such as `thor-10.28.26.2`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, each device only its own, and they skip drafts and prereleases.
 - `thor-frontend-*` and `rgds-frontend-*` are prereleases holding each system's verified frontend binary and source archives, which packaging downloads. They are not installable themes.
 - `rgds-plus-10.30.26.Preview` is the earlier RG DS Plus prerelease, installed by hand; its updater follows no published tag. The Plus source is generated from the RG DS profile with its own pinned frontend inputs, held in `rgds-frontend-plus-*` prereleases.
+- `downloads` has no files. It is the release GitHub shows as Latest, and it points to each device's releases, so that link never leads to another device's download. The release workflows keep it marked; its text is `.github/downloads-release.md`.
 - `demo-media` is a prerelease holding the demo videos the READMEs link to.
 - `legacy/thor/*` and `legacy/rgds/*` are the tags carried over from the old repositories, such as `legacy/thor/build-49a05568ed99` or `legacy/rgds/v0.3.2`. They mark history only; their releases were never copied here.
 

@@ -21,6 +21,7 @@ without modifying its bytes.
 ## What has been checked
 
 - Installed and running on RG DS Plus with ROCKNIX 20261001.
+- On ROCKNIX 20261101: 10.30.26.Preview starts with both panels and the lower touchscreen active after the firmware update. Nothing else has been repeated there yet.
 - Native dual-screen layout, visible version and lower-screen swipe/tap.
 - Reboot persistence: frontend and both panels return; Wi-Fi and Tailscale reconnect.
 - Target runtime loader/help checks, generated gesture and popup-bound tests,

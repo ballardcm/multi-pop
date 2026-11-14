@@ -70,6 +70,16 @@ def prepare(destination, release=False):
     text = text.replace("r'rgds-(", "r'rgds-plus-(" if release else "r'rgds-plus-prototype-(")
     text = text.replace('multi-pop-rgds-rocknix-', 'multi-pop-rgds-plus-rocknix-')
     updater.write_text(text.replace('No RG DS release is published yet.', 'No RG DS Plus release is published yet.'))
+    # The packager ships this installer as scripts/update_theme.py, and both a manual update and the automatic one
+    # run it. It refuses a frontend that is not at the expected viewport, which must be the Plus's own.
+    installer = destination / 'tools/install-multi-pop-theme.py'
+    text = installer.read_text()
+    for original, scaled in (('(-640, 0, 1920, 480)', '(-1024, 0, 3072, 768)'),
+                             ("[b'--resolution', b'1920', b'480']", "[b'--resolution', b'3072', b'768']")):
+        if text.count(original) != 1:
+            raise ValueError('The installer no longer states its viewport as the Plus profile expects: ' + original)
+        text = text.replace(original, scaled)
+    installer.write_text(text.replace('expected RG DS viewport', 'expected RG DS Plus viewport'))
     report = theme / 'frontend/compatibility.json'
     report.write_text(json.dumps({'hardware': 'Anbernic RG DS Plus', 'architecture': 'aarch64',
         'firmware': '20261001', 'canvas': [3072, 768], 'panel': [1024, 768],

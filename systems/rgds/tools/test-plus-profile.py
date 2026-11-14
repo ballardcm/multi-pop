@@ -37,4 +37,10 @@ assert module.ARCHIVE.fullmatch('multi-pop-rgds-plus-rocknix-20261001.zip') is n
 assert module.ARCHIVE.fullmatch('multi-pop-rgds-rocknix-20261001.zip') is None
 assert "startswith('multi-pop-rgds-plus-rocknix-')" in (theme / 'scripts/auto_update.py').read_text()
 assert module.Config().theme == Path('/roms/themes/multi-pop-rgds')
+# The installer becomes the device's updater, so it must expect the Plus viewport the launcher asks for.
+installer = (root / 'tools/install-multi-pop-theme.py').read_text()
+launcher = (theme / 'scripts/start_es_rgds.sh').read_text()
+assert '--resolution 3072 768' in launcher, 'launcher resolution'
+assert '(-1024, 0, 3072, 768)' in installer and "[b'--resolution', b'3072', b'768']" in installer
+assert '1920' not in installer and '-640' not in installer
 print('PASS: Plus firmware inputs, hardware guard, lower-only touch UI and update-feed isolation')

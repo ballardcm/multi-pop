@@ -8,6 +8,7 @@ import shutil
 import socket
 import subprocess
 import tempfile
+import time
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,7 @@ SCRIPTS = ROOT / 'multi-pop-thor/scripts'
 class StartupTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='mp-start-', dir='/tmp')
-        self.addCleanup(self.temp.cleanup)
+        self.addCleanup(self.remove_tree)
         self.root = Path(self.temp.name)
         self.config = self.root / 'storage/.config'
         self.state = self.config / 'multi-pop-thor'
@@ -72,6 +73,18 @@ elif command == 'stat':
         self.addCleanup(self.sock.close)
         self.env = dict(os.environ, TEST_ROOT=str(self.root), PATH=str(self.bin) + os.pathsep + os.environ['PATH'])
         self.install_theme('roms/themes/multi-pop-thor')
+
+    def remove_tree(self):
+        # The startup helper leaves a detached focus loop behind, as it does on the device, and that loop logs its
+        # stubbed commands into this tree for a moment after the helper returns.
+        for attempt in range(50):
+            try:
+                self.temp.cleanup()
+                return
+            except OSError:
+                time.sleep(0.1)
+                self.root.mkdir(exist_ok=True)
+        self.temp.cleanup()
 
     def write(self, path, text, mode=0o644):
         path.parent.mkdir(parents=True, exist_ok=True)

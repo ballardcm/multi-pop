@@ -45,7 +45,7 @@ numbered release by hand, as below.
 
 ## Install
 
-1. Download **multi-pop-rgds-plus-rocknix-20261001.zip** and **SHA256SUMS** from
+1. Download **multi-pop-rgds-plus-rocknix-theme.zip** and **SHA256SUMS** from
    the newest [`rgds-plus-` release](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-).
    Verify the ZIP with `shasum -a 256` (macOS) or `sha256sum` (Linux).
    Do not install the source ZIP or GitHub's automatically generated source archives.

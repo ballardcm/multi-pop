@@ -40,16 +40,16 @@ The covers, gameplay previews, and game details shown are third-party media on t
 
 ### 1. Download and verify
 
-Download **multi-pop-rgds-rocknix-20261001.zip** and **SHA256SUMS** from the same RG DS release, the newest `rgds-` entry on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=rgds-); Thor releases share that page. The source ZIP is for developers; it is not the installable theme. Do not install GitHub's automatically generated Source code ZIP.
+Download **multi-pop-rgds-rocknix-theme.zip** and **SHA256SUMS** from the same RG DS release, the newest `rgds-` entry on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=rgds-); Thor releases share that page. The source ZIP is for developers; it is not the installable theme. Do not install GitHub's automatically generated Source code ZIP.
 
 On macOS, in the folder containing the downloads:
 
 ```sh
-shasum -a 256 multi-pop-rgds-rocknix-20261001.zip
+shasum -a 256 multi-pop-rgds-rocknix-theme.zip
 cat SHA256SUMS
 ```
 
-Compare the printed hash with the line for that exact filename. Stop and download again if they differ. On Linux use `sha256sum`; on Windows PowerShell use `Get-FileHash .\multi-pop-rgds-rocknix-20261001.zip -Algorithm SHA256`.
+Compare the printed hash with the line for that exact filename. Stop and download again if they differ. On Linux use `sha256sum`; on Windows PowerShell use `Get-FileHash .\multi-pop-rgds-rocknix-theme.zip -Algorithm SHA256`.
 
 Extract the installable ZIP. It contains `multi-pop-rgds/` and `install-manifest.json`. Inside the folder, `frontend/emulationstation` must be present.
 

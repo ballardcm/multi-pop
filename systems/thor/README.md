@@ -48,13 +48,13 @@ Multi Pop installs alongside ROCKNIX rather than replacing any of it. Activation
 
 ### 1. Download and check the release
 
-From the newest Thor release, tagged `thor-`, on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=thor-), download `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
+From the newest Thor release, tagged `thor-`, on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=thor-), download `multi-pop-thor-rocknix-theme.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
 
 ```sh
 shasum -a 256 --check --ignore-missing SHA256SUMS
 ```
 
-On Linux use `sha256sum` in place of `shasum -a 256`. It should print `multi-pop-thor-rocknix-20261001.zip: OK`; if it does not, download the ZIP again. Then extract the ZIP, which gives you a `multi-pop-thor` folder.
+On Linux use `sha256sum` in place of `shasum -a 256`. It should print `multi-pop-thor-rocknix-theme.zip: OK`; if it does not, download the ZIP again. Then extract the ZIP, which gives you a `multi-pop-thor` folder.
 
 ### 2. Turn on SSH
 
@@ -155,11 +155,11 @@ Without SSH there is no simple way back in, which is why the install asks you to
 ### Go back to an earlier version
 
 1. On the Thor, open UI Settings → Theme Configuration and set **Automatic updates** to Off. Otherwise the Thor installs the newest release again.
-2. From the [Multi Pop releases](https://github.com/ballardcm/multi-pop/releases?q=thor-), download that `thor-` version's `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS`, and check it as in [step 1](#1-download-and-check-the-release).
+2. From the [Multi Pop releases](https://github.com/ballardcm/multi-pop/releases?q=thor-), download that `thor-` version's `multi-pop-thor-rocknix-theme.zip` (`multi-pop-thor-rocknix-20261001.zip` in releases before 11.14.26.1; use that name below) and `SHA256SUMS`, and check it as in [step 1](#1-download-and-check-the-release).
 3. Copy the ZIP to the Thor:
 
    ```sh
-   scp multi-pop-thor-rocknix-20261001.zip root@THOR-IP:/storage/downloads/
+   scp multi-pop-thor-rocknix-theme.zip root@THOR-IP:/storage/downloads/
    ```
 
 4. Find the ZIP's hash, the long string at the start of its line in `SHA256SUMS`, and run the updater over SSH while the Thor sits idle in the game browser:
@@ -167,7 +167,7 @@ Without SSH there is no simple way back in, which is why the install asks you to
    ```sh
    python3 \
      /roms/themes/multi-pop-thor/scripts/update_theme.py \
-     /storage/downloads/multi-pop-thor-rocknix-20261001.zip \
+     /storage/downloads/multi-pop-thor-rocknix-theme.zip \
      PASTE_THE_HASH_HERE
    ```
 

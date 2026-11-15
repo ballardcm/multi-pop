@@ -14,7 +14,7 @@ restore on 20261101. Thor and original RG DS updaters never install Plus
 releases. A Plus still on 10.30.26.Preview does not update itself: install this
 release by hand once.
 
-Download **multi-pop-rgds-plus-rocknix-20261001.zip** and **SHA256SUMS**.
+Download **multi-pop-rgds-plus-rocknix-theme.zip** and **SHA256SUMS**.
 The ZIP contains `multi-pop-rgds/`; this is intentional. Restore an existing
 installation, including the preview, before copying this release. Do not use the original RG DS
 package on the Plus.

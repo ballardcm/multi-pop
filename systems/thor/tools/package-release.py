@@ -114,7 +114,9 @@ def package(root, output, frontend, upstream_source, sdl_source, version):
                                         theme_files["version.xml"])
     manifest = {name: hashlib.sha256(data).hexdigest() for name, data in sorted(theme_files.items())}
     output.mkdir(parents=True, exist_ok=True)
-    ready = output / (THEME + "-rocknix-" + config["firmware_version"] + ".zip")
+    # The name carries no firmware version: one build runs on more than one ROCKNIX release, and a fixed name keeps the
+    # documented commands true from release to release. Installed updaters need only the "-rocknix-" prefix.
+    ready = output / (THEME + "-rocknix-theme.zip")
     source = output / (THEME + "-source.zip")
     with zipfile.ZipFile(ready, "w") as archive:
         for name, data in sorted(theme_files.items()):

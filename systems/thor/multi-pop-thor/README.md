@@ -79,7 +79,7 @@ Upload the new ready-to-install ZIP to the Thor and use the bundled `scripts/upd
 ```sh
 python3 \
   /roms/themes/multi-pop-thor/scripts/update_theme.py \
-  /storage/downloads/multi-pop-thor-rocknix-20261001.zip \
+  /storage/downloads/multi-pop-thor-rocknix-theme.zip \
   SHA256_FROM_SHA256SUMS
 ```
 

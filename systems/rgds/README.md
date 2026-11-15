@@ -2,9 +2,9 @@
 
 > **AI disclosure:** This theme was developed with the help of AI, and its original system illustrations were AI-generated. Third-party components and their credits are listed below.
 
-A colorful two-screen frontend for **Anbernic RG DS running ROCKNIX 20261001**. System artwork or a game preview appears above; a three-card library appears below. Touch works on both screens. This port of Multi Pop Thor, now under [`systems/thor`](https://github.com/ballardcm/multi-pop/tree/main/systems/thor) in the same repository, includes a patched EmulationStation frontend sized for the RG DS's two 640×480 displays.
+A colorful two-screen frontend for **Anbernic RG DS running ROCKNIX 20261001 or 20261101**. System artwork or a game preview appears above; a three-card library appears below. Touch works on both screens. This port of Multi Pop Thor, now under [`systems/thor`](https://github.com/ballardcm/multi-pop/tree/main/systems/thor) in the same repository, includes a patched EmulationStation frontend sized for the RG DS's two 640×480 displays.
 
-The bundled frontend was built and verified for ROCKNIX 20261001. On **ROCKNIX 20261101** release 10.28.26.2 and later start with both displays and the lower touchscreen active; the full control checklist has not been repeated there yet. The activation and restore helpers still require 20261001, so a fresh install or a restore is refused on 20261101.
+The bundled frontend was built and verified for ROCKNIX 20261001. On **ROCKNIX 20261101** release 10.28.26.2 and later start with both displays and the lower touchscreen active; the full control checklist has not been repeated there yet. Installing and removing on 20261101 need release 11.15.26.1 or later; earlier releases refuse both there, so update before removing one.
 
 This is an early release for the original RG DS, not the RG DS Plus (which has [its own release](docs/rgds-plus.md)) or other handhelds. It installs on the ROCKNIX card and does not replace Android or change your ROMs, BIOS, saves, or emulator configuration. See [hardware validation](docs/prototype-status.md) for tested behavior and outstanding checks.
 

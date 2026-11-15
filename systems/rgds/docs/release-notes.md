@@ -1,4 +1,6 @@
-## 11.14.26.1
+## 11.15.26.1
 
-- **ROCKNIX 20261101.** No change was needed: after the firmware update Multi Pop starts with both displays and the lower touchscreen active. The activation and restore helpers still require 20261001, so a fresh install or a restore is refused on 20261101. The full control checklist has not been repeated on that firmware yet.
-- This release carries the same date label as Thor 11.14.26.1 and RG DS Plus 11.14.26.1. The theme, frontend and startup helpers are unchanged from 10.28.26.2, so existing installations update automatically when Automatic updates is on.
+- **Install and remove on ROCKNIX 20261101.** Earlier releases kept running after a firmware update to 20261101, but their activation and restore helpers stopped with "This release requires ROCKNIX 20261001", so Multi Pop could be neither installed fresh nor removed there. Both helpers now accept 20261001 and 20261101, and no longer mistake the service settings the new firmware ships for another theme's startup override.
+- Restore, a fresh activation and a reboot were each run on an RG DS with ROCKNIX 20261101. The full control checklist has not been repeated on that firmware yet.
+
+The theme, frontend and startup helpers are unchanged from 11.14.26.1, so existing installations update automatically when Automatic updates is on. Take this update before running restore on 20261101.

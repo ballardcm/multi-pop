@@ -60,6 +60,30 @@ for palette in (THEME / 'palettes').glob('*.xml'):
     paper = luminance(variables.findtext('paper', 'F7F8FCFF'))
     outline = luminance(variables.findtext('selectionAccent'))
     assert (paper + .05) / (outline + .05) >= 3, palette
-print('PASS: XML, assets, panel bounds, shell syntax, RG DS gesture behavior')
+# Activation and restore must run on both supported firmware builds and still refuse any other. ROCKNIX 20261101
+# also lists drop-ins of its own for essway, which must not read as another theme's startup override.
+with tempfile.TemporaryDirectory() as d:
+    script = r"""
+set -euo pipefail
+. "$1/multi_pop_rgds_common.sh"; . "$1/multi_pop_rgds_firmware.sh"
+! declare -f check_host | grep -q BUILD_ID
+declare -f check_host | grep -q device-tree/model
+OS_RELEASE=$2/os-release
+accepts() { printf 'BUILD_ID="%s"\n' "$1" > "$OS_RELEASE"; ( check_firmware ) 2>/dev/null; }
+accepts c445081a59518f37d9776e5412dd7b14910696f7
+accepts cefc14339a4ae18c02bb69888f27835e50664b60
+! accepts 0000000000000000000000000000000000000000
+STATE=$2/state; SERVICE_OVERRIDE=$2/essway.service.d/multi-pop-rgds.conf
+mkdir -p "$STATE" "$2/essway.service.d"
+FIRMWARE='/usr/lib/systemd/system/service.d/10-rocknix-thp.conf /usr/lib/systemd/system/essway.service.d/20-thp.conf'
+systemctl() { printf '%s\n' "$DROP_INS"; }
+DROP_INS=$FIRMWARE; ( guard_startup_override )
+echo override > "$SERVICE_OVERRIDE"; cp "$SERVICE_OVERRIDE" "$STATE/installed.service"
+DROP_INS="$FIRMWARE $SERVICE_OVERRIDE"; ( guard_startup_override )
+DROP_INS="$FIRMWARE /storage/.config/system.d/essway.service.d/other-theme.conf"
+! ( guard_startup_override ) 2>/dev/null
+"""
+    subprocess.run(['bash', '-c', script, 'firmware-test', str(THEME/'scripts'), d], check=True)
+print('PASS: XML, assets, panel bounds, shell syntax, firmware tests, RG DS gesture behavior')
 
 subprocess.run([__import__('sys').executable, str(ROOT/'tools/check-logo-assets.py'), str(THEME)], check=True)

@@ -1,18 +1,18 @@
-First numbered **RG DS Plus** release, for **ROCKNIX 20261001**. It replaces
-10.30.26.Preview and turns on Plus automatic updates for later releases. A Plus
-set up on 20261001 keeps running after a firmware update to 20261101, but
-activation and restore require 20261001.
+**RG DS Plus** release for **ROCKNIX 20261001 and 20261101**.
 
-- Native 1024×768 dual-screen layout, with system artwork/game previews above
-  and a three-card library below.
-- Lower-screen swipe/tap support. The Plus's top screen is not touch-sensitive.
-- Plus-specific frontend, checked source/binary hashes and matching source ZIP.
-- Restore helper and activation backups; stock frontend retained.
+- **Install and remove on ROCKNIX 20261101.** Earlier builds kept running after a
+  firmware update to 20261101, but their activation and restore helpers stopped
+  with "This release requires ROCKNIX 20261001", so Multi Pop could be neither
+  installed fresh nor removed there. Both helpers now accept either firmware.
+- Restore, a fresh activation and a reboot were each run on a Plus with ROCKNIX
+  20261101. Broad game coverage, suspend/resume, long sessions and the full
+  recovery matrix remain unverified.
 
-Basic layout, lower touch and reboot persistence have been tested on hardware. Broad game coverage,
-suspend/resume, long sessions and the full recovery matrix remain unverified.
-Thor and original RG DS updaters never install Plus releases. A Plus still on
-10.30.26.Preview does not update itself: install this release by hand once.
+The theme, frontend and startup helpers are unchanged from 11.14.26.1, so a Plus
+with Automatic updates on takes this release by itself; take it before running
+restore on 20261101. Thor and original RG DS updaters never install Plus
+releases. A Plus still on 10.30.26.Preview does not update itself: install this
+release by hand once.
 
 Download **multi-pop-rgds-plus-rocknix-20261001.zip** and **SHA256SUMS**.
 The ZIP contains `multi-pop-rgds/`; this is intentional. Restore an existing
@@ -21,12 +21,6 @@ package on the Plus.
 
 [Install, restore, credits and known testing limits](https://github.com/ballardcm/multi-pop/blob/main/systems/rgds/docs/rgds-plus.md)
 
-Multi Pop has moved to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop).
-Existing Thor/original RG DS users can run **two consecutive upgrades**, rebooting
-between them: first the transition release points the updater here, then the next
-upgrade installs the current monorepo release. A fresh installation from this
-repository also works. Already on a monorepo release? No migration is needed.
-
-AI assistance (Codex) was used for this port. Original artwork remains under
+AI assistance (Codex and Claude) was used for this port and this release. Original artwork remains under
 CC BY-NC-SA 4.0; upstream code, fonts and third-party logos retain their licenses
 and credits, including DekosAnjo's additional-system contributions.

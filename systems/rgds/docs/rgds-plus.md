@@ -1,7 +1,7 @@
 # Multi Pop for RG DS Plus
 
 > **Testing status:** Hardware-tested build for **Anbernic RG DS Plus on ROCKNIX
-> 20261001**. The checks below are the ones that have been done; please report
+> 20261001 or 20261101**. The checks below are the ones that have been done; please report
 > issues with the device model, firmware version and steps to reproduce.
 >
 > **AI disclosure:** AI assistance (Codex) was used for this adaptation, build and
@@ -21,7 +21,7 @@ without modifying its bytes.
 ## What has been checked
 
 - Installed and running on RG DS Plus with ROCKNIX 20261001.
-- On ROCKNIX 20261101: 10.30.26.Preview starts with both panels and the lower touchscreen active after the firmware update. Nothing else has been repeated there yet. The activation and restore helpers still require 20261001, so a fresh install or a restore is refused on 20261101.
+- On ROCKNIX 20261101: starts with both panels and the lower touchscreen active after the firmware update. Restore, a fresh activation and a reboot were run there with 11.15.26.1, the first release whose helpers accept that firmware; earlier releases refuse to install or restore on it, so update before removing one. Nothing else has been repeated there yet.
 - Native dual-screen layout, visible version and lower-screen swipe/tap.
 - Reboot persistence: frontend and both panels return; Wi-Fi and Tailscale reconnect.
 - Target runtime loader/help checks, generated gesture and popup-bound tests,

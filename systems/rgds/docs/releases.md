@@ -64,7 +64,7 @@ Tests cover legacy-to-date staging/apply/confirmation, downgrade rejection, publ
 
 An Internet-connected device checks GitHub directly. Checks run after frontend startup when Automatic updates is On, at most every six hours. A manual Check for updates bypasses that interval and the Off setting. Downloads are validated, staged and applied only on the next frontend start. A started update is confirmed only when the installed theme frontend is the process serving the local API and its binary hash matches. After repeated unconfirmed starts, the old theme is restored. One backup is retained.
 
-Do not change activation scripts via an automatic update. Such releases need explicit removal/reinstallation because the on-device startup override and backup records also need updating. This restriction is checked during apply. The updater runs under a process lock, preserves settings, and never restarts gameplay to apply an update.
+Do not change what activation writes via an automatic update. Such releases need explicit removal/reinstallation because the on-device startup override and backup records also need updating. A change to the host tests alone may be delivered automatically, as 11.15.26.1 did for ROCKNIX 20261101 through `scripts/multi_pop_rgds_firmware.sh`, because a device on firmware the old tests refuse cannot restore in order to reinstall. This restriction is checked during apply. The updater runs under a process lock, preserves settings, and never restarts gameplay to apply an update.
 
 ## Private releases or USB-only devices
 

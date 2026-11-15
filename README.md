@@ -8,15 +8,17 @@ Multi Pop is a colorful dual-screen theme for ROCKNIX EmulationStation on handhe
 
 | System | Device and firmware | Source | Releases |
 | --- | --- | --- | --- |
-| Thor | AYN Thor, ROCKNIX 20261001 | [`systems/thor`](systems/thor/README.md) | [`thor-` releases](https://github.com/ballardcm/multi-pop/releases?q=thor-) |
-| RG DS | Anbernic RG DS, ROCKNIX 20261001 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
-| RG DS Plus | Anbernic RG DS Plus, ROCKNIX 20261001 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus.md) | [`rgds-plus-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-) |
+| Thor | AYN Thor, ROCKNIX 20261001 or 20261101 | [`systems/thor`](systems/thor/README.md) | [`thor-` releases](https://github.com/ballardcm/multi-pop/releases?q=thor-) |
+| RG DS | Anbernic RG DS, ROCKNIX 20261001 or 20261101 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
+| RG DS Plus | Anbernic RG DS Plus, ROCKNIX 20261001 or 20261101 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus.md) | [`rgds-plus-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-) |
 
-Install from the newest release for your device, following its system README. Both systems publish to the same releases page, so download the installable ZIP and `SHA256SUMS` from a release whose tag names your device. GitHub's automatically generated Source code archives are not installable themes.
+The bundled frontends were built for ROCKNIX 20261001; on 20261101 they start with both displays working, and the full control checklist has not been repeated there yet.
+
+Install from the newest release for your device, following its system README. Every device publishes to the same releases page, so download the installable ZIP and `SHA256SUMS` from a release whose tag names your device. GitHub's automatically generated Source code archives are not installable themes.
 
 ## Release tags
 
-- `thor-MM.DD.YY.N`, `rgds-MM.DD.YY.N` and `rgds-plus-MM.DD.YY.N`, such as `thor-10.28.26.2`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, each device only its own, and they skip drafts and prereleases.
+- `thor-MM.DD.YY.N`, `rgds-MM.DD.YY.N` and `rgds-plus-MM.DD.YY.N`, such as `thor-11.14.26.1`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, each device only its own, and they skip drafts and prereleases.
 - `thor-frontend-*` and `rgds-frontend-*` are prereleases holding each system's verified frontend binary and source archives, which packaging downloads. They are not installable themes.
 - `rgds-plus-10.30.26.Preview` is the earlier RG DS Plus prerelease, installed by hand; its updater follows no published tag. The Plus source is generated from the RG DS profile with its own pinned frontend inputs, held in `rgds-frontend-plus-*` prereleases.
 - `downloads` has no files. It is the release GitHub shows as Latest, and it points to each device's releases, so that link never leads to another device's download. The release workflows keep it marked; its text is `.github/downloads-release.md`.
@@ -35,13 +37,13 @@ Original Multi Pop material is licensed under [CC BY-NC-SA 4.0](https://creative
 
 ## Moved from the per-device repositories
 
-Multi Pop was developed in two repositories, `ballardcm/multi-pop-thor` and `ballardcm/multi-pop-rgds`, until 10.28.26. Their full histories are imported here under `systems/thor` and `systems/rgds`. Their final release, 10.28.26.Transition, pointed installed updaters at this repository; both old repositories are deleted on 2026-11-27, and nothing is published from them any more.
+Multi Pop was developed in two repositories, `ballardcm/multi-pop-thor` and `ballardcm/multi-pop-rgds`, until 10.28.26. Their full histories are imported here under `systems/thor` and `systems/rgds`. Their final release, 10.28.26.Transition, pointed installed updaters at this repository; both old repositories are scheduled for deletion on 2026-11-27, and nothing is published from them any more.
 
-For an existing Thor or original RG DS installation, run **two consecutive upgrades**, rebooting between them: the first installs the transition release and redirects the updater here; the second installs the current monorepo release. Alternatively, install fresh from this repository. Devices already on a monorepo release need no migration.
+For an existing Thor or original RG DS installation, run **two consecutive upgrades**, rebooting between them: the first installs the transition release and redirects the updater here; the second installs the current monorepo release. Alternatively, install fresh from this repository; after 2026-11-27 the transition release is gone with the old repositories, so a fresh install is the only route. Devices already on a monorepo release need no migration.
 
 ## Credits
 
-[DekosAnjo](https://github.com/DekosAnjo) contributed the additional systems in [Multi Pop RG DS PR #9](https://github.com/ballardcm/multi-pop-rgds/pull/9), later ported to Thor: Channel F, Odyssey², Famicom Disk System, MSX2, Mega CD, Super Cassette Vision, Mega Duck, Nintendo 64DD, Pokémon Mini, Doom, TIC-80, WASM-4, and Watara Supervision. DekosAnjo reported generating their system illustrations with **Nano Banana 2**; the corresponding cards and hero panels derive from those illustrations. These contributions retain the project's CC BY-NC-SA 4.0 scope where applicable.
+[DekosAnjo](https://github.com/DekosAnjo) contributed the additional systems in Multi Pop RG DS PR #9, [recorded here](systems/rgds/docs/pr9-systems.md) and later ported to Thor: Channel F, Odyssey², Famicom Disk System, MSX2, Mega CD, Super Cassette Vision, Mega Duck, Nintendo 64DD, Pokémon Mini, Doom, TIC-80, WASM-4, and Watara Supervision. DekosAnjo reported generating their system illustrations with **Nano Banana 2**; the corresponding cards and hero panels derive from those illustrations. These contributions retain the project's CC BY-NC-SA 4.0 scope where applicable.
 
 The logo artwork comes from HVR88's Monochrome Gaming Logos, the RetroPie Carbon theme and Fabrice Caruso's expanded Carbon collection, and remains the work of those artists and the brand owners. Each system README credits them in full, along with ROCKNIX EmulationStation and the other components Multi Pop builds on.
 

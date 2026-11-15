@@ -8,6 +8,8 @@ Contributions arrive through pull requests so their checks and preview downloads
 
 Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.yml`) runs on PRs that touch that system, and both run `tools/check-shared-assets.py`. Run the same checks locally from the system's directory before opening a PR; `CLAUDE.md` lists them.
 
+GitHub always marks one full release as Latest, so the file-less `downloads` release holds that mark and links to every device's releases; no device release may take it, and the release workflows mark `downloads` again after each publish.
+
 Never publish a release from the old `ballardcm/multi-pop-thor` or `ballardcm/multi-pop-rgds` repositories. Devices that have not yet installed 10.28.26.Transition still poll them, and would install anything published there. Every new release comes from this repository, tagged `thor-MM.DD.YY.N` or `rgds-MM.DD.YY.N` with a version integer above 20261028001.
 
 RG DS Plus releases are tagged `rgds-plus-MM.DD.YY.N`, with the same monotonic

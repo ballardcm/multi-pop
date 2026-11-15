@@ -112,7 +112,16 @@ jobs:
             fi
             exit 0
           fi
-          # Thor and RG DS publish here too, so no release is marked as the repository's Latest.
+          # Thor and RG DS publish here too, so no device's release is marked as the repository's Latest.
           gh release create "$tag" --target "$GITHUB_SHA" \
             --title "Multi Pop RG DS Plus $label" --latest=false \
             --notes-file systems/rgds/docs/rgds-plus-release-notes.md dist/*
+          # GitHub always shows one full release as Latest, and with none chosen it picks the newest by commit date, which
+          # would be one device's download. The file-less `downloads` entry holds the mark instead and points at every
+          # device's releases; marking it again after each publish keeps it there.
+          if gh release view downloads --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit downloads --repo "$GITHUB_REPOSITORY" --latest --notes-file .github/downloads-release.md
+          else
+            gh release create downloads --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --latest \
+              --title "Multi Pop downloads: pick your device" --notes-file .github/downloads-release.md
+          fi

@@ -9,10 +9,10 @@ Multi Pop is a colorful dual-screen theme for ROCKNIX EmulationStation on handhe
 | System | Device and firmware | Source | Releases |
 | --- | --- | --- | --- |
 | Thor | AYN Thor, ROCKNIX 20261001 or 20261101 | [`systems/thor`](systems/thor/README.md) | [`thor-` releases](https://github.com/ballardcm/multi-pop/releases?q=thor-) |
-| RG DS | Anbernic RG DS, ROCKNIX 20261001 or 20261101 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
-| RG DS Plus | Anbernic RG DS Plus, ROCKNIX 20261001 or 20261101 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus.md) | [`rgds-plus-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-) |
+| RG DS | Anbernic RG DS, ROCKNIX 20261001; an installed theme keeps running on 20261101 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
+| RG DS Plus | Anbernic RG DS Plus, ROCKNIX 20261001; an installed theme keeps running on 20261101 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus.md) | [`rgds-plus-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-) |
 
-The bundled frontends were built for ROCKNIX 20261001; on 20261101 they start with both displays working, and the full control checklist has not been repeated there yet.
+The bundled frontends were built for ROCKNIX 20261001. Thor 11.14.26.1 installs and runs on 20261101. An RG DS or RG DS Plus set up on 20261001 keeps working after the firmware update, but their activation and restore helpers still require 20261001, so a fresh install or a restore is refused on 20261101. The full control checklist has not been repeated on 20261101 for any device.
 
 Install from the newest release for your device, following its system README. Every device publishes to the same releases page, so download the installable ZIP and `SHA256SUMS` from a release whose tag names your device. GitHub's automatically generated Source code archives are not installable themes.
 

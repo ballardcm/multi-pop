@@ -42,7 +42,7 @@ Multi Pop installs alongside ROCKNIX rather than replacing any of it. Activation
 
 ### Before you start
 
-- An **AYN Thor running ROCKNIX 20261001**. This is the only firmware the bundled frontend has been verified on; other versions need a separately validated frontend. On **ROCKNIX 20261101** the same frontend starts and both displays work from release 11.14.26.1 on, whose startup helpers account for that firmware's lower-screen change; the full control checklist has not been repeated there yet.
+- An **AYN Thor running ROCKNIX 20261001 or 20261101**. The bundled frontend was built and verified on 20261001; other versions need a separately validated frontend. On **ROCKNIX 20261101** the same frontend starts and both displays work from release 11.14.26.1 on, whose startup helpers account for that firmware's lower-screen change; the full control checklist has not been repeated there yet.
 - A computer on the same Wi-Fi network with `ssh` and `scp`. macOS, Linux, and Windows 10 or later (in PowerShell) all have them.
 - If you have set up another dual-screen theme or layout on the Thor, remove it with its own instructions and reboot first. Step 4 checks for one.
 
@@ -190,7 +190,7 @@ Read the repository's current README first. Identify the USB network interface
 and SSH destination; do not assume the first handheld or the address from a
 previous session is correct. If other handhelds are attached, use an
 interface-scoped address. Verify /proc/device-tree/model says AYN Thor
-and /etc/os-release is the supported ROCKNIX 20261001 build before making changes.
+and /etc/os-release is ROCKNIX 20261001 or 20261101 before making changes.
 
 Download the ready-to-install release ZIP and SHA256SUMS onto this computer,
 verify the exact archive checksum, extract it, and follow the README's copy

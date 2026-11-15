@@ -1,5 +1,7 @@
 First numbered **RG DS Plus** release, for **ROCKNIX 20261001**. It replaces
-10.30.26.Preview and turns on Plus automatic updates for later releases.
+10.30.26.Preview and turns on Plus automatic updates for later releases. A Plus
+set up on 20261001 keeps running after a firmware update to 20261101, but
+activation and restore require 20261001.
 
 - Native 1024×768 dual-screen layout, with system artwork/game previews above
   and a three-card library below.

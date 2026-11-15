@@ -33,8 +33,8 @@ assert module.TAG.fullmatch('rgds-plus-11.14.26.1') is not None
 for tag in ('rgds-10.30.26.1', 'thor-10.30.26.1', 'rgds-plus-10.30.26.Preview', 'rgds-plus-prototype-10.30.26.1',
             'rgds-frontend-plus-20261030-preview1'):
     assert module.TAG.fullmatch(tag) is None, tag
-assert module.ARCHIVE.fullmatch('multi-pop-rgds-plus-rocknix-20261001.zip') is not None
-assert module.ARCHIVE.fullmatch('multi-pop-rgds-rocknix-20261001.zip') is None
+assert module.ARCHIVE.fullmatch('multi-pop-rgds-plus-rocknix-theme.zip') is not None
+assert module.ARCHIVE.fullmatch('multi-pop-rgds-rocknix-theme.zip') is None
 assert "startswith('multi-pop-rgds-plus-rocknix-')" in (theme / 'scripts/auto_update.py').read_text()
 assert module.Config().theme == Path('/roms/themes/multi-pop-rgds')
 # The installer becomes the device's updater, so it must expect the Plus viewport the launcher asks for.

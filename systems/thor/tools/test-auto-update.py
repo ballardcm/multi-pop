@@ -19,7 +19,7 @@ spec.loader.exec_module(auto_update)
 
 FIRMWARE = 'firmware-a'
 TAG = 'thor-10.28.26.2'
-ARCHIVE = 'multi-pop-thor-rocknix-20261001.zip'
+ARCHIVE = 'multi-pop-thor-rocknix-theme.zip'
 
 
 def theme_files(version, firmware=FIRMWARE, number=None):

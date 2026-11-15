@@ -39,7 +39,7 @@ def main():
     # The installed theme retains its existing path; device-specific download
     # names prevent confusion with the original RG DS package.
     archives = []
-    for name in ('multi-pop-rgds-rocknix-' + config['firmware_version'] + '.zip', 'multi-pop-rgds-source.zip'):
+    for name in ('multi-pop-rgds-rocknix-theme.zip', 'multi-pop-rgds-source.zip'):
         source = output / name
         target = output / name.replace('multi-pop-rgds-', 'multi-pop-rgds-plus-', 1)
         source.replace(target)

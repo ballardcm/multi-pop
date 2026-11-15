@@ -104,7 +104,7 @@ class AutoUpdateTests(unittest.TestCase):
             settings += '\t<string name="subset.autoupdate" value="' + value + '" />\n'
         self.config.es_settings.write_text(settings + '</config>\n')
 
-    def entry(self, tag, path='', name='multi-pop-rgds-rocknix-20261001.zip', **flags):
+    def entry(self, tag, path='', name='multi-pop-rgds-rocknix-theme.zip', **flags):
         base = 'http://127.0.0.1:%d' % self.server.server_address[1]
         return {'tag_name': tag, 'draft': False, 'prerelease': False, **flags, 'assets': [
             {'name': name, 'browser_download_url': base + '/zip' + path},
@@ -113,7 +113,7 @@ class AutoUpdateTests(unittest.TestCase):
     def publish(self, files, tag=TAG, sums_override=None, others=(), single=False):
         # The monorepo lists every system's releases together, so the real one is served among unrelated entries.
         archive = archive_bytes(files)
-        name = 'multi-pop-rgds-rocknix-20261001.zip'
+        name = 'multi-pop-rgds-rocknix-theme.zip'
         digest = sums_override or hashlib.sha256(archive).hexdigest()
         release = self.entry(tag)
         self.server.routes.update({
@@ -125,8 +125,8 @@ class AutoUpdateTests(unittest.TestCase):
     def decoys(self):
         # Each would be chosen if the filter let it through, and none of its downloads exist.
         return [
-            self.entry('thor-12.31.26.9', '/thor', 'multi-pop-thor-rocknix-20261001.zip'),
-            self.entry('rgds-plus-12.31.26.9', '/plus', 'multi-pop-rgds-plus-rocknix-20261001.zip'),
+            self.entry('thor-12.31.26.9', '/thor', 'multi-pop-thor-rocknix-theme.zip'),
+            self.entry('rgds-plus-12.31.26.9', '/plus', 'multi-pop-rgds-plus-rocknix-theme.zip'),
             self.entry('rgds-frontend-12.31.26.1', '/frontend'),
             self.entry('rgds-12.31.26.1', '/prerelease', prerelease=True),
             self.entry('rgds-12.31.26.2', '/draft', draft=True),

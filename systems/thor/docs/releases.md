@@ -5,7 +5,7 @@
 
 Every PR runs theme, media, and packaging checks and uploads a preview artifact containing three files:
 
-- `multi-pop-thor-rocknix-20261001.zip`: the installable theme, verified ARM64 frontend, licenses, bundled updater, and SHA-256 install manifest.
+- `multi-pop-thor-rocknix-theme.zip`: the installable theme, verified ARM64 frontend, licenses, bundled updater, and SHA-256 install manifest.
 - `multi-pop-thor-source.zip`: the project sources plus the pinned public frontend source archive, SDL source, patches, and build-your-own instructions.
 - `SHA256SUMS`: hashes of both downloads.
 

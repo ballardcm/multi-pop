@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > **Never publish from the old `ballardcm/multi-pop-rgds` repository.** RG DS is developed and released here under `systems/rgds`, and the old repository is deleted on 2026-11-27. A later `build-` release there would reach only devices that have not yet installed the transition, and would strand them on a repository that is going away.
 
-A release has an installable `multi-pop-rgds-rocknix-20261001.zip`, a matching `multi-pop-rgds-source.zip`, and `SHA256SUMS`. The source download contains the tracked project files, pinned upstream frontend sources, SDL headers source, and pugixml source. Firmware libraries, credentials, user data and compiler caches are excluded. Install manifests hash every shipped theme file. The packager rejects unverified binaries, changed build inputs, substituted source archives, symlinks and embedded service-key literals.
+A release has an installable `multi-pop-rgds-rocknix-theme.zip`, a matching `multi-pop-rgds-source.zip`, and `SHA256SUMS`. The source download contains the tracked project files, pinned upstream frontend sources, SDL headers source, and pugixml source. Firmware libraries, credentials, user data and compiler caches are excluded. Install manifests hash every shipped theme file. The packager rejects unverified binaries, changed build inputs, substituted source archives, symlinks and embedded service-key literals.
 
 ## Build and package
 
@@ -106,11 +106,11 @@ Install release A using the README, with automatic updates enabled. Publish a ne
 
 ## Manual rollback
 
-Turn automatic updates Off first. Download the desired release's installable ZIP and SHA256SUMS, verify it on your computer, and copy it to `/storage/downloads/` on the RG DS. While the frontend is idle, run:
+Turn automatic updates Off first. Download the desired release's installable ZIP (`multi-pop-rgds-rocknix-20261001.zip` in releases before 11.15.26.1; use that name below) and SHA256SUMS, verify it on your computer, and copy it to `/storage/downloads/` on the RG DS. While the frontend is idle, run:
 
 ```sh
 python3 /roms/themes/multi-pop-rgds/scripts/update_theme.py \
-  /storage/downloads/multi-pop-rgds-rocknix-20261001.zip EXPECTED_SHA256
+  /storage/downloads/multi-pop-rgds-rocknix-theme.zip EXPECTED_SHA256
 ```
 
 This checks the archive and activation records, keeps a backup, and restarts only an idle frontend. If it refuses a changed startup helper or firmware mismatch, use the full remove/install procedure instead. Do not remove the running theme folder manually.

@@ -140,7 +140,7 @@ jobs:
         run: |
           case "$SYSTEM" in
             thor) name="Thor"; notes="Ready-to-install archive for AYN Thor on ROCKNIX 20261001 or 20261101, matching source bundle, and SHA256SUMS. Installation, removal and rollback steps: https://github.com/ballardcm/multi-pop/tree/main/systems/thor#install Other firmware versions require a newly validated frontend." ;;
-            rgds) name="RG DS"; notes="Ready-to-install theme for RG DS on ROCKNIX 20261001, matching source ZIP, and SHA256SUMS. An installed theme keeps running after a firmware update to 20261101, but activation and restore require 20261001. See https://github.com/ballardcm/multi-pop/tree/main/systems/rgds#readme for installation, contributor credits, and recovery." ;;
+            rgds) name="RG DS"; notes="Ready-to-install theme for RG DS on ROCKNIX 20261001 or 20261101, matching source ZIP, and SHA256SUMS. See https://github.com/ballardcm/multi-pop/tree/main/systems/rgds#readme for installation, contributor credits, and recovery." ;;
           esac
           label=$(python3 -c 'import sys; sys.path.insert(0, "tools"); from pathlib import Path; from release_version import read_release; print(read_release(Path("."))[1])')
           tag="$SYSTEM-$label"

@@ -3,6 +3,7 @@
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
 . "$SCRIPT_DIR/multi_pop_rgds_common.sh"
+. "$SCRIPT_DIR/multi_pop_rgds_firmware.sh"
 
 PREPARE_ONLY=false
 case "${1-}" in
@@ -15,6 +16,7 @@ case "${1-}" in
 esac
 
 check_host
+check_firmware
 find_theme
 verify_outputs
 guard_launcher_mount

@@ -3,8 +3,10 @@
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
 . "$SCRIPT_DIR/multi_pop_rgds_common.sh"
+. "$SCRIPT_DIR/multi_pop_rgds_firmware.sh"
 
 check_host
+check_firmware
 [[ -f "$STATE/active" ]] || fail 'No completed Multi Pop RG DS activation was recorded.'
 [[ -f "$STATE/settings.backup" && -f "$STATE/sway.backup" ]] || fail 'The original backups are incomplete and no files were changed.'
 guard_launcher_mount

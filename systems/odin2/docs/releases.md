@@ -2,6 +2,8 @@
 
 Odin 2 releases are tagged `odin2-MM.DD.YY.N`. The number comes from `release-version.json`: set `date` to the release day and `revision` to 1, or to one more than the last release published that day. Make that change in the pull request that prepares the release, and put that release's notes in `docs/release-notes.md` if it has any.
 
+While the edition is in preview, `release-version.json` may also carry `"label": "Preview"`. The release is then tagged `odin2-MM.DD.YY.Preview`, shows that label on the device, and the workflow publishes it as a prerelease. The label replaces only the displayed revision, so ordering still follows date and revision. Only the Odin 2 may do this, because it has no updater; drop the label for a normal release.
+
 Merging never publishes. After the PR is merged, a maintainer runs the `Odin 2` workflow on `main`. It runs the checks, packages `dist/` and creates the release, then marks the file-less `downloads` release as Latest again so that no device's release takes that mark.
 
 The release holds three files:

@@ -29,7 +29,12 @@ def prepare(destination, release=False):
         source = ROOT / name
         target = destination / name
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
+        # Shared artwork arrives as links into the repository's shared/ folder; the generated tree gets real copies,
+        # because its relative links would point nowhere from inside .local/.
+        if source.is_dir():
+            shutil.copytree(source, target)
+        else:
+            shutil.copy2(source, target)
     # Preserve unified-diff line counts and upstream context: scale additions only.
     dimensions = {'640': '1024', '480': '768', '1280': '2048', '1920': '3072',
                   '640.0': '1024.0', '600.0': '960.0', '960.0': '1536.0'}

@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > **Never publish from the old `ballardcm/multi-pop-rgds` repository.** RG DS is developed and released here under `systems/rgds`, and the old repository is deleted on 2026-11-27. A later `build-` release there would reach only devices that have not yet installed the transition, and would strand them on a repository that is going away.
 
-A release has an installable `multi-pop-rgds-rocknix-theme.zip`, a matching `multi-pop-rgds-source.zip`, and `SHA256SUMS`. The source download contains the tracked project files, pinned upstream frontend sources, SDL headers source, and pugixml source. Firmware libraries, credentials, user data and compiler caches are excluded. Install manifests hash every shipped theme file. The packager rejects unverified binaries, changed build inputs, substituted source archives, symlinks and embedded service-key literals.
+A release has an installable `multi-pop-rgds-rocknix-theme.zip`, a matching `multi-pop-rgds-source.zip`, and `SHA256SUMS`. The source download contains the tracked project files, pinned upstream frontend sources, SDL headers source, and pugixml source. Firmware libraries, credentials, user data and compiler caches are excluded. Install manifests hash every shipped theme file. The packager rejects unverified binaries, changed build inputs, substituted source archives, symlinks that lead anywhere but tracked files in the repository's `shared/` folder, and embedded service-key literals. Links into `shared/` are packaged as the real files.
 
 ## Build and package
 

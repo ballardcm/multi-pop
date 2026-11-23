@@ -64,6 +64,6 @@ python3 \
   --sdl-source native-build/release-inputs/SDL2-2.32.10.tar.gz
 ```
 
-Downloads are written under `dist/`. Packaging uses Git's tracked and nonignored source inventory; it rejects symlinks and keeps private files and compiled frontends out of the source ZIP. Fixed archive metadata makes repeated builds from the same inputs byte-identical. The ready-to-install ZIP conforms to the existing updater's archive contract.
+Downloads are written under `dist/`. Packaging uses Git's tracked and nonignored source inventory; it follows symlinks only into files Git tracks in the repository's `shared/` folder, packaging the real files, and keeps private files and compiled frontends out of the source ZIP. Fixed archive metadata makes repeated builds from the same inputs byte-identical. The ready-to-install ZIP conforms to the existing updater's archive contract.
 
 GitHub's automatically generated repository source archives are still available, but they do not contain the frontend source snapshots added by our companion source ZIP. Use our named source ZIP when rebuilding a released frontend.

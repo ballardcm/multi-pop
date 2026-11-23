@@ -6,7 +6,7 @@ Rules for changes, identity, licensing and releases are in `AGENTS.md`; read it 
 
 - `systems/thor/` and `systems/rgds/` are the two themes, each the old per-device repository's tree unchanged in shape: the installable theme (`multi-pop-thor/`, `multi-pop-rgds/`), `tools/`, `docs/`, `frontend-build/` and `release-version.json`. Every tool finds its project root from its own path, so run them from the system's directory.
 - `.github/workflows/_system-release.yml` is the one release pipeline; `thor.yml` and `rgds.yml` call it with the system name. GitHub ignores workflow files below the root, so none belong under `systems/`.
-- `tools/check-shared-assets.py` checks that the shared artwork, logos, fonts and `platforms.json` are byte-identical in both systems. A later change will move them into `shared/`.
+- `shared/` holds the one copy of the hardware illustrations, cards, heroes, logos, fonts, `platforms.json` and the non-device UI graphics. Each theme links to it with relative symlinks at the old paths (`assets/systems` → `../../../../shared/assets/systems`), so tools and XML see the files where they always were. `package-release.py` follows links into tracked `shared/` files only and ships real files; `tools/check-shared-assets.py` fails if a link becomes a copy.
 - `README.md` is the public front page; each system README carries its install, update and credit details.
 
 ## Checks
@@ -65,7 +65,7 @@ Read these by section (`grep -n` for the symbol, then `sed -n`):
 ## Noisy or slow commands
 
 - `test-auto-update.py` and `test-install-multi-pop-media.py` print every test name and some ResourceWarnings; send them to a file under `$HOME` and grep for `FAIL|Error`.
-- `tools/build-multi-pop-art.py` rewrites every card and hero PNG (162 files per system) and Thor's `docs/artwork-grid.png`. Run it in one system only and copy `assets/cards` and `assets/heroes` to the other. Pillow versions render text slightly differently, so a rebuild changes bytes even where nothing was meant to change.
+- `tools/build-multi-pop-art.py` rewrites every card and hero PNG (162 files per system) and Thor's `docs/artwork-grid.png`. Run it in one system only; it writes through the links into `shared/`, so both systems get the result. Pillow versions render text slightly differently, so a rebuild changes bytes even where nothing was meant to change.
 - `tools/package-release.py` writes about 280 MB to `dist/` and needs the verified frontend inputs, which `gh release download` fetches from the `thor-frontend-` or `rgds-frontend-` prerelease.
 - `tools/fetch-multi-pop-screenshots.py` and `tools/build-multi-pop-logos.py --fetch` use the network.
 

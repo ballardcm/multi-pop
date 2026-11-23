@@ -35,7 +35,7 @@ Keep credentials, ROMs, BIOS, downloaded game media, device settings and state, 
 
 ## Shared assets
 
-The hardware illustrations, cards, heroes, logos, fonts and `platforms.json` must stay byte-identical between `systems/thor` and `systems/rgds` until they move into `shared/`. Change them in one system, copy the bytes to the other, and run `python3 tools/check-shared-assets.py`. Only the files in its `PER_DEVICE` list may differ.
+The hardware illustrations, cards, heroes, logos, fonts, `platforms.json` and the shared UI graphics live once, in `shared/`. Each theme links to them with relative symlinks at the paths its XML uses; change the file in `shared/`, never replace a link with a copy, and run `python3 tools/check-shared-assets.py`. Only `hardware-stage.svg` and `selection.svg` in `assets/ui`, and the palettes, are per device. Packaging follows links only into files Git tracks in `shared/`, and downloads always contain real files.
 
 ## Releases and the updater
 

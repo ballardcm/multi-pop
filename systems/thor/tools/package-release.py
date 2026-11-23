@@ -26,12 +26,31 @@ def repository_files(root):
         ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=root
     )
     names = sorted(set(name.decode() for name in output.split(b"\0") if name))
+    # The artwork, logos, fonts and platform list live once in the repository's shared/ folder, and each theme links to
+    # them. A link is followed only into that folder, and only to files Git tracks there, so a stray link can never pull
+    # an outside or untracked file into a download. The packages hold real files; devices never see a link.
+    shared = (root.parents[1] / "shared").resolve()
+    tracked = []
+    if shared.is_dir():
+        listed = subprocess.check_output(["git", "ls-files", "--cached", "-z"], cwd=shared)
+        tracked = sorted(entry.decode() for entry in listed.split(b"\0") if entry)
     files = {}
     for name in names:
         path = root / name
         if path.is_symlink():
-            raise ValueError("Release sources cannot contain symlinks: " + name)
-        if path.is_file():
+            target = path.resolve()
+            if not target.is_relative_to(shared):
+                raise ValueError("Release sources may link only into the shared folder: " + name)
+            within = target.relative_to(shared).as_posix()
+            if within in tracked:
+                files[name] = target
+                continue
+            inside = [item for item in tracked if item.startswith(within + "/")]
+            if not inside:
+                raise ValueError("Release sources may link only to files Git tracks in the shared folder: " + name)
+            for item in inside:
+                files[name + item[len(within):]] = shared / item
+        elif path.is_file():
             files[name] = path
     return files
 

@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'systems/rgds/**'
+      - 'shared/**'
       - 'tools/**'
       - '.github/workflows/rgds-plus.yml'
   workflow_dispatch:

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <view name="gamecarousel">
+        <text name="top-game-system" extra="true">
+            <visible>${platformTextVisible}</visible>
+            <text>{game:system:collection} ? proper({game:system:fullName}) : {game:system:fullName}</text>
+            <pos>0.010416667 0.37037037</pos><size>0.197916667 0.231481481</size>
+            <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.059259259</fontSize><lineSpacing>1</lineSpacing>
+            <color>${accentInk}</color><alignment>center</alignment><forceUppercase>true</forceUppercase><zIndex>8</zIndex>
+        </text>
+        <!-- In a library the whole rail is the back button: stock ES runs the theme's onclick action, and "back" returns
+             to the systems. It is the largest target on screen and needs no arrow squeezed in beside the logos. -->
+        <image name="system-color-column" extra="true"><onclick>back</onclick></image>
+        <!-- In a library the rail keeps a small copy of the hardware, so the system stays recognizable. -->
+        <image name="system-mark" extra="true">
+            <path>${systemIcon}</path>
+            <pos>0.109375 0.782407407</pos><origin>0.5 0.5</origin>
+            <maxSize>0.15625 0.138888889</maxSize><linearSmooth>true</linearSmooth><zIndex>8</zIndex>
+        </image>
+
+        <!-- The fixed frame marks the middle cover; the carousel scrolls the covers through it. -->
+        <image name="selected-card-frame" extra="true">
+            <path>${themePath}/assets/ui/selection.svg</path><color>${accent}</color>
+            <pos>0.3515625 0.5</pos><origin>0.5 0.5</origin>
+            <size>0.1375 0.367592593</size><zIndex>4</zIndex>
+        </image>
+        <!-- logoSize is a fraction of the carousel itself, unlike the screen fractions everywhere else. Covers are 2:3,
+             like the selection frame, and three of them share the full height with a small gap between. -->
+        <gamecarousel name="gamecarousel">
+            <type>vertical</type><pos>0.3515625 0.5</pos><origin>0.5 0.5</origin>
+            <size>0.234375 1</size><logoSize>0.48 0.3</logoSize>
+            <logoScale>1.15</logoScale><maxLogoCount>3</maxLogoCount><minLogoOpacity>0.55</minLogoOpacity>
+            <transitionSpeed>300</transitionSpeed>
+            <imageSource>thumbnail</imageSource><color>00000000</color><zIndex>5</zIndex>
+            <!-- The item template preserves covers and falls back to the image before using the system card. -->
+            <itemTemplate>
+                <image name="card" extra="true">
+                    <path>${themePath}/assets/ui/card.svg</path>
+                    <pos>0 0</pos><size>1 1</size><zIndex>0</zIndex>
+                </image>
+                <image name="cover" extra="true">
+                    <path>firstfile({game:thumbnail}, {game:image})</path>
+                    <default>${systemCard}</default>
+                    <pos>0.5 0.5</pos><origin>0.5 0.5</origin><maxSize>0.94 0.94</maxSize><zIndex>1</zIndex>
+                </image>
+                <text name="missing-cover-name" extra="true">
+                    <text>{game:name}</text><visible>empty(firstfile({game:thumbnail}, {game:image}))</visible>
+                    <pos>0.07 0.735</pos><size>0.86 0.23</size>
+                    <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.027777778</fontSize>
+                    <lineSpacing>1</lineSpacing><verticalAlignment>top</verticalAlignment>
+                    <color>${ink}</color><backgroundColor>FAFBFEFF</backgroundColor><alignment>center</alignment><zIndex>2</zIndex>
+                </text>
+            </itemTemplate>
+        </gamecarousel>
+        <text name="gamecarouselLogoText">
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>${ink}</color><alignment>center</alignment>
+        </text>
+        <text name="logoText"><visible>false</visible></text>
+
+        <!-- The preview panel takes the rest of the screen: media on top, then the game's details. -->
+        <image name="preview-panel" extra="true">
+            <path>${themePath}/assets/ui/preview-panel.svg</path>
+            <pos>0.484375 0.016666667</pos><size>0.50625 0.966666667</size>
+            <color>${accentWash}</color><linearSmooth>true</linearSmooth><zIndex>1</zIndex>
+        </image>
+        <image name="media-well" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.503125 0.092592593</pos><size>0.46875 0.468518519</size><color>10111AFF</color><zIndex>2</zIndex>
+        </image>
+        <!-- One media component owns the snapshot and the video, so the two can never overlap. -->
+        <video name="md_video">
+            <pos>0.7375 0.326851852</pos><origin>0.5 0.5</origin>
+            <maxSize>0.460416667 0.453703704</maxSize>
+            <delay>3</delay><audio>false</audio><effect>none</effect>
+            <showSnapshotNoVideo>true</showSnapshotNoVideo><showSnapshotDelay>true</showSnapshotDelay>
+            <snapshotSource>image</snapshotSource><zIndex>5</zIndex>
+        </video>
+        <text name="preview-unavailable" extra="true">
+            <text>Gameplay preview unavailable</text><visible>empty(firstfile({game:image}, {game:thumbnail}, {game:video}))</visible>
+            <pos>0.503125 0.296296296</pos><size>0.46875 0.064814815</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>FFFFFFFF</color><alignment>center</alignment><zIndex>4</zIndex>
+        </text>
+        <text name="preview-label" extra="true">
+            <text>GAMEPLAY PREVIEW</text>
+            <pos>0.503125 0.577777778</pos><size>0.46875 0.031481481</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.025925926</fontSize>
+            <color>${muted}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="md_name">
+            <pos>0.503125 0.612962963</pos><size>0.46875 0.077777778</size>
+            <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.066666667</fontSize><lineSpacing>1</lineSpacing>
+            <autoScroll>horizontal</autoScroll><color>${ink}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="preview-genre" extra="true">
+            <text>{game:genre}</text><emptyTextDefaults>false</emptyTextDefaults><visible>!empty({game:genre})</visible>
+            <pos>0.503125 0.696296296</pos><size>0.46875 0.037037037</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>${ink}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="preview-publisher" extra="true">
+            <text>empty({game:releaseyear}) ? {game:publisher} : empty({game:publisher}) ? {game:releaseyear} : {game:releaseyear} + ' · ' + {game:publisher}</text>
+            <emptyTextDefaults>false</emptyTextDefaults>
+            <pos>0.503125 0.735185185</pos><size>0.46875 0.037037037</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.029629630</fontSize>
+            <color>${muted}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <!-- The description scrolls only when it is longer than its box, so a short one simply sits still. -->
+        <text name="preview-description" extra="true">
+            <text>{game:desc}</text><emptyTextDefaults>false</emptyTextDefaults><visible>!empty({game:desc})</visible>
+            <pos>0.503125 0.783333333</pos><size>0.46875 0.12962963</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.028703704</fontSize>
+            <lineSpacing>1.15</lineSpacing><verticalAlignment>top</verticalAlignment><autoScroll>vertical</autoScroll><autoScrollDelay>5000</autoScrollDelay>
+            <color>${ink}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="md_description"><visible>false</visible></text>
+        <text name="browse-hints" extra="true">
+            <text>Swipe to browse · Tap or A to play · Tap the rail or B for back</text>
+            <pos>0.503125 0.925925926</pos><size>0.46875 0.037037037</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.027777778</fontSize>
+            <color>${muted}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+    </view>
+</theme>

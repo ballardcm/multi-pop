@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>BD405BFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <accentWash>EDD7DCFF</accentWash>
+        <manufacturer>Coleco</manufacturer>
+        <hardwareYear>1982</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/coleco.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/colecovision.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/colecovision.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/colecovision.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/colecovision.png</systemHero>
+    </variables>
+</theme>

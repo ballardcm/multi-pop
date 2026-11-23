@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <view name="system">
+        <text name="top-system-name" extra="true">
+            <visible>${platformTextVisible}</visible>
+            <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
+            <pos>0.010416667 0.37037037</pos><size>0.197916667 0.231481481</size>
+            <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.059259259</fontSize><lineSpacing>1</lineSpacing>
+            <color>${accentInk}</color><alignment>center</alignment><forceUppercase>true</forceUppercase><zIndex>8</zIndex>
+        </text>
+        <!-- The stock game count keeps one color for every system, so it is hidden and the theme draws its own in each
+             system's rail ink. {system:total} is used bare because a filtered count arrives as text such as "3 / 5". -->
+        <text name="systemInfo"><visible>false</visible></text>
+        <text name="game-count" extra="true">
+            <text>{system:total}</text>
+            <pos>0.010416667 0.764814815</pos><size>0.197916667 0.051851852</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.044444444</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>8</zIndex>
+        </text>
+        <text name="game-count-label" extra="true">
+            <text>GAMES</text>
+            <pos>0.010416667 0.816666667</pos><size>0.197916667 0.031481481</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.025925926</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>8</zIndex>
+        </text>
+
+        <image name="hardware-stage" extra="true">
+            <path>${themePath}/assets/ui/hardware-stage.svg</path>
+            <pos>0.234375 0.016666667</pos><size>0.75625 0.888888889</size>
+            <color>${accentWash}</color><linearSmooth>true</linearSmooth><zIndex>2</zIndex>
+        </image>
+        <!-- The carousel's one visible item is the hardware illustration, so dragging anywhere on the stage moves to the
+             next system and a tap opens it; stock ES handles both. It is three stage-widths wide with three items, so
+             neighbours sit exactly one stage apart: the frontend moves one system per item width dragged, which makes the
+             hardware follow the finger. The right neighbour waits off-screen and the left one behind the rail. -->
+        <!-- fade keeps the hardware gliding while the rail and stage crossfade, instead of every element sliding a whole
+             screen width each time the selection changes. -->
+        <carousel name="systemcarousel">
+            <type>horizontal</type><pos>0.6125 0.461111111</pos><origin>0.5 0.5</origin>
+            <size>2.26875 0.888888889</size><logoSize>0.677083333 0.740740741</logoSize>
+            <logoScale>1</logoScale><maxLogoCount>3</maxLogoCount><minLogoOpacity>1</minLogoOpacity>
+            <defaultTransition>fade</defaultTransition><transitionSpeed>350</transitionSpeed>
+            <color>00000000</color><systemInfoDelay>0</systemInfoDelay><zIndex>5</zIndex>
+        </carousel>
+        <image name="logo">
+            <path>${systemIcon}</path><linearSmooth>true</linearSmooth>
+        </image>
+        <text name="logoText"><visible>false</visible></text>
+        <!-- The chevrons are buttons: stock ES runs a theme element's onclick action, and the system view understands
+             prev and next. They sit above the carousel with a thumb-sized box, so a tap on them is never taken as "open". -->
+        <text name="previous-hint" extra="true">
+            <text>‹</text><onclick>prev</onclick>
+            <pos>0.234375 0.35</pos><size>0.0625 0.222222222</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.111111111</fontSize>
+            <color>${muted}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
+        </text>
+        <text name="next-hint" extra="true">
+            <text>›</text><onclick>next</onclick>
+            <pos>0.928125 0.35</pos><size>0.0625 0.222222222</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.111111111</fontSize>
+            <color>${muted}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
+        </text>
+        <text name="browse-hints" extra="true">
+            <text>Swipe or tap ‹ › to browse · Tap or A to open · START menu</text>
+            <pos>0.234375 0.92037037</pos><size>0.75625 0.055555556</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>${muted}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
+        </text>
+    </view>
+</theme>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>C73269FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <accentWash>EFD4DEFF</accentWash>
+        <manufacturer>Your Collection</manufacturer>
+        <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/auto-favorites.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/auto-favorites.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/auto-favorites.png</systemHero>
+    </variables>
+</theme>

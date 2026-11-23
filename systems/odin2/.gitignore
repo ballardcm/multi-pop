@@ -1,0 +1,18 @@
+# Local runtimes and caches never belong in the source repository or a download.
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+*.log
+*.zip
+
+# Packaging writes here; the source ZIP inventories untracked files too, so this must stay ignored.
+/dist/
+
+# Downloaded game media and device backups belong outside the theme sources.
+/media/
+/roms/
+**/private/
+**/gamelist.xml
+**/videos/
+**/screenshots/

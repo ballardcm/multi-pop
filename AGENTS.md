@@ -6,11 +6,13 @@ These apply to the whole monorepo. `systems/thor/AGENTS.md` and `systems/rgds/AG
 
 Contributions arrive through pull requests so their checks and preview downloads can be reviewed before release. Never commit or push directly to `main`; GitHub protects it for maintainers too. Do not merge until the user authorizes merging. Releases are published only by a manual workflow run on `main` after the PR merges, never from a working branch.
 
-Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.yml`) runs on PRs that touch that system, and both run `tools/check-shared-assets.py`. Run the same checks locally from the system's directory before opening a PR; `CLAUDE.md` lists them.
+Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.yml`, `.github/workflows/odin2.yml`) runs on PRs that touch that system, and each runs `tools/check-shared-assets.py`. Run the same checks locally from the system's directory before opening a PR; `CLAUDE.md` lists them.
 
 GitHub always marks one full release as Latest, so the file-less `downloads` release holds that mark and links to every device's releases; no device release may take it, and the release workflows mark `downloads` again after each publish.
 
-Never publish a release from the old `ballardcm/multi-pop-thor` or `ballardcm/multi-pop-rgds` repositories. Devices that have not yet installed 10.28.26.Transition still poll them, and would install anything published there. Every new release comes from this repository, tagged `thor-MM.DD.YY.N` or `rgds-MM.DD.YY.N` with a version integer above 20261028001.
+Never publish a release from the old `ballardcm/multi-pop-thor` or `ballardcm/multi-pop-rgds` repositories. Devices that have not yet installed 10.28.26.Transition still poll them, and would install anything published there. Every new release comes from this repository, tagged `thor-MM.DD.YY.N`, `rgds-MM.DD.YY.N` or `odin2-MM.DD.YY.N` with a version integer above 20261028001.
+
+The Odin 2 theme (`systems/odin2`, shown on screen as Single Pop) runs on ROCKNIX's stock frontend. It ships no frontend binary or updater, and its checker rejects an Automatic updates setting until an updater exists. Its one device change is `single-pop-touch.service`, installed and removed by the theme's own scripts. The service re-binds the Odin 2 touch controller that ROCKNIX 20261101 probes before the panel is powered. Thor and RG DS updaters must keep ignoring `odin2-` tags and `multi-pop-odin2-` archives.
 
 RG DS Plus releases are tagged `rgds-plus-MM.DD.YY.N`, with the same monotonic
 integer rule, and are published only by the manual `rgds-plus.yml` workflow on
@@ -35,7 +37,7 @@ Keep credentials, ROMs, BIOS, downloaded game media, device settings and state, 
 
 ## Shared assets
 
-The hardware illustrations, cards, heroes, logos, fonts, `platforms.json` and the shared UI graphics live once, in `shared/`. Each theme links to them with relative symlinks at the paths its XML uses; change the file in `shared/`, never replace a link with a copy, and run `python3 tools/check-shared-assets.py`. Only `hardware-stage.svg` and `selection.svg` in `assets/ui`, and the palettes, are per device. Packaging follows links only into files Git tracks in `shared/`, and downloads always contain real files.
+The hardware illustrations, cards, heroes, logos, fonts, `platforms.json` and the shared UI graphics live once, in `shared/`. Each theme links to them with relative symlinks at the paths its XML uses; change the file in `shared/`, never replace a link with a copy, and run `python3 tools/check-shared-assets.py`. Only `hardware-stage.svg`, `selection.svg` and Odin 2's `preview-panel.svg` in `assets/ui`, and the palettes, are per device. Packaging follows links only into files Git tracks in `shared/`, and downloads always contain real files.
 
 ## Releases and the updater
 

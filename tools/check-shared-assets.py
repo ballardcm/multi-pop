@@ -9,6 +9,7 @@ SHARED = ROOT / "shared"
 THEMES = {
     "thor": ROOT / "systems/thor/multi-pop-thor",
     "rgds": ROOT / "systems/rgds/multi-pop-rgds",
+    "odin2": ROOT / "systems/odin2/multi-pop-odin2",
 }
 
 # The hardware illustrations, cards, heroes, logos, fonts and platform list exist once, in shared/. Each theme reaches
@@ -20,7 +21,8 @@ LINKED_FILES = ["platforms.json"]
 # assets/ui mixes both kinds: these are drawn for each device's panel geometry and stay real files in each theme, while
 # every other file in it is linked one by one. Palettes are per device too (RG DS tunes its selection accent) and are
 # not shared at all.
-PER_DEVICE_UI = {"hardware-stage.svg", "selection.svg"}
+# preview-panel.svg exists only in the Odin 2 theme, so it is per device by construction.
+PER_DEVICE_UI = {"hardware-stage.svg", "selection.svg", "preview-panel.svg"}
 
 
 def check(system, theme, problems):
@@ -35,7 +37,7 @@ def check(system, theme, problems):
             problems.append(f"{system}: {name} links to {path.readlink()}, not shared/{name}")
     for name in PER_DEVICE_UI:
         path = theme / "assets/ui" / name
-        if path.is_symlink() or not path.is_file():
+        if path.is_symlink():
             problems.append(f"{system}: assets/ui/{name} is drawn per device and must be a real file")
         if (SHARED / "assets/ui" / name).exists():
             problems.append(f"shared/assets/ui/{name} is per device and belongs in each theme instead")

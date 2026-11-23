@@ -1,0 +1,30 @@
+name: Odin 2
+
+# Pull requests that touch the Odin 2 theme, the shared release pipeline or the shared-asset check get a checked preview download;
+# publishing happens only when a maintainer runs this workflow on main.
+on:
+  pull_request:
+    paths:
+      - 'systems/odin2/**'
+      - 'shared/**'
+      - 'tools/**'
+      - '.github/workflows/odin2.yml'
+      - '.github/workflows/_system-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Each device's releases run independently, but two runs of the same system must not publish over each other.
+concurrency:
+  group: odin2-release-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    # A called workflow can use no more than its caller grants; the publish job itself is still limited to main.
+    permissions:
+      contents: write
+    uses: ./.github/workflows/_system-release.yml
+    with:
+      system: odin2

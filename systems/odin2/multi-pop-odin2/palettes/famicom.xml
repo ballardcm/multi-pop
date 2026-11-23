@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>8D1C32FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <accentWash>E5D0D4FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1983</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/famicom.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
+        <systemIcon>${themePath}/assets/systems/famicom.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/famicom.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/famicom.png</systemHero>
+    </variables>
+</theme>

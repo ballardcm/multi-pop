@@ -4,7 +4,7 @@
 
 Multi Pop is a colorful theme for ROCKNIX EmulationStation, built for handhelds with two displays. The upper screen shows a system's illustrated hardware, or a gameplay preview of the selected game; the lower screen keeps a three-cover carousel for browsing. Each dual-screen system ships a patched EmulationStation frontend sized for its displays, an installer that backs up and restores your settings, and an optional updater that installs new releases in the background and rolls back if one fails to start.
 
-The AYN Odin 2 edition, which calls itself **Single Pop** on screen, puts the same artwork on one display. The hardware sits on a stage you swipe between, and each library pairs a cover carousel with the preview. It is the theme folder alone and runs on the Odin 2's stock frontend.
+The AYN Odin 2 edition, which calls itself **Single Pop** on screen, puts the same artwork on one display. The hardware sits on a stage you swipe between, and each library pairs a cover carousel with the preview. It runs on the Odin 2's stock frontend; its only device change is a boot fix for the Odin 2 touchscreen.
 
 ## Systems
 

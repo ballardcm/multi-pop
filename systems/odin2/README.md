@@ -10,7 +10,7 @@ A single-screen edition of Multi Pop for the AYN Odin 2 running ROCKNIX Emulatio
 
 ## Layout
 
-- **Systems:** a colored rail on the left gives the maker, the system and its launch year, with the game count, SINGLE POP and the installed version below them. The rest of the screen is a tinted stage holding the system's hardware illustration. Swipe across the stage, tap the ‹ › arrows or press left and right to change system; the hardware follows your finger, and the rail and stage crossfade to the next system's colors. Tap the stage or press A to open it.
+- **Systems:** a colored rail on the left gives the maker, the system and its launch year, with the game count, SINGLE POP and the installed version below them. The rest of the screen is a tinted stage holding the system's hardware illustration. Swipe across the stage, or press left and right, to change system; the hardware follows your finger, and the rail and stage crossfade to the next system's colors. Tap the stage or press A to open it.
 - **Games:** the rail stays, with a small copy of the hardware. A vertical cover carousel runs down the middle, with the selected cover framed in the system's color. The right-hand panel shows the gameplay preview (a screenshot, then the video after three seconds, muted), the title, genre, year and publisher, and a description that scrolls when it is long. Swipe the covers, or press up and down, to browse. Tap the rail, or press B, to go back to the systems.
 
 ## Install
@@ -77,7 +77,7 @@ To see whether it worked, `systemctl status single-pop-touch.service` should sho
 
 ## What's different from Thor
 
-Multi Pop for Thor ships its own EmulationStation build, which adds paging by three games, its touch gestures, and dialogs kept on the upper screen. It also includes startup scripts and an updater. With a single screen none of that is needed. This edition runs on the frontend ROCKNIX already provides. That frontend's own touch support handles dragging and tapping the carousels, and the theme marks the arrows and the library rail as buttons with the frontend's standard `onclick` actions. Its only change to the device is the [touchscreen fix](#touchscreen-fix).
+Multi Pop for Thor ships its own EmulationStation build, which adds paging by three games, its touch gestures, and dialogs kept on the upper screen. It also includes startup scripts and an updater. With a single screen none of that is needed. This edition runs on the frontend ROCKNIX already provides. That frontend's own touch support handles dragging and tapping the carousels, and the theme makes the library rail a back button with the frontend's standard `onclick` action. The system screen has no tap-to-move arrows, because the stock frontend doesn't connect tap actions on that screen. Its only change to the device is the [touchscreen fix](#touchscreen-fix).
 
 ## Building a release
 

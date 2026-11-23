@@ -47,22 +47,10 @@
             <path>${systemIcon}</path><linearSmooth>true</linearSmooth>
         </image>
         <text name="logoText"><visible>false</visible></text>
-        <!-- The chevrons are buttons: stock ES runs a theme element's onclick action, and the system view understands
-             prev and next. They sit above the carousel with a thumb-sized box, so a tap on them is never taken as "open". -->
-        <text name="previous-hint" extra="true">
-            <text>‹</text><onclick>prev</onclick>
-            <pos>0.234375 0.35</pos><size>0.0625 0.222222222</size>
-            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.111111111</fontSize>
-            <color>${muted}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
-        </text>
-        <text name="next-hint" extra="true">
-            <text>›</text><onclick>next</onclick>
-            <pos>0.928125 0.35</pos><size>0.0625 0.222222222</size>
-            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.111111111</fontSize>
-            <color>${muted}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
-        </text>
+        <!-- There are no on-screen arrows. Stock ES never connects a system-view element's onclick action to the view, so a
+             tapped arrow could only ever open the system, never move; swiping the stage and the D-pad are the ways to browse. -->
         <text name="browse-hints" extra="true">
-            <text>Swipe or tap ‹ › to browse · Tap or A to open · START menu</text>
+            <text>Swipe to browse · Tap or A to open · START menu</text>
             <pos>0.234375 0.92037037</pos><size>0.75625 0.055555556</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
             <color>${muted}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>

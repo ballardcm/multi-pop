@@ -1,77 +1,63 @@
 #!/usr/bin/env python3
-"""Fail when the artwork, logos, fonts or platform list differ between the Thor and RG DS themes."""
+"""Fail unless every theme takes its artwork, logos, fonts and platform list from the one copy in shared/."""
 
 from pathlib import Path
-import hashlib
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+SHARED = ROOT / "shared"
 THEMES = {
     "thor": ROOT / "systems/thor/multi-pop-thor",
     "rgds": ROOT / "systems/rgds/multi-pop-rgds",
 }
 
-# Both themes ship the same hardware illustrations, cards, heroes, logos, fonts and platform list. They are still
-# copies until a later change moves them into a single shared/ source, so a fix made in one system has to be copied
-# to the other; this check is what makes a forgotten copy fail a pull request instead of reaching one device only.
-SHARED = [
-    "assets/systems",
-    "assets/cards",
-    "assets/heroes",
-    "assets/logos",
-    "assets/fonts",
-    "assets/ui",
-    "palettes",
-    "platforms.json",
-]
+# The hardware illustrations, cards, heroes, logos, fonts and platform list exist once, in shared/. Each theme reaches
+# them through a relative link at the path its XML already uses, so a fix lands in every system at once and packaging
+# copies the real files into each download. These are the linked paths, relative to a theme folder.
+LINKED_FOLDERS = ["assets/systems", "assets/cards", "assets/heroes", "assets/logos", "assets/fonts"]
+LINKED_FILES = ["platforms.json"]
 
-# These differ on purpose. The UI stage and selection outline are drawn for each device's panel geometry, and RG DS
-# palettes carry a selection accent tuned for its smaller screen. A directory entry covers everything inside it.
-PER_DEVICE = {
-    "assets/ui/hardware-stage.svg",
-    "assets/ui/selection.svg",
-    "palettes",
-}
+# assets/ui mixes both kinds: these are drawn for each device's panel geometry and stay real files in each theme, while
+# every other file in it is linked one by one. Palettes are per device too (RG DS tunes its selection accent) and are
+# not shared at all.
+PER_DEVICE_UI = {"hardware-stage.svg", "selection.svg"}
 
 
-def per_device(name):
-    return any(name == entry or name.startswith(entry + "/") for entry in PER_DEVICE)
-
-
-def inventory(theme):
-    files = {}
-    for entry in SHARED:
-        path = theme / entry
-        candidates = [path] if path.is_file() else sorted(p for p in path.rglob("*") if p.is_file())
-        for file in candidates:
-            # Finder and Python leave these behind locally; they are never part of either theme.
-            if file.name == ".DS_Store" or "__pycache__" in file.parts:
-                continue
-            name = file.relative_to(theme).as_posix()
-            if not per_device(name):
-                files[name] = hashlib.sha256(file.read_bytes()).hexdigest()
-    return files
+def check(system, theme, problems):
+    shared_ui = sorted(p.name for p in (SHARED / "assets/ui").iterdir() if p.name != ".DS_Store")
+    expected = LINKED_FOLDERS + LINKED_FILES + ["assets/ui/" + name for name in shared_ui]
+    for name in expected:
+        path = theme / name
+        if not path.is_symlink():
+            problems.append(f"{system}: {name} must link into shared/, not be a copy")
+            continue
+        if path.resolve() != (SHARED / name).resolve():
+            problems.append(f"{system}: {name} links to {path.readlink()}, not shared/{name}")
+    for name in PER_DEVICE_UI:
+        path = theme / "assets/ui" / name
+        if path.is_symlink() or not path.is_file():
+            problems.append(f"{system}: assets/ui/{name} is drawn per device and must be a real file")
+        if (SHARED / "assets/ui" / name).exists():
+            problems.append(f"shared/assets/ui/{name} is per device and belongs in each theme instead")
+    # A file added beside the links, such as a new UI graphic, has to be either per device or moved into shared/.
+    for path in sorted((theme / "assets/ui").iterdir()):
+        if path.name not in PER_DEVICE_UI and path.name != ".DS_Store" and not path.is_symlink():
+            problems.append(f"{system}: assets/ui/{path.name} is neither linked to shared/ nor listed as per device")
 
 
 def main():
-    found = {system: inventory(theme) for system, theme in THEMES.items()}
-    thor, rgds = found["thor"], found["rgds"]
     problems = []
-    for name in sorted(set(thor) | set(rgds)):
-        if name not in rgds:
-            problems.append("only in thor: " + name)
-        elif name not in thor:
-            problems.append("only in rgds: " + name)
-        elif thor[name] != rgds[name]:
-            problems.append("differs: " + name)
+    for system, theme in THEMES.items():
+        check(system, theme, problems)
     if problems:
-        print("FAIL: shared assets must be byte-identical in systems/thor and systems/rgds", file=sys.stderr)
+        print("FAIL: themes must take their shared assets from shared/", file=sys.stderr)
         for problem in problems:
             print("  " + problem, file=sys.stderr)
-        print("Copy the changed files to the other system, or add an intentionally per-device file to PER_DEVICE.",
-              file=sys.stderr)
+        print("Move the file into shared/ and link it from each theme, or add an intentionally per-device UI file to "
+              "PER_DEVICE_UI.", file=sys.stderr)
         return 1
-    print(f"PASS: {len(thor)} shared asset files are identical in Thor and RG DS")
+    count = sum(1 for p in SHARED.rglob("*") if p.is_file() and p.name != ".DS_Store")
+    print(f"PASS: {count} shared files in shared/, linked from " + ", ".join(THEMES))
     return 0
 
 

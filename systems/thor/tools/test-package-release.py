@@ -27,8 +27,11 @@ class ReleaseTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='multi-pop-release-')
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
-        subprocess.run(['git', 'init', '-q', str(self.root)], check=True)
+        # The fixture repository mirrors the monorepo: this system under systems/thor, artwork under shared/.
+        self.top = Path(self.temp.name)
+        self.root = self.top / 'systems/thor'
+        self.root.mkdir(parents=True)
+        subprocess.run(['git', 'init', '-q', str(self.top)], check=True)
         files = {'.gitignore': 'private/\ndist/\n', 'multi-pop-thor/theme.xml': '<theme/>',
                  'multi-pop-thor/README.md': 'Install instructions', 'multi-pop-thor/LICENSE': 'License',
                  'multi-pop-thor/LICENSING.md': 'Scope',
@@ -116,7 +119,33 @@ class ReleaseTests(unittest.TestCase):
 
     def test_symlink_cannot_import_outside_file(self):
         (self.root / 'multi-pop-thor/external.txt').symlink_to(self.root / 'private/secret.env')
-        with self.assertRaisesRegex(ValueError, 'symlinks'):
+        with self.assertRaisesRegex(ValueError, 'only into the shared folder'):
+            self.package()
+
+    def test_links_into_shared_are_packaged_as_files(self):
+        # Themes link to the one copy of the artwork in shared/; downloads must carry the files themselves.
+        artwork = self.top / 'shared/assets/systems'
+        artwork.mkdir(parents=True)
+        (artwork / 'snes.png').write_bytes(b'Shared artwork')
+        (self.top / 'shared/platforms.json').write_text('{}')
+        subprocess.run(['git', 'add', 'shared'], cwd=self.top, check=True)
+        (self.root / 'multi-pop-thor/assets').mkdir()
+        (self.root / 'multi-pop-thor/assets/systems').symlink_to('../../../../shared/assets/systems')
+        (self.root / 'multi-pop-thor/platforms.json').symlink_to('../../../shared/platforms.json')
+        ready, source, _ = self.package()
+        with zipfile.ZipFile(ready) as archive:
+            self.assertEqual(archive.read('multi-pop-thor/assets/systems/snes.png'), b'Shared artwork')
+            self.assertEqual(archive.read('multi-pop-thor/platforms.json'), b'{}')
+            self.assertIn('assets/systems/snes.png', json.loads(archive.read('install-manifest.json')))
+            self.assertFalse(any(info.external_attr >> 28 == 0o12 for info in archive.infolist()))
+        with zipfile.ZipFile(source) as archive:
+            self.assertEqual(archive.read('multi-pop-thor-source/multi-pop-thor/assets/systems/snes.png'), b'Shared artwork')
+
+    def test_link_to_untracked_shared_file_is_rejected(self):
+        (self.top / 'shared').mkdir()
+        (self.top / 'shared/draft.png').write_bytes(b'Not committed')
+        (self.root / 'multi-pop-thor/draft.png').symlink_to('../../../shared/draft.png')
+        with self.assertRaisesRegex(ValueError, 'files Git tracks'):
             self.package()
 
     def test_repeated_packages_are_identical(self):

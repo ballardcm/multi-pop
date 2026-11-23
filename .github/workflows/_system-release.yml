@@ -158,7 +158,14 @@ jobs:
           tag="$SYSTEM-$label"
           # The installed updaters accept only <system>-MM.DD.YY.N, so a worded label such as Transition would publish
           # a release that no device ever sees.
-          python3 -c 'import re, sys; assert re.fullmatch(r"(thor|rgds|odin2)-\d{2}\.\d{2}\.\d{2}\.\d{1,3}", sys.argv[1]), "Tag " + sys.argv[1] + " would be ignored by the updater; use a numbered revision"' "$tag"
+          # The Odin 2 has no updater yet, so it alone may publish a worded Preview label, and that goes out as a
+          # prerelease; every other release needs a numbered revision.
+          prerelease=false
+          if [ "$SYSTEM" = odin2 ] && python3 -c 'import re, sys; sys.exit(not re.fullmatch(r"odin2-\d{2}\.\d{2}\.\d{2}\.Preview", sys.argv[1]))' "$tag"; then
+            prerelease=true
+          else
+            python3 -c 'import re, sys; assert re.fullmatch(r"(thor|rgds|odin2)-\d{2}\.\d{2}\.\d{2}\.\d{1,3}", sys.argv[1]), "Tag " + sys.argv[1] + " would be ignored by the updater; use a numbered revision"' "$tag"
+          fi
           # The packaged label must be the one the tag claims, or the device would show a different version.
           packaged=$(unzip -p "dist/multi-pop-$SYSTEM-rocknix-"*.zip "multi-pop-$SYSTEM/version.json" | python3 -c 'import json, sys; print(json.load(sys.stdin).get("display_version", ""))')
           test "$packaged" = "$label" || { echo "Packaged version $packaged does not match $label" >&2; exit 1; }
@@ -184,6 +191,7 @@ jobs:
             --title "Multi Pop $name $label (${GITHUB_SHA:0:12})" \
             --notes "$notes" \
             --latest=false \
+            --prerelease="$prerelease" \
             dist/*
           # GitHub always shows one full release as Latest, and with none chosen it picks the newest by commit date, which
           # would be one device's download. The file-less `downloads` entry holds the mark instead and points at every

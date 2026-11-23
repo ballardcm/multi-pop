@@ -6,7 +6,7 @@ A single-screen edition of Multi Pop for the AYN Odin 2 running ROCKNIX Emulatio
 
 **[Install](#install) · [Remove](#remove) · [Touchscreen fix](#touchscreen-fix) · [What's different from Thor](#whats-different-from-thor)**
 
-**Status:** this is the first build, made from the shared artwork for ROCKNIX's stock EmulationStation. It passes this repository's checks but has not yet been tried on an Odin 2. Reports and pull requests are welcome.
+**Status: preview.** The first release, `odin2-11.22.26.Preview`, is published as a prerelease. It has been tested on the original Odin 2 on ROCKNIX 20261101, but **not on the Odin 2 Portal**. The Portal shares the resolution and chip, but its touchscreen may differ, so the touchscreen fix is unproven there. The 1280×720 Odin 2 Mini is untested as well. Reports and pull requests are welcome.
 
 ## Layout
 
@@ -19,7 +19,7 @@ You need an AYN Odin 2 running ROCKNIX with SSH turned on (START → System Sett
 
 ### 1. Download and check the release
 
-From the newest Odin 2 release, tagged `odin2-`, on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=odin2-), download `multi-pop-odin2-rocknix-theme.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
+From the newest Odin 2 release, tagged `odin2-` (the current one is the `odin2-11.22.26.Preview` prerelease), on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases?q=odin2-), download `multi-pop-odin2-rocknix-theme.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
 
 ```sh
 shasum -a 256 --check --ignore-missing SHA256SUMS

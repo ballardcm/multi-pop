@@ -4,7 +4,7 @@
 
 Multi Pop is a colorful theme for ROCKNIX EmulationStation, built for handhelds with two displays. The upper screen shows a system's illustrated hardware, or a gameplay preview of the selected game; the lower screen keeps a three-cover carousel for browsing. Each dual-screen system ships a patched EmulationStation frontend sized for its displays, an installer that backs up and restores your settings, and an optional updater that installs new releases in the background and rolls back if one fails to start.
 
-The AYN Odin 2 edition, which calls itself **Single Pop** on screen, puts the same artwork on one display. The hardware sits on a stage you swipe between, and each library pairs a cover carousel with the preview. It runs on the Odin 2's stock frontend; its only device change is a boot fix for the Odin 2 touchscreen.
+The AYN Odin 2 edition, which calls itself **Single Pop** on screen and is currently a preview, puts the same artwork on one display. The hardware sits on a stage you swipe between, and each library pairs a cover carousel with the preview. It runs on the Odin 2's stock frontend; its only device change is a boot fix for the Odin 2 touchscreen.
 
 ## Systems
 
@@ -13,7 +13,7 @@ The AYN Odin 2 edition, which calls itself **Single Pop** on screen, puts the sa
 | Thor | AYN Thor, ROCKNIX 20261001 or 20261101 | [`systems/thor`](systems/thor/README.md) | [`thor-` releases](https://github.com/ballardcm/multi-pop/releases?q=thor-) |
 | RG DS | Anbernic RG DS, ROCKNIX 20261001 or 20261101 | [`systems/rgds`](systems/rgds/README.md) | [`rgds-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-) |
 | RG DS Plus | Anbernic RG DS Plus, ROCKNIX 20261001 or 20261101 | [Plus install guide and testing limits](systems/rgds/docs/rgds-plus.md) | [`rgds-plus-` releases](https://github.com/ballardcm/multi-pop/releases?q=rgds-plus-) |
-| Odin 2 (Single Pop) | AYN Odin 2, ROCKNIX stock EmulationStation; not yet tried on a device | [`systems/odin2`](systems/odin2/README.md) | [`odin2-` releases](https://github.com/ballardcm/multi-pop/releases?q=odin2-) |
+| Odin 2 (Single Pop), preview | AYN Odin 2 on ROCKNIX 20261101, stock EmulationStation; not tested on the Odin 2 Portal | [`systems/odin2`](systems/odin2/README.md) | [`odin2-` releases](https://github.com/ballardcm/multi-pop/releases?q=odin2-) |
 
 The bundled frontends were built for ROCKNIX 20261001 and also run on 20261101. Installing and removing work on 20261101 from Thor 11.14.26.1 and from RG DS and RG DS Plus 11.15.26.1; earlier RG DS and Plus releases refuse both there, so update before removing one. The full control checklist has not been repeated on 20261101 for any device.
 
@@ -22,6 +22,7 @@ Install from the newest release for your device, following its system README. Ev
 ## Release tags
 
 - `thor-MM.DD.YY.N`, `rgds-MM.DD.YY.N`, `rgds-plus-MM.DD.YY.N` and `odin2-MM.DD.YY.N`, such as `thor-11.14.26.1`, are installable releases: month, day, two-digit year and that day's release revision. These are the only tags the updaters install, each device only its own, and they skip drafts and prereleases. The Odin 2 edition has no updater yet.
+- `odin2-11.22.26.Preview` is the Odin 2's first release, a prerelease published while the edition is in preview. Only the Odin 2 may publish a worded `Preview` label, because it has no updater to confuse.
 - `thor-frontend-*` and `rgds-frontend-*` are prereleases holding each system's verified frontend binary and source archives, which packaging downloads. They are not installable themes.
 - `rgds-plus-10.30.26.Preview` is the earlier RG DS Plus prerelease, installed by hand; its updater follows no published tag. The Plus source is generated from the RG DS profile with its own pinned frontend inputs, held in `rgds-frontend-plus-*` prereleases.
 - `downloads` has no files. It is the release GitHub shows as Latest, and it points to each device's releases, so that link never leads to another device's download. The release workflows keep it marked; its text is `.github/downloads-release.md`.

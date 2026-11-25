@@ -51,10 +51,12 @@ The RG DS Plus release is generated from `systems/rgds` by
 inputs in `frontend-build/plus-release.json`, compatibility data and
 `release-version-plus.json`. Run the generated tree's `check-rgds.py` and
 `test-popup-bounds.py`, plus the source tree's `test-plus-profile.py DESTINATION`.
-`rgds-plus.yml` packages PR previews and publishes `rgds-plus-MM.DD.YY.N` only
+`rgds-plus.yml` checks PRs, packages explicitly requested previews and publishes `rgds-plus-MM.DD.YY.N` only
 when manually run on main. Input binaries can be staged as a draft frontend
-prerelease for PR checks; the manual main workflow publishes that draft and the
+prerelease for requested previews; the manual main workflow publishes that draft and the
 installable Plus release.
+
+PR workflows run checks only; documentation-only changes skip them. Request a three-day installable preview with `gh workflow run DEVICE.yml --ref BRANCH -f preview=true` (`DEVICE` is `thor`, `rgds`, `rgds-plus` or `odin2`). A default manual run on `main` publishes the full release directly, without a download artifact handoff. Packaging steps are shared through `.github/actions/`; Plus temporary input artifacts are deleted after use.
 
 ## Big files
 

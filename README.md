@@ -33,7 +33,15 @@ Releases are published by a maintainer running the system's workflow on `main`; 
 
 ## Contributing
 
-Pull requests are welcome for layouts, artwork, compatibility fixes, tools and documentation; for a larger change, open an issue first so we can agree on its scope. `main` changes only through pull requests, including the maintainer's. Each PR that touches a system runs that system's checks and attaches a preview download, so it can be tried on a device before merging. Thor contributors can start from [CONTRIBUTING.md](systems/thor/CONTRIBUTING.md).
+Pull requests are welcome for layouts, artwork, compatibility fixes, tools and documentation; for a larger change, open an issue first so we can agree on its scope. `main` changes only through pull requests, including the maintainer's. PRs that change a system's code or assets run that system's checks; documentation-only changes skip device workflows. Downloadable device previews are requested explicitly and expire after three days. Thor contributors can start from [CONTRIBUTING.md](systems/thor/CONTRIBUTING.md).
+
+To request a preview, open the device workflow under Actions, choose **Run workflow**, select the PR branch, and enable **preview**. With the CLI, for example:
+
+```sh
+gh workflow run thor.yml --repo ballardcm/multi-pop --ref YOUR_BRANCH -f preview=true
+```
+
+Use `rgds.yml`, `rgds-plus.yml` or `odin2.yml` for the other devices. The artifact contains the self-contained installable ZIP and a `SHA256SUMS` covering that ZIP. Full source ZIPs are retained in published releases; frontend sources and build descriptors remain available in the pinned frontend prereleases and repository. A manual run on `main` with **preview** left disabled publishes a release. A preview run, including on `main`, never publishes.
 
 The hardware illustrations, cards, heroes, logos, fonts and `platforms.json` live once, in `shared/`, and each theme reaches them through relative symlinks at the paths its XML uses. A change there reaches every system, and packaging puts the real files into each download. `python3 tools/check-shared-assets.py` fails a PR that replaces a link with a copy. On Windows, clone with symlinks enabled (`git config --global core.symlinks true` with Developer Mode on), or the links check out as small text files.
 

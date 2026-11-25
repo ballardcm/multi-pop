@@ -1,0 +1,20 @@
+name: Package RG DS Plus
+description: Build Plus archives from the isolated job's verified frontend inputs
+runs:
+  using: composite
+  steps:
+    - name: Prepare the pinned Plus profile
+      shell: bash
+      run: python3 systems/rgds/tools/prepare-plus-prototype.py systems/rgds/.local/plus-preview --release
+    - name: Download the temporary frontend input copy
+      uses: actions/download-artifact@v4
+      with:
+        name: rgds-plus-inputs-${{ github.run_id }}-${{ github.run_attempt }}
+        path: systems/rgds/.local/plus-inputs
+    - name: Package verified frontend and matching sources
+      shell: bash
+      run: |
+        python3 systems/rgds/tools/package-plus-preview.py \
+          --source systems/rgds/.local/plus-preview \
+          --inputs systems/rgds/.local/plus-inputs \
+          --output systems/rgds/.local/plus-dist

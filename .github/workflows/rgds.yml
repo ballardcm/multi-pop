@@ -1,24 +1,31 @@
 name: RG DS
 
-# Pull requests that touch RG DS, the shared release pipeline or the shared-asset check get a checked preview download;
-# publishing happens only when a maintainer runs this workflow on main.
+# PRs run checks only. Request a preview explicitly; releases are manual on main.
 on:
   pull_request:
     paths:
       - 'systems/rgds/**'
+      - '!systems/rgds/docs/**'
+      - '!systems/rgds/**/*.md'
       - 'shared/**'
       - 'tools/**'
+      - '.github/actions/package-system/**'
       - '.github/workflows/rgds.yml'
       - '.github/workflows/_system-release.yml'
   workflow_dispatch:
+    inputs:
+      preview:
+        description: Build a device preview instead of publishing a release (select the branch to test)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 # Thor and RG DS releases run independently, but two runs of the same system must not publish over each other.
 concurrency:
-  group: rgds-release-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: false
+  group: rgds-${{ github.event_name }}-${{ inputs.preview && 'preview' || 'release' }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   release:
@@ -28,3 +35,4 @@ jobs:
     uses: ./.github/workflows/_system-release.yml
     with:
       system: rgds
+      preview: ${{ inputs.preview || false }}

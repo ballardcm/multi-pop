@@ -6,6 +6,6 @@ Describe the problem, resulting behavior, and why the change helps. Name the sys
 
 - Describe checks run and any limitations.
 - For device testing, list the hardware, firmware, and behavior tested.
-- Review the Actions preview download for each affected system before merging. Frontend changes require a matching verified binary and source archives.
+- When device testing is needed, request an Actions preview for the PR branch (`preview=true`) and review it before merging. Frontend changes require a matching verified binary and source archives.
 
 Keep personal configuration, credentials, ROMs, and downloaded game media out of this PR. Disclose AI assistance and preserve component licenses where applicable.

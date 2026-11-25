@@ -1,0 +1,64 @@
+name: Package system
+description: Fetch verified frontend inputs and build self-contained installable and source archives
+inputs:
+  system:
+    description: thor, rgds or odin2
+    required: true
+runs:
+  using: composite
+  steps:
+    # The verified frontend binary and its source archives are maintainer prereleases of this repository, named in
+    # frontend-build/release.json. release_repo is honoured so a fork can still package from the upstream inputs.
+    - name: Fetch the verified Thor frontend and its source archives
+      shell: bash
+      working-directory: systems/${{ inputs.system }}
+      if: inputs.system == 'thor'
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        python3 - <<'PY'
+        import json, os, subprocess
+        from pathlib import Path
+        config = json.loads(Path('frontend-build/release.json').read_text())
+        repo = config.get('release_repo') or os.environ['GITHUB_REPOSITORY']
+        command = ['gh', 'release', 'download', config['release_tag'],
+                   '--repo', repo, '--dir', 'native-build/release-inputs']
+        for key in ('frontend', 'upstream_source', 'sdl_source', 'pugixml_source'):
+            command.extend(['--pattern', config[key]['asset']])
+        subprocess.run(command, check=True)
+        PY
+    - name: Build the Thor installable and source archives
+      shell: bash
+      working-directory: systems/${{ inputs.system }}
+      if: inputs.system == 'thor'
+      run: |
+        python3 - <<'PY'
+        import json, subprocess
+        from pathlib import Path
+        config = json.loads(Path('frontend-build/release.json').read_text())
+        command = ['python3', 'tools/package-release.py']
+        for flag, key in (('--frontend', 'frontend'), ('--upstream-source', 'upstream_source'), ('--sdl-source', 'sdl_source')):
+            command.extend([flag, str(Path('native-build/release-inputs') / config[key]['asset'])])
+        subprocess.run(command, check=True)
+        PY
+    - name: Fetch the verified RG DS frontend inputs
+      shell: bash
+      working-directory: systems/${{ inputs.system }}
+      if: inputs.system == 'rgds'
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: python3 tools/fetch-release-inputs.py
+    - name: Build the RG DS installable and source archives
+      shell: bash
+      working-directory: systems/${{ inputs.system }}
+      if: inputs.system == 'rgds'
+      run: |
+        python3 tools/package-release.py \
+          --frontend .local/release-inputs/emulationstation-aarch64 \
+          --upstream-source .local/release-inputs/emulationstation-source-cada856d.tar.gz \
+          --sdl-source .local/release-inputs/SDL2-2.32.10.tar.gz
+    - name: Build the Odin 2 installable and source archives
+      shell: bash
+      working-directory: systems/${{ inputs.system }}
+      if: inputs.system == 'odin2'
+      run: python3 tools/package-release.py

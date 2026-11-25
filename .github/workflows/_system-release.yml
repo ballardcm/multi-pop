@@ -11,6 +11,10 @@ on:
         description: thor, rgds or odin2
         required: true
         type: string
+      preview:
+        description: Build a short-lived preview without publishing
+        type: boolean
+        default: false
 
 # Pull request builds need only read access; publishing is isolated to a manual run on main.
 permissions:
@@ -72,58 +76,26 @@ jobs:
           python3 tools/test-release-version.py
       - name: Check whitespace in this system's files
         run: git diff --check
-      # The verified frontend binary and its source archives are maintainer prereleases of this repository, named in
-      # frontend-build/release.json. release_repo is honoured so a fork can still package from the upstream inputs.
-      - name: Fetch the verified Thor frontend and its source archives
-        if: inputs.system == 'thor'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python3 - <<'PY'
-          import json, os, subprocess
-          from pathlib import Path
-          config = json.loads(Path('frontend-build/release.json').read_text())
-          repo = config.get('release_repo') or os.environ['GITHUB_REPOSITORY']
-          command = ['gh', 'release', 'download', config['release_tag'],
-                     '--repo', repo, '--dir', 'native-build/release-inputs']
-          for key in ('frontend', 'upstream_source', 'sdl_source', 'pugixml_source'):
-              command.extend(['--pattern', config[key]['asset']])
-          subprocess.run(command, check=True)
-          PY
-      - name: Build the Thor installable and source archives
-        if: inputs.system == 'thor'
-        run: |
-          python3 - <<'PY'
-          import json, subprocess
-          from pathlib import Path
-          config = json.loads(Path('frontend-build/release.json').read_text())
-          command = ['python3', 'tools/package-release.py']
-          for flag, key in (('--frontend', 'frontend'), ('--upstream-source', 'upstream_source'), ('--sdl-source', 'sdl_source')):
-              command.extend([flag, str(Path('native-build/release-inputs') / config[key]['asset'])])
-          subprocess.run(command, check=True)
-          PY
-      - name: Fetch the verified RG DS frontend inputs
-        if: inputs.system == 'rgds'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python3 tools/fetch-release-inputs.py
-      - name: Build the RG DS installable and source archives
-        if: inputs.system == 'rgds'
-        run: |
-          python3 tools/package-release.py \
-            --frontend .local/release-inputs/emulationstation-aarch64 \
-            --upstream-source .local/release-inputs/emulationstation-source-cada856d.tar.gz \
-            --sdl-source .local/release-inputs/SDL2-2.32.10.tar.gz
-      - name: Build the Odin 2 installable and source archives
-        if: inputs.system == 'odin2'
-        run: python3 tools/package-release.py
-      # upload-artifact ignores the default working directory, so the path names the system explicitly.
-      - uses: actions/upload-artifact@v4
+      - name: Build requested preview
+        if: inputs.preview
+        uses: ./.github/actions/package-system
         with:
-          name: multi-pop-${{ inputs.system }}-downloads-${{ github.event.pull_request.number || github.sha }}
-          path: systems/${{ inputs.system }}/dist/*
+          system: ${{ inputs.system }}
+      - name: Select the preview download and its checksum
+        if: inputs.preview
+        run: |
+          mkdir preview
+          cp dist/multi-pop-${{ inputs.system }}-rocknix-*.zip preview/
+          cd preview
+          sha256sum -- *.zip > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        if: inputs.preview
+        with:
+          name: multi-pop-${{ inputs.system }}-preview-${{ github.sha }}
+          path: systems/${{ inputs.system }}/preview/*
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 3
+          compression-level: 0
 
   publish:
     defaults:
@@ -132,7 +104,7 @@ jobs:
     needs: package
     # Merging never publishes: a release goes out only when a maintainer starts the workflow on main, so several
     # merged PRs can be tested together and shipped as one version.
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && !inputs.preview
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -140,10 +112,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/download-artifact@v4
+      - uses: actions/setup-python@v5
         with:
-          name: multi-pop-${{ inputs.system }}-downloads-${{ github.sha }}
-          path: systems/${{ inputs.system }}/dist
+          python-version: '3.12'
+      - name: Build the release downloads
+        uses: ./.github/actions/package-system
+        with:
+          system: ${{ inputs.system }}
       - name: Publish a release from main's current commit
         env:
           GH_TOKEN: ${{ github.token }}

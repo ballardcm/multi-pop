@@ -3,7 +3,7 @@
 > [!WARNING]
 > **Never publish from the old `ballardcm/multi-pop-thor` repository.** Every Thor still on an updater from before 10.28.26.Transition checks that repository's latest release and would install anything published there, bypassing the move to this monorepo. Thor releases are published here, tagged `thor-MM.DD.YY.N`, with a `version.json` integer above 20261028001; the transition used revision 1 of 10.28.26, so the first monorepo release that day is revision 2.
 
-Every PR runs theme, media, and packaging checks and uploads a preview artifact containing three files:
+PRs that change code or assets run theme, media, and packaging checks without uploading downloads. Documentation-only changes skip the workflow. For device testing, manually run `thor.yml` on the PR branch with `preview=true` (or enable **preview** in Actions). Its three-day artifact contains the installable ZIP and a `SHA256SUMS` covering that ZIP. Full published releases contain three files:
 
 - `multi-pop-thor-rocknix-theme.zip`: the installable theme, verified ARM64 frontend, licenses, bundled updater, and SHA-256 install manifest.
 - `multi-pop-thor-source.zip`: the project sources plus the pinned public frontend source archive, SDL source, patches, and build-your-own instructions.
@@ -13,7 +13,7 @@ Merging a PR does not publish anything. Releases are published manually from the
 
 The workflow tags each release `thor-<label>`, such as `thor-10.28.26.2`, because the updater accepts only that form; it titles the release with the date label and source commit, never marks it as the repository's Latest (RG DS publishes here too; the file-less `downloads` entry holds that mark and the workflow renews it after each publish), and refuses to publish the same label under a different commit. A worded label such as Transition cannot be published from here, because no updater would match its tag. The installable theme displays the label in Theme Configuration and its lower header. `version.json` also carries an integer ordering value for old updaters; this implementation detail is not the user-facing version. Packaging derives it deterministically from the full date and daily revision, making it newer than legacy Thor and RG DS releases.
 
-PR previews are retained for 30 days and contain the configured upcoming date release. Published releases stay under [Releases](https://github.com/ballardcm/multi-pop/releases?q=thor-); releases up to 10.28.26.Transition remain in the old repository until it is deleted on 2026-11-27, and their tags are kept here as `legacy/thor/*`. The source revision and archive checksums identify the exact build independently of its display label.
+Requested previews are retained for three days and contain the configured upcoming date release. Published releases stay under [Releases](https://github.com/ballardcm/multi-pop/releases?q=thor-); releases up to 10.28.26.Transition remain in the old repository until it is deleted on 2026-11-27, and their tags are kept here as `legacy/thor/*`. The source revision and archive checksums identify the exact build independently of its display label.
 
 Each release's own notes are in `docs/release-notes.md`, rewritten by the PR that prepares the release; the workflow publishes them above the standing download text.
 
@@ -50,7 +50,7 @@ Build from the [build-your-own instructions](../frontend-build/README.md), valid
 
 The corresponding frontend source and build support files must match the new binary. A different firmware needs a separately validated library set, descriptor, and installable asset name. Never mark the build as verified merely because compilation succeeded.
 
-Register the candidate binary and matching source archives as a maintainer prerelease, and update the descriptor through a PR. Include the source commit in its notes. These inputs support PR previews; the combined user release is published only by a [manual run on main](#publish-a-release) after the PR merges. That run packages the verified frontend. This maintainer action is required only when the frontend changes; ordinary theme, artwork, documentation, and tool PRs package automatically.
+Register the candidate binary and matching source archives as a maintainer prerelease, and update the descriptor through a PR. Include the source commit in its notes. These inputs support PR previews; the combined user release is published only by a [manual run on main](#publish-a-release) after the PR merges. That run packages the verified frontend. This maintainer action is required only when the frontend changes; ordinary theme, artwork and tool PRs run checks automatically, and packaging runs when a preview or release is requested.
 
 ## Package locally
 

@@ -4,9 +4,9 @@ These apply to the whole monorepo. `systems/thor/AGENTS.md` and `systems/rgds/AG
 
 ## Changes and merging
 
-Contributions arrive through pull requests so their checks and preview downloads can be reviewed before release. Never commit or push directly to `main`; GitHub protects it for maintainers too. Do not merge until the user authorizes merging. Releases are published only by a manual workflow run on `main` after the PR merges, never from a working branch.
+Contributions arrive through pull requests so their checks and any requested preview downloads can be reviewed before release. Never commit or push directly to `main`; GitHub protects it for maintainers too. Do not merge until the user authorizes merging. Releases are published only by a manual workflow run on `main` after the PR merges, never from a working branch.
 
-Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.yml`, `.github/workflows/odin2.yml`) runs on PRs that touch that system, and each runs `tools/check-shared-assets.py`. Run the same checks locally from the system's directory before opening a PR; `CLAUDE.md` lists them.
+Each system's workflow (`.github/workflows/thor.yml`, `.github/workflows/rgds.yml`, `.github/workflows/odin2.yml`, `.github/workflows/rgds-plus.yml`) runs checks on PRs that touch that system's code or assets, and each runs `tools/check-shared-assets.py`. Run the same checks locally from the system's directory before opening a PR; `CLAUDE.md` lists them.
 
 GitHub always marks one full release as Latest, so the file-less `downloads` release holds that mark and links to every device's releases; no device release may take it, and the release workflows mark `downloads` again after each publish.
 
@@ -38,6 +38,12 @@ Keep credentials, ROMs, BIOS, downloaded game media, device settings and state, 
 ## Shared assets
 
 The hardware illustrations, cards, heroes, logos, fonts, `platforms.json` and the shared UI graphics live once, in `shared/`. Each theme links to them with relative symlinks at the paths its XML uses; change the file in `shared/`, never replace a link with a copy, and run `python3 tools/check-shared-assets.py`. Only `hardware-stage.svg`, `selection.svg` and Odin 2's `preview-panel.svg` in `assets/ui`, and the palettes, are per device. Packaging follows links only into files Git tracks in `shared/`, and downloads always contain real files.
+
+## GitHub artifact storage
+
+PRs run checks without uploading downloads; documentation-only changes skip device workflows. Request a preview by manually running the device workflow on the branch with `preview=true`. Previews contain only the installable ZIP and its checksum and expire after three days. Manual runs on `main` with the default `preview=false` publish full releases directly from the packaging job. Plus draft inputs stay isolated and their temporary artifact is deleted after use, with one-day expiry as a fallback. Cancel superseded PR runs, never active release runs.
+
+Keep Actions artifact and cache usage optimized. Before adding uploads, inspect existing workflow outputs for overlap, especially shared artwork repeated across device packages, nested archives and intermediate bundles. Upload only what downstream jobs or reviewers need, reuse an existing artifact within a run where practical, and set the shortest useful explicit retention. Keep installable release downloads self-contained with real files; reduce CI duplication without breaking that contract. Periodically review storage and remove obsolete artifacts from superseded runs and closed PRs, preserving useful current PR previews and artifacts still needed by active runs. Treat published release assets and pinned frontend inputs separately: do not delete them as routine CI cleanup.
 
 ## Releases and the updater
 

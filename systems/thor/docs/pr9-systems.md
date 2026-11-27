@@ -1,6 +1,6 @@
 # Additional system mappings
 
-These systems were contributed to Multi Pop RG DS in [PR #9](https://github.com/ballardcm/multi-pop-rgds/pull/9) and ported here. The theme values were checked against `SYSTEM_THEME` in `config/emulators/*.conf` at the ROCKNIX `20261001` tag, the firmware this theme supports, but not yet against `es_systems.cfg` on an AYN Thor; whether a system appears on Thor also depends on which emulators ROCKNIX builds for that device. The palette filename is an internal asset name; the include condition must match the firmware’s theme value.
+These systems were contributed to Multi Pop RG DS in [PR #9](https://github.com/ballardcm/multi-pop/commit/e80ecd3300afc6885ca5cef70327f51cb6c247b6) and ported here. The theme values were checked against `SYSTEM_THEME` in `config/emulators/*.conf` at the ROCKNIX `20261001` tag, the firmware this theme supports, but not yet against `es_systems.cfg` on an AYN Thor; whether a system appears on Thor also depends on which emulators ROCKNIX builds for that device. The palette filename is an internal asset name; the include condition must match the firmware’s theme value.
 
 | ROCKNIX theme | Palette |
 | --- | --- |
